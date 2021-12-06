@@ -125,6 +125,9 @@
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.4 - Sporenie\SporenieNaStužkovú.xaml.cs">
       <DependentUpon>SporenieNaStužkovú.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\Zberanie peňazí.xaml.cs">
+      <DependentUpon>Zberanie peňazí.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Strany\1.1 - Uvodná strana\1.3 - Vytvorenie nového účtu\1.1 - Prvá strana.xaml.cs">
       <DependentUpon>1.1 - Prvá strana.xaml</DependentUpon>
     </Compile>
@@ -203,7 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\MessageDIalogy\" />
-    <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 - Kurzová kalkulačka\" />
     <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.6 - Zábava a relax\" />
     <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.7 - Nastavenie\" />
   </ItemGroup>
@@ -217,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.4 - Sporenie\SporenieNaStužkovú.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\Zberanie peňazí.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
