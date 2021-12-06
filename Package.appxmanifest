@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="e14501f9-5817-42d2-b466-16d8341d26ea"
+    Publisher="CN=oxid6"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="e14501f9-5817-42d2-b466-16d8341d26ea" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>Ročňíkový projekt - Aplikácia pre banku</DisplayName>
+    <PublisherDisplayName>Simon Potocnak</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Ročňíkový_projekt___Aplikácia_pre_banku.App">
+      <uap:VisualElements
+        DisplayName="Ročňíkový projekt - Aplikácia pre správu tiedneho fondu"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Ročňíkový projekt - Aplikácia pre banku"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="enterpriseAuthentication"/>
+    <DeviceCapability Name="bluetooth"/>
+  </Capabilities>
+</Package>

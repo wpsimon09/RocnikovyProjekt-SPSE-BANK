@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana.Overenie_triednych_údajóv"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="Txt">
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Margin" Value="10,0,20,0"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid>
+        <ScrollViewer Height="1080" Width="1000" BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" >
+            <StackPanel>
+                <TextBlock Text="Overte si zadané údaje" Foreground="White" FontSize="30" FontFamily="Malgun Gothic" TextAlignment="Center" Margin="20" Width="720"/>
+                <TextBlock Text="Triedný učiteľ" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="Triednyucitel_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Triednyucitel_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Triednyucitel_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Triedný účtovník" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="TriednyUctovnik_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="TriednyUctovnik_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="TriednyUctovnik_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Triedný predseda" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="Predseda_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Predseda_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Predseda_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Predseda rodičov" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="Predsedarodičov_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Predsedarodičov_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
+                <TextBlock x:Name="Predsedarodičov_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+
+
+                <TextBlock Text="Trieda" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="trieda" Text="Trieda " Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Počet žiakov" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="PočetŽiakov" Text="Počet žiakov" Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Rok ukončenia štúdia" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="KoniecŠtúdia" Text="Počet žiakov" Style="{StaticResource Txt}"/>
+
+                <TextBlock Text="Triedny email" Foreground="White" FontSize="20" Margin="10" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                <TextBlock x:Name="MailTriedy" Text="Počet žiakov" Style="{StaticResource Txt}"/>
+
+               
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Zle" Margin="10,20,20,0" Click="Zle_Click" Style="{ThemeResource NavigationBackButtonNormalStyle}"  IsEnabled="{x:Bind Frame.CanGoBack, Mode=OneWay}" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" />
+
+                    <Button x:Name="VsetkoOK" Style="{StaticResource NavigationBackButtonNormalStyle}" Margin="100,20,20,0" Click="VsetkoOK_Click" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Button.RenderTransform>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

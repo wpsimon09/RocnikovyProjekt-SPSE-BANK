@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba.Platba"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Page.Resources>
+
+        <Style TargetType="TextBlock" x:Key="Nadpis">
+            <Setter Property="Width" Value="1098"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="LineHeight" Value="20"/>
+            <Setter Property="Margin" Value="0,70,0,0"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Foreground" Value="#FFF7F0F0"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="TxtBox">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="178"/>
+            <Setter Property="CornerRadius" Value="7"/>
+        </Style>
+
+
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid Width="1100"  BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20">
+            <TextBlock Text="Platba" Style="{StaticResource Nadpis}" Margin="459,77,0,0" Width="178" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Height="529" Margin="40,135,0,0">
+                <TextBox x:Name="Suma" Margin="0,10,0,0" Header="Suma na zaplatenie" Style="{StaticResource TxtBox}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="219" BeforeTextChanging="ZmenaSumy"/>
+                <TextBox x:Name="KomuPôjduPeniaze"  Margin="0,10,0,0" Header ="Meno Príjemcu" Style="{StaticResource TxtBox}" Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="214"/>
+                <ComboBox x:Name="ZakehoUčtuPojduPeniaze" CornerRadius="7" Header="Z akého účtu sa platí"  Margin="0,10,0,0" Width="219">
+                    <ComboBox.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" Foreground="White" FontSize=" 16"/>
+                        </DataTemplate>
+                    </ComboBox.HeaderTemplate>
+                    <ComboBoxItem Content="Triedny fond"/>
+                    <ComboBoxItem Content="Sporenie na stuškovú"/>
+                </ComboBox>
+                <TextBox x:Name="IBAN" Header="IBAN Príjemcu"  Margin="0,10,0,0" Style="{StaticResource TxtBox}"  Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" />
+                <ToggleSwitch x:Name="DnesnyDatumSplatnosti"  Margin="0,10,0,0" VerticalAlignment="Top" Header="Dnešný dátum splatonsti" IsOn="True" OnContent="Áno" OffContent="Nie" Foreground="#FFFDF7F7" FocusVisualPrimaryBrush="#FFFFF7F7" Toggled="Toggled">
+                    <ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="16" Foreground="White" />
+                        </DataTemplate>
+                    </ToggleSwitch.HeaderTemplate>
+                </ToggleSwitch>
+                <DatePicker x:Name="DátumSplatnosti"  Margin="0,10,0,0" Visibility="Collapsed"  VerticalAlignment="Top" Header="Dátum splatnosti">
+                    <DatePicker.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text ="{Binding}" FontSize="16" Foreground="White"/>
+                        </DataTemplate>
+                    </DatePicker.HeaderTemplate>
+                </DatePicker>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Button x:Name="Naspäť" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Height="35" Width="43" Style="{StaticResource NavigationBackButtonNormalStyle}" RenderTransformOrigin="0.5,0.5" Click="Naspäť_Click"  VerticalAlignment="Top" >
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleX="1"/>
+                        </Button.RenderTransform>
+                    </Button>
+                    <Button x:Name="Pokračovať" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"   Height="35" Width="43" Style="{StaticResource NavigationBackButtonNormalStyle}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Click="Pokračovať_Click" VerticalAlignment="Top" Margin="252,0,0,0">
+                        <Button.RenderTransform>
+                            <CompositeTransform ScaleX="-1"/>
+                        </Button.RenderTransform>
+                    </Button>
+
+                </StackPanel>
+            </StackPanel>
+
+
+
+        </Grid>
+    </Grid>
+</Page>

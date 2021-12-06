@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku">
+    
+
+
+</Application>
+    
+    

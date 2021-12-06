@@ -1,0 +1,67 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    xmlns:Custom1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana.Prvá_strana"
+    mc:Ignorable="d"
+    
+    Background="{ThemeResource SystemControlAcrylicWindowBrush  }"
+    RequestedTheme="Dark">
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1920" Height="1080">
+       
+        <TextBlock Margin="0,435,0,0" Text="Vitajte" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Simplex" FontSize="72" RenderTransformOrigin="0.429,0.543" Height="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="258" Foreground="White"/>
+        <TextBlock Margin="650,540,0,0" Text="Zadajte prihlasovacie údaje" TextWrapping="Wrap" Width="671" TextAlignment="Center" FontFamily="Simplex" FontSize="36" RenderTransformOrigin="0.429,0.543" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+        <PasswordBox x:Name="Heslo" Password="1234" CornerRadius="7" Margin="0,655,0,0" Width="390" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush ="White"/>
+        <ComboBox x:Name="TriedaComboBox" CornerRadius="7"  Margin="765,618,0,0" Width="195" BorderBrush="White" SelectionChanged="ZmenaTriedy">
+            <!-- Prváci -->
+            <ComboBoxItem Content="I.A"/>
+            <ComboBoxItem Content="I.B"/>
+            <ComboBoxItem Content="I.C"/>
+            <ComboBoxItem Content="I.SA"/>
+            <ComboBoxItem Content="I.SB"/>
+            <ComboBoxItem Content="I.SC"/>
+
+            <!-- Druháci -->
+
+            <ComboBoxItem Content="II.A"/>
+            <ComboBoxItem Content="II.B"/>
+            <ComboBoxItem Content="II.C"/>
+            <ComboBoxItem Content="II.SA"/>
+            <ComboBoxItem Content="II.SB"/>
+            <ComboBoxItem Content="II.SC"/>
+            <ComboBoxItem Content="II.F"/>
+
+            <!-- Tretiaci -->
+
+            <ComboBoxItem Content="III.A"/>
+            <ComboBoxItem Content="III.B"/>
+            <ComboBoxItem Content="III.C"/>
+            <ComboBoxItem Content="III.SA"/>
+            <ComboBoxItem Content="III.SB"/>
+            <ComboBoxItem Content="III.SC"/>
+            <ComboBoxItem Content="III.F"/>
+
+            <!-- Štvrtáci -->
+
+            <ComboBoxItem Content="IV.A"/>
+            <ComboBoxItem Content="IV.B"/>
+            <ComboBoxItem Content="IV.C"/>
+            <ComboBoxItem Content="IV.SA"/>
+            <ComboBoxItem Content="IV.SB"/>
+            <ComboBoxItem Content="IV.SC"/>
+            <ComboBoxItem Content="IV.F"/>
+
+        </ComboBox>
+        <TextBlock x:Name="PasswordResult" HorizontalAlignment="Left" Margin="1160,671,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Pokračovať" Height="36" CornerRadius="7" Margin="1055,704,0,0" VerticalAlignment="Top" Width="101" Foreground="White" Click="Pokračovať_Klik"/>
+        <Button x:Name="VytvoriťTriedu"  Content="Vytvoriť" CornerRadius="7" Height="36" Margin="765,704,0,0" VerticalAlignment="Top" Width="101" Foreground="White" Click="VytvoriťTriedu_Click" />
+
+        
+
+    </Grid>
+</Page>

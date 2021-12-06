@@ -1,0 +1,109 @@
+﻿<Page
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+    RequestedTheme="Default"
+    
+>
+
+    <UserControl.Resources>
+        <Style x:Key="Animácia" TargetType="Button">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="1920" Height="1080">
+
+
+
+
+        <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Left" VerticalAlignment="Top" AutoPlay="False" Height="200" Width="200" Margin="10,60,0,0">
+            <lottie:LottieVisualSource x:Name="AnimáciaUserProfilu"  UriSource="ms-appx:///Assets/Animácie/AnimáciaNaFotkuPoužívateľa.json"/>
+        </muxc:AnimatedVisualPlayer>
+
+        <StackPanel Margin="210,100,1190,865">
+            <TextBlock x:Name="MenoPriIkonke" HorizontalAlignment="Left"  Text="Trieda" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="369" Visibility="Visible" FontFamily="ISOCP3" FontSize="40" TextAlignment="Left" Margin="1,0,0,0"/>
+            <TextBlock x:Name="SumaPriIkonke" Text="23330 €" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="228" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="22" Margin="5,0,0,0" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="SumaPriIkonke_Sporenie" Text="23330 € - Sporenie"  TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="226" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="22" Margin="5,5,0,0" />
+                <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="174" Height="10" Margin="0,0,0,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
+            </StackPanel>
+
+        </StackPanel>
+        <Grid x:Name="RozlozenieTlacidiel" VerticalAlignment="Top" Height="660" Loaded="Grid_Loaded" Margin="340,210,340,0"  >
+            <Button x:Name="VlozeniePeňazí" CornerRadius="7" Margin="50,45,0,0" Height="210" Style="{StaticResource Animácia}" VerticalAlignment="Top" Width="220" PointerEntered="MiškaNaVložení" PointerExited="MiškaOdišlaOdVloženia" Click="VlozeniePeňazí_Click">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Platba1" Style="{StaticResource Animácia}" CornerRadius="7" Margin="0,45,0,0" Height="210" VerticalAlignment="Top" Width="220" HorizontalAlignment="Center" PointerEntered="MyškaNaPlatbe" PointerExited="MyškaOdišlaOdPlatby" Click="Platba1_Click">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/platba.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="HistoriaPlatieb1" Style="{StaticResource Animácia}" CornerRadius="7" Margin="0,45,50,0" Height="210" VerticalAlignment="Top" Width="220" HorizontalAlignment="Right" PointerEntered="MyškaNaHistorii" PointerExited="MyškaOdišlaOdHistoria" Click="HistoriaPlatieb1_Click">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/historia.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ZberPeňazí1"  Style="{StaticResource Animácia}"  CornerRadius="7" Margin="0,390,0,0" Height="210" VerticalAlignment="Top" Width="220" HorizontalAlignment="Center" PointerEntered="MyšNaZbere" PointerExited="MyšOdišlaOdZberu">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/kurzy.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Sporenie1" Style="{StaticResource Animácia}" CornerRadius="7" Margin="50,390,0,0" Height="210" VerticalAlignment="Top" Width="220" PointerEntered="MyšNaSporeni" PointerExited="MyšOdyšlaOdSporenie" Click="Sporenie1_Click">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/sporenie.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="VoľnýČas1"  Style="{StaticResource Animácia}"   CornerRadius="7" Margin="970,390,0,0" Height="210" VerticalAlignment="Top" Width="220" PointerEntered="MyšNaVoľnomČase" PointerExited="MyšOpustilaVoľnýČas">
+                <StackPanel Margin="-110,-80,-97,-105">
+                    <Image Source="/Assets/IkonkyNaPrednuStranu/freetime.png" Width="155" Margin="0,0,0,-25"/>
+                </StackPanel>
+            </Button>
+
+
+            <TextBlock x:Name="Platba" Text="Platba" Foreground="White" HorizontalAlignment="Center" Height="25" Margin="0,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+
+            <TextBlock x:Name="VlozenieProstriedkov" Text="Vloženie prostreidkov" Foreground="White" HorizontalAlignment="Left" Height="25" Margin="50,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+
+            <TextBlock x:Name="HistoriaPlatieb" Text="Sporenie" HorizontalAlignment="Left" Height="25" Margin="970,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+
+            <TextBlock x:Name="Sporenie" Text="Sporenie" HorizontalAlignment="Left" Height="25" Margin="50,365,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+
+            <TextBlock x:Name="ZberPeňazí" Text="Zber peňazí"  HorizontalAlignment="Center" Height="25" Margin="0,365,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+
+            <TextBlock x:Name="VoľnýČas" Text="Voľný čas"  HorizontalAlignment="Left" Height="25" Margin="970,365,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center" />
+
+
+        </Grid>
+        <Button Background="Transparent" Margin="1740,100,85,0" Height="95" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <StackPanel >
+                <Image Source="/Assets/IkonkyNaPrednuStranu/settings.png" Width="75" Height="88"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Odhlasenie" Background="Transparent" Height="100" Margin="1740,890,85,0" VerticalAlignment="Top" Click="Odhlasenie_Click" HorizontalAlignment="Stretch">
+            <StackPanel>
+                <Image Source="/Assets/IkonkyNaPrednuStranu/logout.png" HorizontalAlignment="Center" Width="79" Height="88"/>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Page>

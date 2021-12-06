@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie.SporenieNaStužkovú"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Grid  Background="#FFB9B0B0"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
+
+            <TextBlock Text="Prezrite si sporenie na stuškovú" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0,30" Foreground="#FFF7F0F0" FontWeight="Bold"/>
+            <Grid Width="800" Height="200" >
+                <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="5" CornerRadius="10" Background="#4C000000" SelectionChanged="GridView_SelectionChanged">
+                    <StackPanel Width="800" Height="200" CornerRadius="7">
+                        <TextBlock Text="Progress sporenia" HorizontalAlignment="Center" Padding="0,20" FontSize="22" FontWeight="SemiBold" Foreground="White" SelectionHighlightColor="White"/>
+                        <StackPanel Width="500" Height="190">
+                            <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2" CornerRadius="7" Width="500" Height="60" HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
+                            <StackPanel Orientation="Horizontal" Width="500">
+                                <TextBlock x:Name="CielEura"  Foreground="White" HorizontalAlignment="Left" Margin="0,5,0,0" SelectionHighlightColor="White"/>
+                                <TextBlock x:Name ="Dátum" Margin="320,5,0,0" Foreground="White" SelectionHighlightColor="White" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </GridView>
+            </Grid>
+            <Button x:Name="Naspäť" Height="45" Width="130" Content="Späť" CornerRadius="7" Click="Naspäť_Click" FocusVisualPrimaryBrush="Transparent" Margin="110,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" />
+            <Button x:Name="Pridať" Height="45" Width="130" Content="Pridať €" CornerRadius="7" Click="Pridať_Click" FocusVisualPrimaryBrush="Transparent" Margin="0,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" HorizontalAlignment="Center" />
+            <Button x:Name="Zaplatiť" Height="45" Width="130" Content="Zaplatiť" CornerRadius="7" Click="Zaplatiť_Click" FocusVisualPrimaryBrush="Transparent" Margin="774,339,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" />
+        </Grid>
+    </Grid>
+</Page>

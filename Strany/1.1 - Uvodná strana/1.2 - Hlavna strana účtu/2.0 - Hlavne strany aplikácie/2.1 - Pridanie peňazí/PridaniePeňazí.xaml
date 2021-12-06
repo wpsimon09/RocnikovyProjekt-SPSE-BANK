@@ -1,0 +1,65 @@
+﻿<Page
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí.PridaniePeňazí"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Grid Height="700" Width="1100"  BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" CornerRadius="20">
+
+
+
+            <TextBlock Width="1098" Text="Pridať peniaze do triédneho fondu" TextAlignment="Center" LineHeight="20" Margin="10,165,0,0" FontSize="40" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.496,2.969" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+            <TextBox x:Name="VloženáSuma" CornerRadius="7" Margin="0,285,0,0" Header="Vložená suma" Width="225" HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" BeforeTextChanging="VloženáSumaZmena">
+                <TextBox.HeaderTemplate>
+                    <DataTemplate >
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                    </DataTemplate>
+                </TextBox.HeaderTemplate>
+            </TextBox>
+            <TextBlock Text="€" Foreground="White" FontSize="29" Margin="0,308,412,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20"/>
+
+            <ComboBox x:Name="KamPôjduPeniaze" CornerRadius="7" IsEnabled="True" Header="Kam peniaze pôjdu" Margin="0,360,0,0" Width="225" HorizontalAlignment="Center">
+                <ComboBox.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize=" 16"/>
+                    </DataTemplate>
+                </ComboBox.HeaderTemplate>
+                <ComboBoxItem Content="Triedný fond"/>
+                <ComboBoxItem Content="Sporenie na stuškovú"/>
+            </ComboBox>
+            <Button x:Name="Pokračovať" Margin="633,462,0,0" VerticalAlignment="Top" Height="28" Width="30" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Click="Pokračovať_Click"  >
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleX="-1"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="Naspäť" Margin="438,462,0,0" VerticalAlignment="Top" Height="28" Width="28" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Click="Naspäť_Click"    >
+
+            </Button>
+
+        </Grid>
+
+        <Grid x:Name="GridSAnimaciou" Visibility="Collapsed" Height="700" Width="1100" >
+            <Grid.Resources>
+                <Storyboard x:Name="StoryBoard">
+                    <FadeInThemeAnimation Storyboard.TargetName="BorderAnimacie" />
+                </Storyboard>
+            </Grid.Resources>
+            <Border x:Name="BorderAnimacie" Height="700" Width="1100"  RenderTransformOrigin="0.5,0.5" Background="{StaticResource SystemControlAcrylicWindowBrush}" CornerRadius="7">
+                <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Center" VerticalAlignment="Center" AutoPlay="False" Height="535" Width="568" >
+                    <lottie:LottieVisualSource x:Name="AnimaciaUspečnaPlatba"  UriSource="ms-appx:///Assets/Animácie/UspesnaPlatbaAnimácia.json"/>
+                </muxc:AnimatedVisualPlayer>
+            </Border>
+        </Grid>
+
+
+
+    </Grid>
+</Page>
