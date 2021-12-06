@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie;
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba
 {
@@ -132,8 +133,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                         (App.Current as App).hlavnáSuma = HlavnaSuma;
                         (App.Current as App).NahranieIndexuAkcie(1);
                         DoGlobálnejPremenéj(GlobalPremena);
-                        this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
-
+                        GridSAnimaciou.Visibility = Visibility.Visible;
+                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu),this);
                     }
                 }
                 else if (GlobalPremena.ZakéhoUčtuPojduPeniaze == 1)
@@ -164,7 +165,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
                             Progress = Convert.ToInt32((vlozenaSuma / celkovaSuma) * 100);
                             (App.Current as App).ProgressSporenie = Progress;
-                            this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
+
+                            GridSAnimaciou.Visibility = Visibility.Visible;
+                            (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this);
                         }
                     }
                 }

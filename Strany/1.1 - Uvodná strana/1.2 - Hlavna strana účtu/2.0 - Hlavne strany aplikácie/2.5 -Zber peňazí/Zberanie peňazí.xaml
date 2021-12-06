@@ -46,7 +46,7 @@
             <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="5" CornerRadius="10" Background="#4C000000">
                 <StackPanel Width="800" Height="200" CornerRadius="7">
                     <StackPanel HorizontalAlignment="Center" Height="128" >
-                        <TextBlock Text="Pocet ludí ktorý zaplatili" TextAlignment=""/>
+                        <TextBlock Text="Pocet ludí ktorý zaplatili" TextAlignment="Center"/>
                         <ProgressBar x:Name="PocetLudiKtZaplatili" BorderThickness="2" CornerRadius="7" Width="500" Height="60" HorizontalAlignment="Center" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" Margin="0,0.3,0,0"/>
                     </StackPanel>
                     <StackPanel Height="27" Width="500">

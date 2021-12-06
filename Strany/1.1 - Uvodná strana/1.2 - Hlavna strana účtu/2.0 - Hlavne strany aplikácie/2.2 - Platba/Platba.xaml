@@ -1,5 +1,7 @@
 ﻿<Page
     x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba.Platba"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba"
@@ -86,8 +88,20 @@
                 </StackPanel>
             </StackPanel>
 
+            
 
-
+        </Grid>
+        <Grid x:Name="GridSAnimaciou" Visibility="Collapsed" Height="700" Width="1100" >
+            <Grid.Resources>
+                <Storyboard x:Name="StoryBoard">
+                    <FadeInThemeAnimation Storyboard.TargetName="BorderAnimacie" />
+                </Storyboard>
+            </Grid.Resources>
+            <Border x:Name="BorderAnimacie"  RenderTransformOrigin="0.5,0.5" Background="{StaticResource SystemControlAcrylicWindowBrush}" CornerRadius="7" Margin="-30,-30,-20,-20">
+                <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Center" VerticalAlignment="Center" AutoPlay="False" Height="535" Width="568" >
+                    <lottie:LottieVisualSource x:Name="AnimaciaUspečnaPlatba"  UriSource="ms-appx:///Assets/Animácie/UspesnaPlatbaAnimácia.json"/>
+                </muxc:AnimatedVisualPlayer>
+            </Border>
         </Grid>
     </Grid>
 </Page>
