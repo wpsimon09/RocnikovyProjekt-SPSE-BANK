@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource SystemControlAcrylicWindowBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Page.Resources>
 
@@ -35,25 +35,28 @@
             <Setter Property="Width" Value="178"/>
             <Setter Property="CornerRadius" Value="7"/>
         </Style>
-
-
-
     </Page.Resources>
 
-    <Grid Background="#FFB9B0B0"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
-        <TextBlock Text="Vyberte zber peňazí" Style="{StaticResource Nadpis}" Margin="5,55,0,0" TextAlignment="Center" Width="1005"/>
-        <Grid Width="800" Height="200" >
-            <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="5" CornerRadius="10" Background="#4C000000">
-                <StackPanel Width="800" Height="200" CornerRadius="7">
-                    <StackPanel HorizontalAlignment="Center" Height="128" >
-                        <TextBlock Text="Pocet ludí ktorý zaplatili" TextAlignment="Center"/>
-                        <ProgressBar x:Name="PocetLudiKtZaplatili" BorderThickness="2" CornerRadius="7" Width="500" Height="60" HorizontalAlignment="Center" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" Margin="0,0.3,0,0"/>
-                    </StackPanel>
-                    <StackPanel Height="27" Width="500">
 
+    <Grid>
+        <Grid Background="#FFB9B0B0"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
+            <TextBlock Text="Vyberte zber peňazí" Style="{StaticResource Nadpis}" Margin="5,55,0,0" TextAlignment="Center" Width="1005"/>
+            <Grid Width="800" Height="200" >
+                <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="5" CornerRadius="10" Background="#4C000000">
+                    <StackPanel Width="800" Height="200" CornerRadius="7">
+                        <StackPanel HorizontalAlignment="Center" Height="128">
+                            <TextBlock Text="Počet ludí ktorý zaplatili" Foreground="FloralWhite" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,18"/>
+                            <ProgressBar x:Name="PocetLudiKtZaplatili" BorderThickness="2" CornerRadius="7" Width="500" Height="60" HorizontalAlignment="Center" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" Margin="0,0.3,0,0"/>
+                        </StackPanel>
+                        <StackPanel Height="27" Width="500" Orientation="Horizontal">
+                            <TextBlock Text="12 zaplatilo z 13" Foreground="White"/>
+                            <TextBlock Text="Do 23.12.2020" Foreground="White"/>
+                            <TextBlock Text="20€ z 100€" Foreground="White"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </GridView>
+                </GridView>
+            </Grid>
         </Grid>
     </Grid>
+    
 </Page>

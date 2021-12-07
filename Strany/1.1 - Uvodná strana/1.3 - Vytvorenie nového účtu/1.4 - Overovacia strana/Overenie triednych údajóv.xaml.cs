@@ -221,8 +221,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             (App.Current as App).GlobalnaPremenaTriedyString = TriedaNaPrednuStranu;
 
 
-            this.Frame.Navigate(typeof(Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_žiako.ŽiaciVTriede
-));
+            this.Frame.Navigate(typeof(Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_žiako.ŽiaciVTriede));
         }
 
         private void Zle_Click(object sender, RoutedEventArgs e)
@@ -241,6 +240,12 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
             return false;
         }
+
+        private void PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Vytvorenie_triedy));
+        }
+
     }
 }
 
