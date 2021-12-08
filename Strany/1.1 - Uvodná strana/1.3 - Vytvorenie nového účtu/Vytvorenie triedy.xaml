@@ -6,116 +6,113 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     >
 
     <Page.Resources>
-        <Style x:Key="Normálne otázky" TargetType="TextBlock" />
+        <Style x:Key="Normálne otázky" TargetType="TextBox" >
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
     </Page.Resources>
 
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid >
+
+        
+
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="Vyplne údaje o vašej triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20" />
+            <FlipView HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="681" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436">
+               
+                <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho ucitela"/>
+
+                <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu tiredy"/>
+
+                <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
+
+                <TextBox x:Name="MenoPredseduRodičov"  Header="Meno predsedu rodičov" Style="{StaticResource Normálne otázky}"  />
 
 
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-        <ScrollViewer CanContentRenderOutsideBounds="False" Background="#FFB9B0B0" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible" Width="1020" Height="1000" RequestedTheme="Light" HorizontalAlignment="Center" CornerRadius="20">
+                    <ComboBox x:Name="Trieda" Margin="20,0" CornerRadius="7" Header="Vaša trieda">
+                        <ComboBox.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                            </DataTemplate>
+                        </ComboBox.HeaderTemplate>
 
-            <StackPanel BorderBrush="White" CornerRadius="20" BorderThickness="5">
+                        <!-- Prváci -->
+                        <ComboBoxItem Content="I.A"/>
+                        <ComboBoxItem Content="I.B"/>
+                        <ComboBoxItem Content="I.C"/>
+                        <ComboBoxItem Content="I.SA"/>
+                        <ComboBoxItem Content="I.SB"/>
+                        <ComboBoxItem Content="I.SC"/>
 
-                <TextBlock Text="Základné údaje o triede" FontSize="35" FontFamily="Simplex" Padding="30" HorizontalAlignment="Center" Foreground="GhostWhite"/>
+                        <!-- Druháci -->
 
-                <TextBlock Text="!!! Všetky polia sú povinné !!!"  FontSize="17" Margin="20"  Foreground="#FFCD4646" FontWeight="Bold" />
+                        <ComboBoxItem Content="II.A"/>
+                        <ComboBoxItem Content="II.B"/>
+                        <ComboBoxItem Content="II.C"/>
+                        <ComboBoxItem Content="II.SA"/>
+                        <ComboBoxItem Content="II.SB"/>
+                        <ComboBoxItem Content="II.SC"/>
+                        <ComboBoxItem Content="II.F"/>
 
-                <TextBox x:Name="MenoTriednehoUcitela" HorizontalAlignment="Left" CornerRadius="7" Margin="20,0,0,0" Header="Meno triedneho ucitela" Width="300" VerticalAlignment="Top">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <!-- Tretiaci -->
 
-                <TextBox x:Name="MenoPredsedu" HorizontalAlignment="Left" CornerRadius="7" Margin="20,20,0,0" Header="Meno predsedu tiredy" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <ComboBoxItem Content="III.A"/>
+                        <ComboBoxItem Content="III.B"/>
+                        <ComboBoxItem Content="III.C"/>
+                        <ComboBoxItem Content="III.SA"/>
+                        <ComboBoxItem Content="III.SB"/>
+                        <ComboBoxItem Content="III.SC"/>
+                        <ComboBoxItem Content="III.F"/>
 
+                        <!-- Štvrtáci -->
 
-                <TextBox x:Name="MenoFinančníka" HorizontalAlignment="Left" CornerRadius="7" Margin="20,20,0,20" Header="Meno triedneho účtovníka" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <ComboBoxItem Content="IV.A"/>
+                        <ComboBoxItem Content="IV.B"/>
+                        <ComboBoxItem Content="IV.C"/>
+                        <ComboBoxItem Content="IV.SA"/>
+                        <ComboBoxItem Content="IV.SB"/>
+                        <ComboBoxItem Content="IV.SC"/>
+                        <ComboBoxItem Content="IV.F"/>
 
-                <TextBox x:Name="MenoPredseduRodičov" CornerRadius="7" HorizontalAlignment="Left" Margin="20,15,0,20" Header="Meno predsedu rodičov" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                    </ComboBox>
 
+                    <StackPanel>
+                        <CalendarDatePicker x:Name="koniecŠtúdia" CornerRadius="7" >
+                            <CalendarDatePicker.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Koniec šúdia"/>
+                                </DataTemplate>
+                            </CalendarDatePicker.HeaderTemplate>
+                        </CalendarDatePicker>
+                    </StackPanel>
 
-                <TextBlock Text="Počet žiakov" Foreground="White"  FontSize="16" Margin="20,5,0,0" />
-                <Slider x:Name="pocetZiakov" BorderBrush="Aqua" Margin="20" HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Počet žiakov" Foreground="White"  FontSize="16" Margin="20,0" />
+                        <Slider x:Name="pocetZiakov"  Margin="20,0,0,10" HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
+                    </StackPanel>
 
-                <ComboBox x:Name="Trieda" Margin="20,5,5,5" CornerRadius="7" Header="Vaša trieda">
-                    <ComboBox.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </ComboBox.HeaderTemplate>
+                    
+                    
+                </StackPanel>
 
-                    <!-- Prváci -->
-                    <ComboBoxItem Content="I.A"/>
-                    <ComboBoxItem Content="I.B"/>
-                    <ComboBoxItem Content="I.C"/>
-                    <ComboBoxItem Content="I.SA"/>
-                    <ComboBoxItem Content="I.SB"/>
-                    <ComboBoxItem Content="I.SC"/>
-
-                    <!-- Druháci -->
-
-                    <ComboBoxItem Content="II.A"/>
-                    <ComboBoxItem Content="II.B"/>
-                    <ComboBoxItem Content="II.C"/>
-                    <ComboBoxItem Content="II.SA"/>
-                    <ComboBoxItem Content="II.SB"/>
-                    <ComboBoxItem Content="II.SC"/>
-                    <ComboBoxItem Content="II.F"/>
-
-                    <!-- Tretiaci -->
-
-                    <ComboBoxItem Content="III.A"/>
-                    <ComboBoxItem Content="III.B"/>
-                    <ComboBoxItem Content="III.C"/>
-                    <ComboBoxItem Content="III.SA"/>
-                    <ComboBoxItem Content="III.SB"/>
-                    <ComboBoxItem Content="III.SC"/>
-                    <ComboBoxItem Content="III.F"/>
-
-                    <!-- Štvrtáci -->
-
-                    <ComboBoxItem Content="IV.A"/>
-                    <ComboBoxItem Content="IV.B"/>
-                    <ComboBoxItem Content="IV.C"/>
-                    <ComboBoxItem Content="IV.SA"/>
-                    <ComboBoxItem Content="IV.SB"/>
-                    <ComboBoxItem Content="IV.SC"/>
-                    <ComboBoxItem Content="IV.F"/>
-
-                </ComboBox>
-
-                <DatePicker x:Name="koniecŠtúdia" MonthVisible="False" DayVisible="False" YearVisible="True" Margin="20,1" CornerRadius="7" >
-                    <DatePicker.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text ="Vyberte dátum ukončenia štúdia" FontSize="16" Foreground="White"/>
-                        </DataTemplate>
-                    </DatePicker.HeaderTemplate>
-                </DatePicker>
+                
 
                 <PasswordBox x:Name="HesloTriedy" CornerRadius="7" HorizontalAlignment="Left" Margin="20,15,0,20" Header="Heslo triedy" Width="300">
                     <PasswordBox.HeaderTemplate>
@@ -205,6 +202,7 @@
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
+
                 <StackPanel  Orientation="Horizontal">
                     <Button Click="Button_Click" Height="40" CornerRadius="7" Margin="20,10,10,20" VerticalAlignment="Top"  Style="{ThemeResource NavigationBackButtonNormalStyle}" Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
                     <Button x:Name="Vyčistiť" CornerRadius="7" Content="Vyčistiť údaje" Click="Vyčistiť_Click" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
@@ -214,7 +212,8 @@
                         </Button.RenderTransform>
                     </Button>
                 </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
+
+            </FlipView>
+        </StackPanel>
     </Grid>
 </Page>
