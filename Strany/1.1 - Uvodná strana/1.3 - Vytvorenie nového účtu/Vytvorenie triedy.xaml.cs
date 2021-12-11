@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,7 +28,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-
+            
         }
 
 
@@ -78,7 +79,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
                 u.PocetZiakov = pocetZiakov.Value.ToString();
                 u.trieda = Trieda.SelectedIndex;
-                u.RokUkoncenia = koniecŠtúdia.Date.Year.ToString("d");
+                u.RokUkoncenia = koniecŠtúdia.Date.Value.DateTime.ToString("d");
                 u.Heslo = HesloTriedy.Password.ToString();
                 u.TriednyEmail = TriednyEmail.Text;
 
@@ -115,7 +116,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
                     zistenéTriedneÚdaje.trieda == -1||
                     string.IsNullOrEmpty(zistenéTriedneÚdaje.RokUkoncenia) ||
-                    zistenéTriedneÚdaje.RokUkoncenia == Convert.ToString(1601) ||
+                    string.IsNullOrEmpty(zistenéTriedneÚdaje.RokUkoncenia) ||
                     string.IsNullOrEmpty(zistenéTriedneÚdaje.Heslo) ||
                     string.IsNullOrEmpty(zistenéTriedneÚdaje.TriednyEmail) ||
 
@@ -141,9 +142,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             else
             {
 
-                
-                (App.Current as App).GlobálnaPremenaInfaTriedy = zistenéTriedneÚdaje;  // todo vytvoriť a navigovať na overovaciu stránku
-                this.Frame.Navigate(typeof(_1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana.Overenie_triednych_údajóv));                                               //link na stránku kde ukázujú ako sprviť globálnu premené https://www.c-sharpcorner.com/UploadFile/5439e6/passing-data-to-among-the-pages-in-windows-store-app/
+                (App.Current as App).GlobálnaPremenaInfaTriedy = zistenéTriedneÚdaje;
+                this.Frame.Navigate(typeof(Overenie_triednych_údajóv));
 
             }
 
@@ -175,7 +175,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         
         private void Vyčistiť_Click(object sender, RoutedEventArgs e)
         {
-          
+            StackPanelSAnimáciou.Visibility = Visibility.Visible;
+            (App.Current as App).PrehranieAnimácieAZobrazenieElementu(AnimáciaNaSpustenie, StackPanelSAnimáciou);
+
       
             MenoTriednehoUcitela.Text = string.Empty;
             MenoPredsedu.Text = string.Empty;
@@ -184,7 +186,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
             pocetZiakov.Value = 0;
             Trieda.SelectedIndex = -1;
-            koniecŠtúdia.SelectedDate = null;
+            koniecŠtúdia.Date = null;
             HesloTriedy.Password = string.Empty;
             TriednyEmail.Text = string.Empty;
 

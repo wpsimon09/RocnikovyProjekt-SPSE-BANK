@@ -1,4 +1,6 @@
 ﻿<Page
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
     x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu.Vytvorenie_triedy"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -14,7 +16,23 @@
             <Setter Property="HeaderTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}" Foreground="White" FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Margin" Value="0,15"/>
+        </Style>
+
+        <Style x:Key="PasswordStyle" TargetType="PasswordBox" >
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
@@ -26,194 +44,144 @@
         </Style>
     </Page.Resources>
 
-
     <Grid >
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Vyplne údaje o vašej triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
+            <TextBlock Text="Všetky údaje sú povinné !" FontSize="18" Foreground="#FFCF4040" HorizontalAlignment="Left" Width="250" FontFamily="Arial" Margin="0,5" />
 
-        
+            <FlipView x:Name="FlipView" HorizontalAlignment="Center" Height="631" Width="510" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436">
+                <StackPanel >
+                    <TextBlock Text="Mená a prezvyská" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
+                    <StackPanel Margin="0,40">
+                        <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho ucitela"/>
 
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Vyplne údaje o vašej triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20" />
-            <FlipView HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" Width="681" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436">
-               
-                <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho ucitela"/>
+                        <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu tiredy"/>
 
-                <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu tiredy"/>
+                        <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
 
-                <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
+                        <TextBox x:Name="MenoPredseduRodičov"  Header="Meno predsedu rodičov" Style="{StaticResource Normálne otázky}"  />
+                    </StackPanel>
 
-                <TextBox x:Name="MenoPredseduRodičov"  Header="Meno predsedu rodičov" Style="{StaticResource Normálne otázky}"  />
+                </StackPanel>
 
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <TextBlock Text="Základné info o triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
+                    <StackPanel >
 
-                    <ComboBox x:Name="Trieda" Margin="20,0" CornerRadius="7" Header="Vaša trieda">
-                        <ComboBox.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                            </DataTemplate>
-                        </ComboBox.HeaderTemplate>
+                        <ComboBox x:Name="Trieda"  CornerRadius="7" Header="Vaša trieda" Margin="0,5">
+                            <ComboBox.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                                </DataTemplate>
+                            </ComboBox.HeaderTemplate>
 
-                        <!-- Prváci -->
-                        <ComboBoxItem Content="I.A"/>
-                        <ComboBoxItem Content="I.B"/>
-                        <ComboBoxItem Content="I.C"/>
-                        <ComboBoxItem Content="I.SA"/>
-                        <ComboBoxItem Content="I.SB"/>
-                        <ComboBoxItem Content="I.SC"/>
+                            <!-- Prváci -->
+                            <ComboBoxItem Content="I.A"/>
+                            <ComboBoxItem Content="I.B"/>
+                            <ComboBoxItem Content="I.C"/>
+                            <ComboBoxItem Content="I.SA"/>
+                            <ComboBoxItem Content="I.SB"/>
+                            <ComboBoxItem Content="I.SC"/>
 
-                        <!-- Druháci -->
+                            <!-- Druháci -->
+                            <ComboBoxItem Content="II.A"/>
+                            <ComboBoxItem Content="II.B"/>
+                            <ComboBoxItem Content="II.C"/>
+                            <ComboBoxItem Content="II.SA"/>
+                            <ComboBoxItem Content="II.SB"/>
+                            <ComboBoxItem Content="II.SC"/>
+                            <ComboBoxItem Content="II.F"/>
 
-                        <ComboBoxItem Content="II.A"/>
-                        <ComboBoxItem Content="II.B"/>
-                        <ComboBoxItem Content="II.C"/>
-                        <ComboBoxItem Content="II.SA"/>
-                        <ComboBoxItem Content="II.SB"/>
-                        <ComboBoxItem Content="II.SC"/>
-                        <ComboBoxItem Content="II.F"/>
+                            <!-- Tretiaci -->
+                            <ComboBoxItem Content="III.A"/>
+                            <ComboBoxItem Content="III.B"/>
+                            <ComboBoxItem Content="III.C"/>
+                            <ComboBoxItem Content="III.SA"/>
+                            <ComboBoxItem Content="III.SB"/>
+                            <ComboBoxItem Content="III.SC"/>
+                            <ComboBoxItem Content="III.F"/>
 
-                        <!-- Tretiaci -->
+                            <!-- Štvrtáci -->
+                            <ComboBoxItem Content="IV.A"/>
+                            <ComboBoxItem Content="IV.B"/>
+                            <ComboBoxItem Content="IV.C"/>
+                            <ComboBoxItem Content="IV.SA"/>
+                            <ComboBoxItem Content="IV.SB"/>
+                            <ComboBoxItem Content="IV.SC"/>
+                            <ComboBoxItem Content="IV.F"/>
 
-                        <ComboBoxItem Content="III.A"/>
-                        <ComboBoxItem Content="III.B"/>
-                        <ComboBoxItem Content="III.C"/>
-                        <ComboBoxItem Content="III.SA"/>
-                        <ComboBoxItem Content="III.SB"/>
-                        <ComboBoxItem Content="III.SC"/>
-                        <ComboBoxItem Content="III.F"/>
+                        </ComboBox>
 
-                        <!-- Štvrtáci -->
 
-                        <ComboBoxItem Content="IV.A"/>
-                        <ComboBoxItem Content="IV.B"/>
-                        <ComboBoxItem Content="IV.C"/>
-                        <ComboBoxItem Content="IV.SA"/>
-                        <ComboBoxItem Content="IV.SB"/>
-                        <ComboBoxItem Content="IV.SC"/>
-                        <ComboBoxItem Content="IV.F"/>
-
-                    </ComboBox>
-
-                    <StackPanel>
-                        <CalendarDatePicker x:Name="koniecŠtúdia" CornerRadius="7" >
+                        <CalendarDatePicker x:Name="koniecŠtúdia" CornerRadius="7" Margin="0,10" >
                             <CalendarDatePicker.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="Koniec šúdia"/>
                                 </DataTemplate>
                             </CalendarDatePicker.HeaderTemplate>
                         </CalendarDatePicker>
+
+                        <StackPanel Margin="0,10,0,0">
+                            <TextBlock Text="Počet žiakov" Foreground="White"  FontSize="16"  />
+                            <Slider x:Name="pocetZiakov"   HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
+                        </StackPanel>
                     </StackPanel>
 
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="Počet žiakov" Foreground="White"  FontSize="16" Margin="20,0" />
-                        <Slider x:Name="pocetZiakov"  Margin="20,0,0,10" HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
-                    </StackPanel>
+                    <PasswordBox x:Name="HesloTriedy" HorizontalAlignment="Left" Margin="0,20" CornerRadius="7" Header="HesloTriedy" Style="{StaticResource PasswordStyle}" />
+                    <PasswordBox x:Name="HesloTriedyRepeat" HorizontalAlignment="Left"  CornerRadius="7" Header="HesloTriedy" Style="{StaticResource PasswordStyle}" />
+                    <TextBox x:Name="TriednyEmail" CornerRadius="7" Style ="{StaticResource Normálne otázky}" Header="Triedny e-mail" HorizontalAlignment="Left" />
 
-                    
-                    
+
                 </StackPanel>
 
-                
 
-                <PasswordBox x:Name="HesloTriedy" CornerRadius="7" HorizontalAlignment="Left" Margin="20,15,0,20" Header="Heslo triedy" Width="300">
-                    <PasswordBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </PasswordBox.HeaderTemplate>
-                </PasswordBox>
 
-                <TextBox x:Name="TriednyEmail" CornerRadius="7" HorizontalAlignment="Left" Margin="20,0,0,20" Header="Triedny e-mail" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
 
                 <!-- TELEFONNÉ ČÍSLA KOMPETENTNÝCH OSôB -->
+                <StackPanel>
+                    <TextBlock Text="Vyplne telefonné čísal" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
 
-                <TextBlock Text="Kontaktné údaje kompetentných osôb" HorizontalAlignment="Center" FontSize="35" Foreground="White" FontFamily="Simplex"/>
-                <TextBlock Text="Telefonné čísla" Foreground="White" FontSize="30" Margin="20,30,0,20" FontFamily="Simplex"/>
-                <TextBox x:Name="TelefonTriednyUcitel" CornerRadius="7" BeforeTextChanging="ZmenaTelCUcitela" HorizontalAlignment="Left" Margin="20,15,0,20" Header="Tel.č. Triedneho učiteľa" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                    <StackPanel VerticalAlignment="Center" Margin="0,30">
 
-                <TextBox x:Name="TelefonNaPredseduTriedy" CornerRadius="7" BeforeTextChanging="ZmenaTelCPredseduTriedy"  HorizontalAlignment="Left" Margin="20,15,0,20" Header="Tel.č. Predsedu triedy" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <TextBox x:Name="TelefonTriednyUcitel" BeforeTextChanging="ZmenaTelCUcitela"  Header="Tel.č. Triedneho učiteľa" Style="{StaticResource Normálne otázky}"/>
 
+                        <TextBox x:Name="TelefonNaPredseduTriedy" BeforeTextChanging="ZmenaTelCPredseduTriedy"  Header="Tel.č. Predsedu triedy" Style="{StaticResource Normálne otázky}"/>
 
-                <TextBox x:Name="TelfonNaTriednehoUctovnika" CornerRadius="7" BeforeTextChanging="ZmenaTelCUctovnika" HorizontalAlignment="Left" Margin="20,15,0,20" Header="Tel.č. Triedneho účtovníka " Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <TextBox x:Name="TelfonNaTriednehoUctovnika" BeforeTextChanging="ZmenaTelCUctovnika" Header="Tel.č. Triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
 
-                <TextBox x:Name="TelfonNaPredseduRodičov" CornerRadius="7" BeforeTextChanging="ZmenaTelCPredseduRodicov"  HorizontalAlignment="Left" Margin="20,15,0,20" Header="Tel.č. Predsedu rodičov" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
+                        <TextBox x:Name="TelfonNaPredseduRodičov" BeforeTextChanging="ZmenaTelCPredseduRodicov" Header="Tel.č. Predsedu rodičov" Style="{StaticResource Normálne otázky}"/>
 
-                <!--  E-MAILY -->
-
-                <TextBlock Text="E-MAILY" Foreground="White" FontSize="30" Margin="20,30,0,20" FontFamily="Simplex"/>
-                <TextBox x:Name="emailTriednyUcitel" HorizontalAlignment="Left" CornerRadius="7" Margin="20,15,0,20" Header="e-mail Triedneho učiteľa" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
-
-                <TextBox x:Name="emailPredsedaTriedy" HorizontalAlignment="Left" CornerRadius="7" Margin="20,15,0,20" Header="e-mail  Predsedu triedy" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
-
-
-                <TextBox x:Name="emailTriednehyUctovnik" HorizontalAlignment="Left" CornerRadius="7" Margin="20,15,0,20" Header="e-mail  Triedneho účtovníka " Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
-
-                <TextBox x:Name="emailPredsedaRodičov" CornerRadius="7" HorizontalAlignment="Left" Margin="20,15,0,20" Header="e-mail  Predsedu rodičov" Width="300">
-                    <TextBox.HeaderTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                        </DataTemplate>
-                    </TextBox.HeaderTemplate>
-                </TextBox>
-
-                <StackPanel  Orientation="Horizontal">
-                    <Button Click="Button_Click" Height="40" CornerRadius="7" Margin="20,10,10,20" VerticalAlignment="Top"  Style="{ThemeResource NavigationBackButtonNormalStyle}" Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
-                    <Button x:Name="Vyčistiť" CornerRadius="7" Content="Vyčistiť údaje" Click="Vyčistiť_Click" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
-                    <Button x:Name="Hotovo"  Click="Hotovo_Click" CornerRadius="7" Style="{ThemeResource NavigationBackButtonNormalStyle}" Height="40" Margin="80,10,10,20" Foreground="White" BorderBrush="White" Background="Gray" FocusVisualPrimaryBrush="White">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleX="-1"/>
-                        </Button.RenderTransform>
-                    </Button>
+                    </StackPanel>
                 </StackPanel>
 
+                <!--  E-MAILY -->
+                <StackPanel >
+                    <TextBlock Text="Vyplne e-mailove adresy " FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
+
+                    <StackPanel Margin="0,30" VerticalAlignment="Center">
+                        <TextBox x:Name="emailTriednyUcitel" Header="e-mail Triedneho učiteľa" Style="{StaticResource Normálne otázky}"/>
+
+                        <TextBox x:Name="emailPredsedaTriedy" Header="e-mail  Predsedu triedy" Style="{StaticResource Normálne otázky}"/>
+
+                        <TextBox x:Name="emailTriednehyUctovnik" Header="e-mail  Triedneho účtovníka " Style="{StaticResource Normálne otázky}"/>
+
+                        <TextBox x:Name="emailPredsedaRodičov"  Header="e-mail  Predsedu rodičov" Style="{StaticResource Normálne otázky}"/>
+                    </StackPanel>
+                </StackPanel>
             </FlipView>
+            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Click="Button_Click" Height="40" Width="100" Content="Naspäť" CornerRadius="7" Margin="20,10,10,20" VerticalAlignment="Top"   Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
+                <Button x:Name="Vyčistiť" CornerRadius="7" Content="Vyčistiť údaje" Click="Vyčistiť_Click" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
+                <Button x:Name="Hotovo"  Click="Hotovo_Click" Width="100" Content="Pokračovať" CornerRadius="7"  Height="40" Margin="20,10,10,20" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="StackPanelSAnimáciou" HorizontalAlignment="Center" Height="575" Width="510" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436" Visibility="Collapsed">
+            <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Center"  AutoPlay="False" Height="637" Width="500" >
+                <lottie:LottieVisualSource x:Name="AnimaciaUspečnaPlatba"  UriSource="ms-appx:///Assets/Animácie/VymazanieÚdajov.json"/>
+            </muxc:AnimatedVisualPlayer>
         </StackPanel>
     </Grid>
 </Page>

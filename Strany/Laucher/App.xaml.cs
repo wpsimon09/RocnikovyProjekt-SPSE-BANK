@@ -76,7 +76,19 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             await animácia.PlayAsync(0.0, 1.0, false);
         }
 
+        public async void PrehranieAnimácieAZobrazenieElementu(Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer animácia, StackPanel stackPanel)
+        {
+            await animácia.PlayAsync(0.0, 1.0, false);
+            if (animácia.IsPlaying)
+            {
 
+            }
+            else
+            {
+                stackPanel.Visibility = Visibility.Collapsed;
+
+            }
+        }
 
         public delegate void PlatbaEventHandler(object sender, EventArgs args);
 
