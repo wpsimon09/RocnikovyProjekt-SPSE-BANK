@@ -9,11 +9,11 @@
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Grid>
-        <Grid  Background="#FFB9B0B0"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
+        <Grid  Background="#2D3436"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
 
             <TextBlock Text="Prezrite si sporenie na stuškovú" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0,30" Foreground="#FFF7F0F0" FontWeight="Bold"/>
             <Grid Width="800" Height="200" >
-                <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="5" CornerRadius="10" Background="#4C000000" SelectionChanged="GridView_SelectionChanged">
+                <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="3" CornerRadius="10" Background="{StaticResource SystemControlAcrylicElementBrush}" SelectionChanged="GridView_SelectionChanged">
                     <StackPanel Width="800" Height="200" CornerRadius="7">
                         <TextBlock Text="Progress sporenia" HorizontalAlignment="Center" Padding="0,20" FontSize="22" FontWeight="SemiBold" Foreground="White" SelectionHighlightColor="White"/>
                         <StackPanel Width="500" Height="190">
@@ -26,9 +26,9 @@
                     </StackPanel>
                 </GridView>
             </Grid>
-            <Button x:Name="Naspäť" Height="45" Width="130" Content="Späť" CornerRadius="7" Click="Naspäť_Click" FocusVisualPrimaryBrush="Transparent" Margin="110,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" />
-            <Button x:Name="Pridať" Height="45" Width="130" Content="Pridať €" CornerRadius="7" Click="Pridať_Click" FocusVisualPrimaryBrush="Transparent" Margin="0,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" HorizontalAlignment="Center" />
-            <Button x:Name="Zaplatiť" Height="45" Width="130" Content="Zaplatiť" CornerRadius="7" Click="Zaplatiť_Click" FocusVisualPrimaryBrush="Transparent" Margin="774,339,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="#330C0C0C" />
+            <Button x:Name="Naspäť" Height="45" Width="130" Content="Späť" CornerRadius="7" Click="Naspäť_Click" FocusVisualPrimaryBrush="Transparent" Margin="110,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="Gray" />
+            <Button x:Name="Pridať" Height="45" Width="130" Content="Pridať €" CornerRadius="7" Click="Pridať_Click" FocusVisualPrimaryBrush="Transparent" Margin="0,342,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="Gray" HorizontalAlignment="Center" />
+            <Button x:Name="Zaplatiť" Height="45" Width="130" Content="Zaplatiť" CornerRadius="7" Click="Zaplatiť_Click" FocusVisualPrimaryBrush="Transparent" Margin="774,339,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Background="Gray" />
         </Grid>
     </Grid>
 </Page>

@@ -20,9 +20,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Zberanie_peňazí : Page
+    public sealed partial class HlavnaStranaZberaniaPeňazí : Page
     {
-        public Zberanie_peňazí()
+        public HlavnaStranaZberaniaPeňazí()
         {
             this.InitializeComponent();
         }

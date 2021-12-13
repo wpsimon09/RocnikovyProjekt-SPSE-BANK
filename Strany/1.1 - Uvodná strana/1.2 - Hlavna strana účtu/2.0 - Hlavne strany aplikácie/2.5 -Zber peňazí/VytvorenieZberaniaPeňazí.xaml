@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí.VytvorenieZberaniaPeňazí"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Page.Resources>
+
+        <Style TargetType="TextBlock" x:Key="Nadpis">
+            <Setter Property="Width" Value="1098"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="LineHeight" Value="20"/>
+            <Setter Property="Margin" Value="0,70,0,0"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Foreground" Value="#FFF7F0F0"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="TxtBox">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="178"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+
+
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center" Height="430" Width="549">
+                <TextBlock Width="513" Text="Vytvorte zbreanie peňazí" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <StackPanel Width="293"  VerticalAlignment="Top">
+                            <TextBox x:Name="CielenaSuma" Style="{StaticResource TxtBox}" CornerRadius="7"  Header="Ciel v €" Width="221" HorizontalAlignment="Center" Height="65" BeforeTextChanging="CielenaSuma_BeforeTextChanging"/>
+                            <TextBox x:Name="DôvodSporenia" Header="Dôvod zberania" Style="{StaticResource TxtBox}" Width="221" />
+                            <CalendarDatePicker x:Name="UkoncenieSporenia"  HorizontalAlignment="Center" Margin="0,10" Width="221" CornerRadius="7">
+                                <CalendarDatePicker.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text ="Dokedy treba vyzbierať" FontSize="16" Foreground="White"/>
+                                    </DataTemplate>
+                                </CalendarDatePicker.HeaderTemplate>
+                            </CalendarDatePicker>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button x:Name="Naspäť" Height="28" Width="28" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Margin="20,0,0,0" Click="Naspäť_Click"    />
+                        <Button x:Name="Pokračovať" Height="28" Width="30" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Margin="200,0,0,0" Click="Pokračovať_Click"  >
+                            <Button.RenderTransform>
+                                <CompositeTransform ScaleX="-1"/>
+                            </Button.RenderTransform>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

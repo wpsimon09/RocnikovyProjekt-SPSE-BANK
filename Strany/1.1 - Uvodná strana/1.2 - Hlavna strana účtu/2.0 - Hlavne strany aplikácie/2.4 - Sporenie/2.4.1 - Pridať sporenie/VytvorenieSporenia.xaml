@@ -42,7 +42,7 @@
 
     <Grid>
         <Grid>
-            <Grid  BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" CornerRadius="20" Margin="545,260,545,260">
+            <Grid  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" Margin="545,260,545,260">
                 <TextBlock Width="653" Text="Zadajte informácie o sporení" TextAlignment="Center" LineHeight="20" Margin="100,82,0,0" FontSize="40" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" />
                 <StackPanel Margin="284,0,0,0" Height="149" VerticalAlignment="Center" HorizontalAlignment="Left">
                     <StackPanel Width="293" Height="150" VerticalAlignment="Top">

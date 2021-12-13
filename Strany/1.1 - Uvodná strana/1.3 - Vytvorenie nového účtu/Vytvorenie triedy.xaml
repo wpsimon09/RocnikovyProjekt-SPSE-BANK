@@ -170,6 +170,7 @@
                     </StackPanel>
                 </StackPanel>
             </FlipView>
+            
             <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button Click="Button_Click" Height="40" Width="100" Content="Naspäť" CornerRadius="7" Margin="20,10,10,20" VerticalAlignment="Top"   Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
                 <Button x:Name="Vyčistiť" CornerRadius="7" Content="Vyčistiť údaje" Click="Vyčistiť_Click" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
@@ -177,6 +178,7 @@
 
             </StackPanel>
         </StackPanel>
+        
 
         <StackPanel x:Name="StackPanelSAnimáciou" HorizontalAlignment="Center" Height="575" Width="510" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436" Visibility="Collapsed">
             <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Center"  AutoPlay="False" Height="637" Width="500" >

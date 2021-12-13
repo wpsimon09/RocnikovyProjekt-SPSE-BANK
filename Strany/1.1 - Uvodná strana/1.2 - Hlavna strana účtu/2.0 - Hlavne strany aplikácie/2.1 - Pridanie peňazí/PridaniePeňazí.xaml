@@ -11,7 +11,7 @@
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Grid>
-        <Grid Height="700" Width="1100"  BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" CornerRadius="20">
+        <Grid Height="700" Width="1100"  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20">
 
 
 

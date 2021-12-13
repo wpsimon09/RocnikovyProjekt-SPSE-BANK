@@ -20,7 +20,7 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._2___Platba;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie._2._4._1___Pridať_sporenie;
-
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí;
 namespace Ročňíkový_projekt___Aplikácia_pre_banku
 {
 
@@ -33,6 +33,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public string GlobalnaPremenaTriedyString { get; set; }
         public PridaniePeňazí.InfoOPridanýchPeniazoch[] GlobálnaPremenáInfaOPridanýchPeniazoch { get; set; }
         public Platba.InfoOplatbe[] GlobálnaPremenaOPlatbe { get; set; }
+        public VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] GlobalnaPremenaVytvorenieZberania { get; set; }
         public uint hlavnáSuma { get; set; }
         public bool boloNavigované { get; set; }
         public string[] Menažiakov { get; set; }
@@ -41,6 +42,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public uint SumaNaSporeniePriVytvoreniu { get; set; }
         public string DatumUkonceniaSporeniaPriVytvoreniu { get; set; }
         public int ProgressSporenie { get; set; }
+        public int NaKtoréZberanieSaKliklo { get; set; }
 
         public void NahranieIndexuAkcie(int index)
         {
@@ -57,8 +59,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
                 }
             }
         }
-
-        public async void PrehranieAnimacieANavigovanieNaStranu(Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer animácia, Type StranaNaKtoruSaNviguje,Page StranaZKtorejSaNaviguje)
+        public async void PrehranieAnimacieANavigovanieNaStranu(Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer animácia, Type StranaNaKtoruSaNviguje, Page StranaZKtorejSaNaviguje)
         {
             await animácia.PlayAsync(0.0, 1.0, false);
             if (animácia.IsPlaying)
@@ -90,18 +91,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             }
         }
 
-        public delegate void PlatbaEventHandler(object sender, EventArgs args);
-
-        public event PlatbaEventHandler VykonanaPlatba;
-
-        protected virtual void OnVykonanáPlatba()
-        {
-            if (VykonanaPlatba != null)
-            {
-                VykonanaPlatba(this, EventArgs.Empty);
-               
-            }
-        }
+     
 
         public App()
         {
@@ -110,7 +100,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             indexAkcie = new int[100];
             GlobálnaPremenáInfaOPridanýchPeniazoch = new PridaniePeňazí.InfoOPridanýchPeniazoch[100];
             GlobálnaPremenaOPlatbe = new Platba.InfoOplatbe[100];
-        
+            GlobalnaPremenaVytvorenieZberania = new VytvorenieZberaniaPeňazí.VyzbieranePeniaze[3];
         }
 
    
