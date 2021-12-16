@@ -99,10 +99,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 (App.Current as App).Menažiakov = new string[PocetŽiakov];
                 for (int b = 0; b<PocetŽiakov;b++)
                 {
-                    
                     (App.Current as App).Menažiakov[b] = textbox[b].Text;
-
-                    }
+                }
 
                 this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
 

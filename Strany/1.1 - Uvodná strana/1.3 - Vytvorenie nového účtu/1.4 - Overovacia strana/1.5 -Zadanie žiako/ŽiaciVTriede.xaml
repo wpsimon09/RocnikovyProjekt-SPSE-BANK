@@ -20,29 +20,29 @@
             <Setter Property="Width" Value="178"/>
         </Style>
     </Page.Resources>
-    
+
     <Grid>
-        
+
         <ScrollViewer CornerRadius="20" Background="#FFB9B0B0" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible" Width="1020" Height="1000" RequestedTheme="Light" HorizontalAlignment="Center">
             <StackPanel BorderBrush="White" CornerRadius="20" BorderThickness="5">
                 <TextBlock Text="Vyplnte mena žiakov" FontSize="35" HorizontalAlignment="Center" FontFamily="Simplex" Padding="20" Foreground="White"/>
 
                 <StackPanel x:Name="StackovanieTextBoxov" >
-                <StackPanel.Resources>
-                    <Style TargetType="TextBox" x:Key="TxtBox" >
-                        <Setter Property="HeaderTemplate">
-                            <Setter.Value>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                                </DataTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Width" Value="178"/>
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBox" x:Key="TxtBox" >
+                            <Setter Property="HeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Width" Value="178"/>
                             <Setter Property="CornerRadius" Value="7"/>
                         </Style>
-                </StackPanel.Resources>
+                    </StackPanel.Resources>
 
-            </StackPanel>
+                </StackPanel>
                 <StackPanel  Orientation="Horizontal" >
                     <Button x:Name="Naspäť" CornerRadius="7" Click="Naspäť_Click" Height="40" Margin="20,10,10,20" VerticalAlignment="Top"  Style="{ThemeResource NavigationBackButtonNormalStyle}" Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
                     <Button x:Name="Vyčistiť" CornerRadius="7" Click="Vyčistiť_Click" Content="Vyčistiť údaje" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>

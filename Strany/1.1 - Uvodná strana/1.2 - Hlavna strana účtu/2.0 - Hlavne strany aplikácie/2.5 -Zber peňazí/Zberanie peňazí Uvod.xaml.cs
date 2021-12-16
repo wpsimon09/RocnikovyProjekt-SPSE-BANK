@@ -105,19 +105,19 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         private void Sporenie1_Click(object sender, RoutedEventArgs e)
         {
             (App.Current as App).NaKtoréZberanieSaKliklo = 1;
-            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+            VytvorenieAleboManažovanie(0, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
         }
 
         private void Sporenie2_Click(object sender, RoutedEventArgs e)
         {
             (App.Current as App).NaKtoréZberanieSaKliklo = 2;
-            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+            VytvorenieAleboManažovanie(1, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
         }
 
         private void Sporenie3_Click(object sender, RoutedEventArgs e)
         {
             (App.Current as App).NaKtoréZberanieSaKliklo = 3;
-            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+            VytvorenieAleboManažovanie(2, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
         }
 
         public void NahranieHodnôtDoZbierania(TextBlock názov, TextBlock dátum, TextBlock suma, int index, VytvorenieZberaniaPeňazí.VyzbieranePeniaze [] infoOVyzbieaniu)
@@ -125,14 +125,26 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             try
             {
                 názov.Text = infoOVyzbieaniu[index].NázovZberania;
-                dátum.Text = infoOVyzbieaniu[index].DátumDoKedySaMaVyzbirať;
-                suma.Text = infoOVyzbieaniu[index].SumaNaVyzbieranie.ToString();
+                dátum.Text = $"Do: {infoOVyzbieaniu[index].DátumDoKedySaMaVyzbirať}";
+                suma.Text = $"Cieľ: {infoOVyzbieaniu[index].SumaNaVyzbieranie.ToString()}€";
             }
             catch(System.ArgumentNullException)
             {
                 
             }
             
+        }
+
+        public void VytvorenieAleboManažovanie(int index, VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] infoOVyzbieaniu)
+        {
+            if(string.IsNullOrEmpty(infoOVyzbieaniu[index].NázovZberania))
+            {
+                this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(HlavnaStranaZberaniaPeňazí));
+            }
         }
     }
 }

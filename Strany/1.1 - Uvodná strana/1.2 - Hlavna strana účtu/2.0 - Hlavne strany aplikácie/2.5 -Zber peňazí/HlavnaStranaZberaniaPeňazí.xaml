@@ -51,22 +51,35 @@
             <Setter Property="Width" Value="300"/>
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="3"/>
-            <Setter Property="Margin" Value="20"/>
             <Setter Property="CornerRadius" Value="7"/>
         </Style>
     </Page.Resources>
 
     <Grid>
+        <Button x:Name="Naspäť" Height="59" Width="175" Click="Naspäť_Click" />
         <Grid  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center" Height="760" Width="791">
             <TextBlock x:Name="Nadpis" Width="513" Text="Ahoj ako sa mas" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,79,0,5">
-                <ListView Style="{StaticResource ListViewNormalStyle}" >
 
-                </ListView>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,120,0,15">
+                <StackPanel VerticalAlignment="Top" >
+                    <TextBlock  Style="{StaticResource Nadpis}" Margin="0,0,0,10" FontSize="20" Text="Zoznam mien žiakov" Width="225" Height="31" HorizontalAlignment="Center"/>
+                    <ListView x:Name="Nezaplatili" SelectionMode="Multiple" SelectionChanged="Nezaplatili_SelectionChanged" Style="{StaticResource ListViewNormalStyle}" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5,0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Margin="0,20,0,0">
+                        <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="290" Height="20"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
+                        <TextBlock x:Name="KtoVaetkoZaplatil1" Text="0/200€" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="PocetZaplatených"  Style="{StaticResource NormálnyText}" HorizontalAlignment="Left" Text="Zaplatilo: 10/20" Margin="0,7,0,0"/>
+                    </StackPanel>
+                </StackPanel>
 
-                <ListView Style="{StaticResource ListViewNormalStyle}">
 
-                </ListView>
             </StackPanel>
         </Grid>
     </Grid>

@@ -10,7 +10,6 @@
 
     <Grid>
         <Grid  Background="#2D3436"  Width="1020" CornerRadius="20" RequestedTheme="Light" HorizontalAlignment="Center" VerticalAlignment="Center" Height="444" BorderBrush="White" BorderThickness="5">
-
             <TextBlock Text="Prezrite si sporenie na stuškovú" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="0,30" Foreground="#FFF7F0F0" FontWeight="Bold"/>
             <Grid Width="800" Height="200" >
                 <GridView ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="#FFDADADA" BorderThickness="3" CornerRadius="10" Background="{StaticResource SystemControlAcrylicElementBrush}" SelectionChanged="GridView_SelectionChanged">
