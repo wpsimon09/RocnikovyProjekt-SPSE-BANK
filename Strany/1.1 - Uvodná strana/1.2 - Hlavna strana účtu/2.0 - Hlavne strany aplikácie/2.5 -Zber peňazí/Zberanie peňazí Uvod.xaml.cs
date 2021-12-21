@@ -146,5 +146,42 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 this.Frame.Navigate(typeof(HlavnaStranaZberaniaPeňazí));
             }
         }
+
+        private void Sporenie1_PravýKlik(object sender, RightTappedRoutedEventArgs e)
+        {
+            MenuFlyout sporenie1Menu = new MenuFlyout();
+            MenuFlyoutItem Upraviť1 = new MenuFlyoutItem { Text = "Upraviť" };
+            MenuFlyoutItem Vymazať1 = new MenuFlyoutItem { Text = "Vymazať" };
+            sporenie1Menu.ShowMode = FlyoutShowMode.TransientWithDismissOnPointerMoveAway;
+
+            Upraviť1.Click += Upraviť1_Click;
+            Vymazať1.Click += Vymazať1_Click;
+
+            sporenie1Menu.Items.Add(Upraviť1);
+            sporenie1Menu.Items.Add(Vymazať1);
+
+            FrameworkElement senderElement = sender as FrameworkElement;
+            sporenie1Menu.ShowAt(senderElement);
+        }
+
+        private void Vymazať1_Click(object sender, RoutedEventArgs e)
+        {
+            //nastavi sa hodnoty na null a visibility sa dá na collapsed
+        }
+
+        private void Upraviť1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+        }
+
+        private void Sporenie2_PravýmClick(object sender, RightTappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Sporenie3_PravýmClick(object sender, RightTappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

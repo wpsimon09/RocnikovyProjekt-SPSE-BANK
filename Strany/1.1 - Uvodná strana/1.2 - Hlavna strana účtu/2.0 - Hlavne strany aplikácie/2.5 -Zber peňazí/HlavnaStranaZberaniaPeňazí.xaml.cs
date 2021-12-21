@@ -147,6 +147,15 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                         break;
                     }
             }
+
+            if(DosiahnutyGoal.Value == 100)
+            {
+                UkončenieZberania.IsEnabled = true;
+            }
+            else
+            {
+                UkončenieZberania.IsEnabled = false;
+            }
         }
 
         public void NahratieInfoDoListView (int index,ListView []temp, ListView pôvodnyListView)
@@ -156,6 +165,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             ///potom to vyskušať pri navigovaní opačne: rozumej - nahratie selectnutých indexov do list viewu 
             ///ale asi to nebude fungovať, keďže musím ich zakliknuť v kóde a musí sa to spraviť sa mo bez nahrávania indexov
             ///dalšia možnosť je taká, že bude zbieranie len 1 a bude to spravené cez cage mod
+            ///
+
+
             try
             {
                 pôvodnyListView.SelectedValue = temp[index].SelectedValuePath;
