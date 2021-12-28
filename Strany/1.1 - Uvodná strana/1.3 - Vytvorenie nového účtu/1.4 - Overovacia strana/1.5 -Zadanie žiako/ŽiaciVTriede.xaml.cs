@@ -33,7 +33,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
        
         
         string[] MenoTextBoxu;
-        TextBox[] temp = new TextBox[PocetŽiakov];
         TextBox[] textbox = new TextBox[PocetŽiakov];
         string[] žiaci = new string[PocetŽiakov];
 
@@ -101,7 +100,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 {
                     (App.Current as App).Menažiakov[b] = textbox[b].Text;
                 }
-
+                (App.Current as App).JeTriedaPlneVytvorená = true;
                 this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
 
             }

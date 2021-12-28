@@ -104,35 +104,8 @@
                 </StackPanel>
             </Button>
 
-            <!-- Sporenie č.3-->
-            <Button x:Name="Sporenie3" Height="91" Width="530" HorizontalAlignment="Center" CornerRadius="25" Margin="0,10" Background="Transparent" Click="Sporenie3_Click" RightTapped="Sporenie3_PravýmClick">
-
-                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" BorderBrush="White" BorderThickness="2" CornerRadius="7" Width="509" HorizontalAlignment="Right">
-                        <StackPanel Margin="6,5" >
-                            <StackPanel Width="260" HorizontalAlignment="Left">
-                                <TextBlock x:Name="NázovZberania3" Text="Nieje vytvorené" Style="{StaticResource NormálnyText}"/>
-                            </StackPanel>
-                            <StackPanel  Orientation="Horizontal" Width="260" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Bottom">
-                                <TextBlock x:Name="VztbieranePeniaze3" Text="0€" Style="{StaticResource NormálnyText}"/>
-                                <TextBlock x:Name="DokedyTrebaVyzbierať3" Text="Do -.-.----" Style="{StaticResource NormálnyText}" Margin="10,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Right" />
-                        </StackPanel>
-
-                        <StackPanel Width="227">
-                            <StackPanel Margin="0,15,0,0" >
-                                <ProgressBar x:Name="DosiahnutyGoa3" BorderThickness="2"  CornerRadius="7" Width="174" Height="10"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
-                                <TextBlock x:Name="KtoVaetkoZaplatil3" Text="0/0" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                            </StackPanel>
-
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-                </Button>
-                
-                <StackPanel Orientation="Horizontal">
-                <Button x:Name="Naspat" Content="Napsäť" Foreground="White" RenderTransformOrigin="0.5,0.528" Click="Naspat_Click" Margin="30,0,340,0"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="Naspat" Content="Napsäť" Foreground="White" RenderTransformOrigin="0.5,0.528" Click="Naspat_Click" Margin="30,0,340,0" CornerRadius="7"/>
                 <StackPanel x:Name="StackPanelTlacidlomNaPridávanie" Width="126" Margin="10" HorizontalAlignment="Right">
                     <Button x:Name="ZberaniePeňazí" Background="Transparent" Height="77" CornerRadius="50" Width="80" HorizontalAlignment="Center"  Click="ZberaniePeňazí_Click">
                         <StackPanel Margin="-10,-6,-10,-7" >
@@ -141,7 +114,7 @@
                             </muxc:AnimatedVisualPlayer>
                         </StackPanel>
                     </Button>
-                    <TextBlock x:Name="PocetSporeni" Text="0/3" Style="{StaticResource NormálnyText}" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="PocetSporeni" Text="0/2" Style="{StaticResource NormálnyText}" HorizontalAlignment="Center"/>
                 </StackPanel>
 
             </StackPanel>

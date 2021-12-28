@@ -50,9 +50,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         private void Pokračovať_Click(object sender, RoutedEventArgs e)
         {
             InfoOsporeniNaStuzkovu DocasnaPremena = new InfoOsporeniNaStuzkovu();
-            DocasnaPremena = DoDocasnejPremene();
             if (string.IsNullOrEmpty(CielenaSuma.Text) ||
-                string.IsNullOrEmpty(DocasnaPremena.DatumUkoncenia)
+                UkoncenieSporenia.Date == null
                 )
             {
                 var msg = new MessageDialog("Neboli zadané všetky údaje", "Sporenie nebolo upravené/vytvorené");
@@ -60,6 +59,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
             else
             {
+                DocasnaPremena = DoDocasnejPremene();
+
                 DoGlobalnejPremenej(DocasnaPremena);
                 this.Frame.Navigate(typeof(SporenieNaStužkovú));
             }

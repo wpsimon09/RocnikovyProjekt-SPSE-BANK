@@ -88,10 +88,16 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                 if(DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia==0 )
                 {
                     GridSAnimaciou.Visibility = Visibility.Visible;
+                    
                     (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this);
+                    
                     StoryBoard.Begin();
+                    
                     CelkováSuma = CelkováSuma + DočasnáPremenáPridanýchPeniazoch.suma;
+                    
                     (App.Current as App).hlavnáSuma = CelkováSuma;
+                    (App.Current as App).NahranieIndexuAkcie(2);
+                    (App.Current as App).NahranieTextuDoHistorie(DočasnáPremenáPridanýchPeniazoch);
                 }
                 else if(DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia==1)
                 {
@@ -117,18 +123,18 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                             GridSAnimaciou.Visibility = Visibility.Visible;
                             (App.Current as App).SumaNaSporenie = (App.Current as App).SumaNaSporenie + DočasnáPremenáPridanýchPeniazoch.suma;
                             (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this);
+                            (App.Current as App).NahranieIndexuAkcie(4);
                             celkovaSuma = Convert.ToDouble((App.Current as App).SumaNaSporeniePriVytvoreniu);
                             vlozenaCena = Convert.ToDouble((App.Current as App).SumaNaSporenie);
                             Progress = Convert.ToInt32((vlozenaCena / celkovaSuma) * 100);
+                            
                             (App.Current as App).ProgressSporenie = Progress;
+                            (App.Current as App).NahranieTextuDoHistorie(DočasnáPremenáPridanýchPeniazoch);
+
                         }
                     }
                 }
-
                 DoGlobálnejPremenej(DočasnáPremenáPridanýchPeniazoch);
-                (App.Current as App).NahranieIndexuAkcie(2);
-                
-
             }
 
         }
@@ -145,19 +151,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
         public void DoGlobálnejPremenej(InfoOPridanýchPeniazoch temp)
         {
-            for(int b = 0; b<100; b++)
+            for(int b = 0; b<1; b++)
             {
-                if((App.Current as App).GlobálnaPremenáInfaOPridanýchPeniazoch[b].suma == 0)
-                {
-                    (App.Current as App).GlobálnaPremenáInfaOPridanýchPeniazoch[b].suma = temp.suma;
-                    (App.Current as App).GlobálnaPremenáInfaOPridanýchPeniazoch[b].KamSaPeniazeUlozia = temp.KamSaPeniazeUlozia+1;
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-                        
+               (App.Current as App).GlobálnaPremenáInfaOPridanýchPeniazoch[b].suma = temp.suma;
+               (App.Current as App).GlobálnaPremenáInfaOPridanýchPeniazoch[b].KamSaPeniazeUlozia = temp.KamSaPeniazeUlozia+1;       
             }
         }
 

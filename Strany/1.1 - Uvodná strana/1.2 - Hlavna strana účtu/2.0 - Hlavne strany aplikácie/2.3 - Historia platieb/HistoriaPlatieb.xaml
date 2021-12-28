@@ -5,57 +5,96 @@
     xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc ="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     >
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="Nadpis">
-            <Setter Property="Width" Value="1098"/>
-            <Setter Property="Height" Value="42"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="LineHeight" Value="20"/>
-            <Setter Property="Margin" Value="0,20,0,0"/>
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="Foreground" Value="#FFF7F0F0"/>
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="PrijatáPlatba">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="OdoslanáPlatba">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style TargetType="ListView" x:Key="ListViewNormalStyle">
+            <Setter Property="BackgroundSizing" Value="InnerBorderEdge"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Height" Value="300"/>
+            <Setter Property="Width" Value="480"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Background" Value="{StaticResource SystemListLowColor}"/>
         </Style>
     </Page.Resources>
 
 
 
     <Grid>
-        <!-- vytvorim nový stack panel kde sa budú dávať údaje bude mať taky backraund ako sporenie a bude mať border -->
-        <ScrollViewer Height ="800" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1140">
-            <StackPanel  x:Name="RootLayout" Orientation="Vertical" Height="685"  BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" >
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock" x:Key="PrijatáPlatba">
-                        <Setter Property="FontSize" Value="25"/>
-                        <Setter Property="Foreground" Value="DarkGreen"/>
-                        <Setter Property="Margin" Value="20" />
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="HorizontalAlignment" Value="Left"/>
-                    </Style>
-                    <Style TargetType="TextBlock" x:Key="OdoslanáPlatba">
-                        <Setter Property="FontSize" Value="25"/>
-                        <Setter Property="Foreground" Value="Red"/>
-                        <Setter Property="Margin" Value="20" />
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="HorizontalAlignment" Value="Left"/>
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Style="{StaticResource Nadpis}" Text="Prezrite si svoje príjmi a výdavky" Height="59"/>
-                <StackPanel Margin="30" Orientation="Horizontal">
+        <TextBlock Style="{StaticResource Nadpis}" Text="Prezrite si svoje príjmi a výdavky" HorizontalAlignment="Center" Margin="0,82,0,939" VerticalAlignment="Stretch"/>
 
-                    <Button x:Name="Naspäť" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"  VerticalAlignment="Top" Height="35" Width="43" Style="{StaticResource NavigationBackButtonNormalStyle}" RenderTransformOrigin="0.5,0.5" Click="Naspäť_Click">
-                        <Button.RenderTransform>
-                            <CompositeTransform ScaleX="1"/>
-                        </Button.RenderTransform>
-                    </Button>
+        <!-- vytvorim nový stack panel kde sa budú dávať údaje bude mať taky backraund ako sporenie a bude mať border -->
+        <Grid  x:Name="RootLayout"  BorderBrush="White" BorderThickness="5" Background="#2D3436" Width="1100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20" Height="699"  >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource Nadpis}" Text="Príjmy" HorizontalAlignment="Center" FontSize="24" Margin="0,0,0,5" />
+                        <ListView x:Name="Prijmy" Style="{StaticResource ListViewNormalStyle}" Background="#FF333333" BorderBrush="#FF78DC74" >
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel Margin="40,0,0,0">
+                        <TextBlock Text="Výdavky" Style="{StaticResource Nadpis}" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,5" />
+                        <ListView Name="Vydavky" Style="{StaticResource ListViewNormalStyle}" Background="#FF333333" BorderBrush="#FFD34F11"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </StackPanel>
+                <StackPanel Width="583" Height="158">
+                    <StackPanel Width="322" Margin="0,40,0,0" x:Name="StackPanelSInformáciami">
+                        <ProgressBar x:Name="PomerPrijmovAVydajkov" BorderBrush="White" Value="10" BorderThickness="2" Height="37" Width="320" CornerRadius="10" Foreground="#FF78DC74" Background="#FFD34F11" >
+
+                        </ProgressBar>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="Prijmy" FontSize="12" Foreground="#FF78DC74" />
+                            <TextBlock Text="/" Foreground="White" Margin="3,0" />
+                            <TextBlock Text="Výdavky" FontSize="12" FocusVisualPrimaryBrush="#FFD34F11" Foreground="#FFD34F11"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Prehlad hospodárenia" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="Vysledok" Foreground="#FF78DC74" FontSize="16" HorizontalAlignment="Center" Text="- 123 €" Margin="10,0,0,0"/>
+
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel/>
             </StackPanel>
-        </ScrollViewer>
+
+
+            <Button x:Name="Naspäť" Click="Naspäť_Click" Height="39" Margin="50,475,0,0" Width="100" VerticalAlignment="Top" CornerRadius="7" Content="Naspäť" Foreground="White"/>
+        </Grid>
     </Grid>
 </Page>

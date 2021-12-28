@@ -70,12 +70,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                             DoGlobálnejPremennej(1, vyzbieranePeniaze_l);
                             break;
                         }
-                    case 3:
-                        {
-                            vyzbieranePeniaze_l[2] = DoLocalnejPremennej();
-                            DoGlobálnejPremennej(2, vyzbieranePeniaze_l);
-                            break;
-                        }
+
                 }
                 this.Frame.Navigate(typeof(Zberanie_peňazí));
             }
@@ -107,6 +102,43 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 vyzbieranePeniaze.DátumDoKedySaMaVyzbirať = "null";
                 return vyzbieranePeniaze;
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            switch((App.Current as App).KtoreZberanieBudeUpravené)
+            {
+                case 1:
+                    {
+                        NahranieHôdnôtKtoréSaIdúUpraviť(0, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+                        break;
+                    }
+                case 2:
+                    {
+                        NahranieHôdnôtKtoréSaIdúUpraviť(1, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+                        break;
+                    }
+            }
+        }
+
+        public void NahranieHôdnôtKtoréSaIdúUpraviť(int index, VyzbieranePeniaze[] vyzbieranePeniazes)
+        {
+            try
+            {
+                CielenaSuma.Text = vyzbieranePeniazes[index].SumaNaVyzbieranie.ToString();
+                DôvodSporenia.Text = vyzbieranePeniazes[index].NázovZberania;
+                UkoncenieSporenia.Date = Convert.ToDateTime(vyzbieranePeniazes[index].DátumDoKedySaMaVyzbirať);
+            }
+            catch(ArgumentNullException)
+            {
+
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+
+            }
+
+
         }
 
 

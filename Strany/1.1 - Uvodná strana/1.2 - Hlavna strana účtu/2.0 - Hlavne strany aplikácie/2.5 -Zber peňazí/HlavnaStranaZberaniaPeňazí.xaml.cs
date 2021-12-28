@@ -36,48 +36,39 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         public double [] ZaplatenaSuma = new double[3];
         public double [] KolkoMaKazdyZaplatiť = new double [3];
         public ListView [] TempListView = new ListView [3];
+        public CacheMode[] cacheModes = new CacheMode[2];
+        DependencyProperty[] dependencyProperties = new DependencyProperty[2];
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            MenaŽiakov[0] = "Jessica";
-            MenaŽiakov[1] = "Šimon";
-            MenaŽiakov[2] = "Rijak";
-            MenaŽiakov[3] = "Tobiaš";
-            Array.Sort(MenaŽiakov);
+       
 
             
             switch((App.Current as App).NaKtoréZberanieSaKliklo)
             {
                 case 1:
                     {
-                        InfoOvyzbieranychPeniazoch[0] = (App.Current as App).GlobalnaPremenaVytvorenieZberania[0];
-                        KolkoMaKazdyZaplatiť[0] = Convert.ToDouble(Convert.ToDouble(InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie )/ 4);       //(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov
-                        Nadpis.Text = $"{InfoOvyzbieranychPeniazoch[0].NázovZberania}";
-                        //NahratieInfoDoListView(0, TempListView, Nezaplatili);
-                        //MenaŽiakov = (App.Current as App).Menažiakov;
+
+                        MenaŽiakov = (App.Current as App).Menažiakov;
                         Array.Sort(MenaŽiakov);
+
+                        InfoOvyzbieranychPeniazoch[0] = (App.Current as App).GlobalnaPremenaVytvorenieZberania[0];
+                        KolkoMaKazdyZaplatiť[0] = Convert.ToDouble(Convert.ToDouble(InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie )/ Convert.ToDouble((App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov) );       //(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov
+                        Nadpis.Text = $"{InfoOvyzbieranychPeniazoch[0].NázovZberania}";
+
                         Nezaplatili.ItemsSource = MenaŽiakov;
                         break;
                     }
                 case 2:
                     {
+                        MenaŽiakov = (App.Current as App).Menažiakov;
+                        Array.Sort(MenaŽiakov);
+
+                       
                         InfoOvyzbieranychPeniazoch[1] = (App.Current as App).GlobalnaPremenaVytvorenieZberania[1];
                         Nadpis.Text = $"{InfoOvyzbieranychPeniazoch[1].NázovZberania}";
-                        KolkoMaKazdyZaplatiť[1] = Convert.ToDouble(InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie / 4);       //(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov
+                        KolkoMaKazdyZaplatiť[1] = Convert.ToDouble(Convert.ToDouble(InfoOvyzbieranychPeniazoch[1].SumaNaVyzbieranie) / Convert.ToDouble((App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov));       //(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov
 
-                        //MenaŽiakov = (App.Current as App).Menažiakov;
-
-                        Array.Sort(MenaŽiakov);
-                        Nezaplatili.ItemsSource = MenaŽiakov;
-                        break;
-                    }
-                case 3:
-                    {
-                        InfoOvyzbieranychPeniazoch[2] = (App.Current as App).GlobalnaPremenaVytvorenieZberania[2];
-                        Nadpis.Text = $"{InfoOvyzbieranychPeniazoch[2].NázovZberania}";
-                        KolkoMaKazdyZaplatiť[2] = Convert.ToDouble(InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie / 4);       //(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov
-                        // MenaŽiakov = (App.Current as App).Menažiakov;
-                        Array.Sort(MenaŽiakov);
                         Nezaplatili.ItemsSource = MenaŽiakov;
                         break;
                     }
@@ -88,29 +79,43 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         }
 
         private void Naspäť_Click(object sender, RoutedEventArgs e)
-        {
+        {         
             this.Frame.Navigate(typeof(Zberanie_peňazí));
+            switch ((App.Current as App).NaKtoréZberanieSaKliklo)
+            {
+                case 1:
+                    {
+                        /*
+                         dependencyProperties[0].GetMetadata(Nezaplatili.GetType());
+                        cacheModes[0].SetValue(dependencyProperties[0],Nezaplatili);
+                        break;
+                        */
+                        break;
+
+
+                    }
+                case 2:
+                    {
+                        /*
+                        dependencyProperties[0].GetMetadata(Nezaplatili.GetType());
+                        cacheModes[1].ReadLocalValue(dependencyProperties[1]);
+                        break;
+                        */
+                        break;
+                    }
+            }
         }
 
-        private void Nezaplatili_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
 
         public int nd;
         public int index;
         public int[,] SelctnuteIndexy = new int[3,4];
 
-        private void TlacidloNaVykliknutie_Checked(object sender, RoutedEventArgs e)
-        {
-                   
-        }
 
         private void Nezaplatili_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             nd = Nezaplatili.SelectedItems.Count();
-            PocetZaplatených.Text = $"Zaplatilo: {nd}/4";
-
+            PocetZaplatených.Text = $"Zaplatilo: {nd}/{(App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov}";
             
             double KolkoSaVyzbieralo = new double();
 
@@ -118,31 +123,24 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             {
                 case 1:
                     {
-                        
                         //TempListView[0].SelectedValue = Nezaplatili.SelectedValuePath;
                         KolkoSaVyzbieralo = (KolkoSaVyzbieralo + KolkoMaKazdyZaplatiť[0]) * nd;
                         KtoVaetkoZaplatil1.Text = $"{KolkoSaVyzbieralo} / {InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie} €";
                         DosiahnutyGoal.Value = Convert.ToInt32((KolkoSaVyzbieralo / InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie) * 100);
-                        (App.Current as App).hlavnáSuma = (App.Current as App).hlavnáSuma + Convert.ToUInt32(KolkoSaVyzbieralo);
+                        (App.Current as App).ProgressZberania[0] = DosiahnutyGoal.Value;
+                        (App.Current as App).KolkoSaZatialVyzbieralo[0] = KolkoSaVyzbieralo;
+                        //dependencyProperties[0].GetMetadata(Nezaplatili.SelectedItems.GetType());
+                        //cacheModes[0].GetValue(dependencyProperties[0]);
                         break;
                     }
                 case 2:
                     {
-                        TempListView[1].SelectedValue = Nezaplatili.SelectedValuePath;
+                        //TempListView[1].SelectedValue = Nezaplatili.SelectedValuePath;
                         KolkoSaVyzbieralo = (KolkoSaVyzbieralo + KolkoMaKazdyZaplatiť[1]) * nd;
                         KtoVaetkoZaplatil1.Text = $"{KolkoSaVyzbieralo} / {InfoOvyzbieranychPeniazoch[1].SumaNaVyzbieranie} €";
-                        DosiahnutyGoal.Value = Convert.ToInt32(KolkoSaVyzbieralo / InfoOvyzbieranychPeniazoch[1].SumaNaVyzbieranie) * 100;
-                        (App.Current as App).hlavnáSuma = (App.Current as App).hlavnáSuma + Convert.ToUInt32(KolkoSaVyzbieralo);
-
-                        break;
-                    }
-                case 3:
-                    {
-                        TempListView[2].SelectedValue = Nezaplatili.SelectedValuePath;
-                        KolkoSaVyzbieralo = (KolkoSaVyzbieralo + KolkoMaKazdyZaplatiť[2]) * nd;
-                        KtoVaetkoZaplatil1.Text = $"{KolkoSaVyzbieralo} / {InfoOvyzbieranychPeniazoch[2].SumaNaVyzbieranie} €";
-                        DosiahnutyGoal.Value = Convert.ToInt32(KolkoSaVyzbieralo / InfoOvyzbieranychPeniazoch[2].SumaNaVyzbieranie) * 100;
-                        (App.Current as App).hlavnáSuma = (App.Current as App).hlavnáSuma + Convert.ToUInt32(KolkoSaVyzbieralo);
+                        DosiahnutyGoal.Value = Convert.ToInt32((KolkoSaVyzbieralo / InfoOvyzbieranychPeniazoch[1].SumaNaVyzbieranie) *100);
+                        (App.Current as App).ProgressZberania[1] = DosiahnutyGoal.Value;
+                        (App.Current as App).KolkoSaZatialVyzbieralo[1] = KolkoSaVyzbieralo;
 
                         break;
                     }
@@ -160,13 +158,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         public void NahratieInfoDoListView (int index,ListView []temp, ListView pôvodnyListView)
         {
-            ///
-            ///spraviť forech pre listview a nahrať indexy do premenej SelectnuteIndexy
-            ///potom to vyskušať pri navigovaní opačne: rozumej - nahratie selectnutých indexov do list viewu 
-            ///ale asi to nebude fungovať, keďže musím ich zakliknuť v kóde a musí sa to spraviť sa mo bez nahrávania indexov
-            ///dalšia možnosť je taká, že bude zbieranie len 1 a bude to spravené cez cage mod
-            ///
-
 
             try
             {
@@ -182,5 +173,34 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
 
         }
+
+        private void UkončenieZberania_Click(object sender, RoutedEventArgs e)
+        {
+            switch ((App.Current as App).NaKtoréZberanieSaKliklo)
+            {
+                case 1:
+                    {
+                        (App.Current as App).KtoreZberanieJeUžHotove= 1;
+                        (App.Current as App).NahranieTextuDoHistorie((App.Current as App).GlobalnaPremenaVytvorenieZberania[0]);
+                        (App.Current as App).hlavnáSuma = (App.Current as App).hlavnáSuma + InfoOvyzbieranychPeniazoch[0].SumaNaVyzbieranie;
+                        break;
+                    }
+                case 2:
+                    {
+                        (App.Current as App).NahranieTextuDoHistorie((App.Current as App).GlobalnaPremenaVytvorenieZberania[0]); ;
+                        (App.Current as App).KtoreZberanieJeUžHotove = 2;
+                        (App.Current as App).hlavnáSuma = (App.Current as App).hlavnáSuma + InfoOvyzbieranychPeniazoch[1].SumaNaVyzbieranie;
+                        break;
+                    }
+            }
+            (App.Current as App).NahranieIndexuAkcie(5);
+            
+            this.Frame.Navigate(typeof(Zberanie_peňazí));
+        }
+
+        
+
+
+
     }
 }

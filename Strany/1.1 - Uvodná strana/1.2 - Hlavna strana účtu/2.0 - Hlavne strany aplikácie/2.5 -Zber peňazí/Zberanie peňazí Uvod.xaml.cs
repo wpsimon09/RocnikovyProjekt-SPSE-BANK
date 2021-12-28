@@ -24,6 +24,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     public sealed partial class Zberanie_peňazí : Page
     {
         int PocetZobrazenýchSporení = 0;
+        public int KtoreSporenieSaIdeUpraviť;
+
+
         public Zberanie_peňazí()
         {
             this.InitializeComponent();
@@ -31,7 +34,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
             Sporenie1.Visibility = Visibility.Collapsed;
             Sporenie2.Visibility = Visibility.Collapsed;
-            Sporenie3.Visibility = Visibility.Collapsed;
         }
 
         private void Naspat_Click(object sender, RoutedEventArgs e)
@@ -44,31 +46,39 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             {
                 case 0:
                     {
-                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
-                        PocetZobrazenýchSporení++;
-                        Sporenie1.Visibility = Visibility.Visible;
-                        break;
+                        if(Sporenie1.Visibility == Visibility.Visible)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            PocetZobrazenýchSporení++;
+                            (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
+                            Sporenie1.Visibility = Visibility.Visible;
+                            break;
+                        }
+                        
                     }
                 case 1:
                     {
-                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
-                        PocetZobrazenýchSporení++;
-                        Sporenie2.Visibility = Visibility.Visible;
-                        break;
-                    }
-                case 2:
-                    {
-                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
-                        PocetZobrazenýchSporení++;
-                        Sporenie3.Visibility = Visibility;
-                        StackPanelTlacidlomNaPridávanie.Visibility = Visibility.Collapsed;
-                        Naspat.Margin = new Thickness(30);
-                        break;
+                        if(Sporenie2.Visibility == Visibility.Visible)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            ZberaniePeňazí.Visibility = Visibility.Collapsed;
+                            PocetZobrazenýchSporení++;
+                            (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
+                            Sporenie2.Visibility = Visibility.Visible;
+                            break;
+                        }
+                        
                     }
                     
             }
-            PocetSporeni.Text = $"{PocetZobrazenýchSporení}/3";
-            
+            PocetSporeni.Text = $"{PocetZobrazenýchSporení}/2";
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -91,14 +101,37 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
             }
 
-            if ((App.Current as App).GlobalnaPremenaVytvorenieZberania[2].NázovZberania != string.Empty)
+            switch ((App.Current as App).KtoreZberanieJeUžHotove)
             {
-                NahranieHodnôtDoZbierania(NázovZberania3, DokedyTrebaVyzbierať3, VztbieranePeniaze1, 2, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+                case 1:
+                    {
+                        VymazanieUkoncenehoSporenia(NázovZberania1, DokedyTrebaVyzbierať1, VztbieranePeniaze1, 0, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+                        break;
+                    }
+                case 2:
+                    {
+                        VymazanieUkoncenehoSporenia(NázovZberania2, DokedyTrebaVyzbierať2, VztbieranePeniaze2, 1, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+                        break;
+                    }
             }
-            else
+
+            switch((App.Current as App).NaKtoréZberanieSaKliklo)
             {
+                case 1:
+                    {
+                        KtoVaetkoZaplatil1.Text = $"{(App.Current as App).KolkoSaZatialVyzbieralo[0]}/{(App.Current as App).GlobalnaPremenaVytvorenieZberania[0].SumaNaVyzbieranie}";
+                        DosiahnutyGoal.Value = (App.Current as App).ProgressZberania[0];
+                        break;
+                    }
+                case 2:
+                    {
+                        DosiahnutyGoa2.Value = (App.Current as App).ProgressZberania[1];
+                        KtoVaetkoZaplatil2.Text = $"{(App.Current as App).KolkoSaZatialVyzbieralo[1]}/{(App.Current as App).GlobalnaPremenaVytvorenieZberania[1].SumaNaVyzbieranie}";
+                        break;
+                    }
 
             }
+ 
 
         }
 
@@ -120,6 +153,14 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             VytvorenieAleboManažovanie(2, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
         }
 
+        /// <summary>
+        /// nahrá hodnoty, ktoré sa obrazia pri náhľade zberania
+        /// </summary>
+        /// <param name="názov"></param>
+        /// <param name="dátum"></param>
+        /// <param name="suma"></param>
+        /// <param name="index"></param>
+        /// <param name="infoOVyzbieaniu"></param>
         public void NahranieHodnôtDoZbierania(TextBlock názov, TextBlock dátum, TextBlock suma, int index, VytvorenieZberaniaPeňazí.VyzbieranePeniaze [] infoOVyzbieaniu)
         {
             try
@@ -166,22 +207,133 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         private void Vymazať1_Click(object sender, RoutedEventArgs e)
         {
-            //nastavi sa hodnoty na null a visibility sa dá na collapsed
+            (App.Current as App).KtoreZberanieBudeUpravené = 1;
+            VymazanieSporenia(NázovZberania1, DokedyTrebaVyzbierať1, VztbieranePeniaze1, 0, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
         }
 
         private void Upraviť1_Click(object sender, RoutedEventArgs e)
         {
+            (App.Current as App).KtoreZberanieBudeUpravené = 1;
             this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
         }
+
 
         private void Sporenie2_PravýmClick(object sender, RightTappedRoutedEventArgs e)
         {
 
+            MenuFlyout sporenie2Menu = new MenuFlyout();
+            MenuFlyoutItem Upraviť2 = new MenuFlyoutItem { Text = "Upraviť" };
+            MenuFlyoutItem Vymazať12 = new MenuFlyoutItem { Text = "Vymazať" };
+            sporenie2Menu.ShowMode = FlyoutShowMode.TransientWithDismissOnPointerMoveAway;
+
+            Upraviť2.Click += Upraviť2_Click;
+            Vymazať12.Click += Vymazať12_Click;
+
+            sporenie2Menu.Items.Add(Upraviť2);
+            sporenie2Menu.Items.Add(Vymazať12);
+
+            FrameworkElement senderElemnt = sender as FrameworkElement;
+            sporenie2Menu.ShowAt(senderElemnt);
+
         }
 
-        private void Sporenie3_PravýmClick(object sender, RightTappedRoutedEventArgs e)
+        private void Vymazať12_Click(object sender, RoutedEventArgs e)
         {
+            (App.Current as App).KtoreZberanieBudeUpravené = 2;
+            VymazanieSporenia(NázovZberania2, DokedyTrebaVyzbierať2, VztbieranePeniaze2, 1, (App.Current as App).GlobalnaPremenaVytvorenieZberania);
+        }
 
+        private void Upraviť2_Click(object sender, RoutedEventArgs e)
+        {
+            (App.Current as App).KtoreZberanieBudeUpravené = 2;
+            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
+        }
+
+
+        public void VymazanieSporenia(TextBlock názov, TextBlock dátum, TextBlock suma, int index, VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] infoOVyzbieaniu)
+        {
+            názov.Text = "Nieje vytvorené";
+            dátum.Text = "--.--.----";
+            suma.Text = "0€";
+
+            infoOVyzbieaniu[index].DátumDoKedySaMaVyzbirať = null;
+            infoOVyzbieaniu[index].NázovZberania = string.Empty;
+            infoOVyzbieaniu[index].SumaNaVyzbieranie = 0;
+
+            switch((App.Current as App).KtoreZberanieBudeUpravené)
+            {
+                case 1:
+                    {
+                        ZberaniePeňazí.Visibility = Visibility.Visible;
+                        Sporenie1.Visibility = Visibility.Collapsed;
+                        PocetZobrazenýchSporení--;
+
+                        break;
+                    }
+                case 2:
+                    {
+                        ZberaniePeňazí.Visibility = Visibility.Visible;
+                        Sporenie2.Visibility = Visibility.Collapsed;
+                        PocetZobrazenýchSporení--;
+
+                        break;
+                    }
+            }
+
+            
+            if(PocetZobrazenýchSporení == 2)
+            {
+                StackPanelTlacidlomNaPridávanie.Visibility = Visibility.Collapsed;
+            }
+            else if (PocetZobrazenýchSporení == 1 || PocetZobrazenýchSporení == 0)
+            {
+                StackPanelTlacidlomNaPridávanie.Visibility = Visibility.Visible;
+            }
+
+            PocetSporeni.Text = $"{PocetZobrazenýchSporení}/2";
+        }
+
+        public void VymazanieUkoncenehoSporenia(TextBlock názov, TextBlock dátum, TextBlock suma, int index, VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] infoOVyzbieaniu)
+        {
+            názov.Text = "Nieje vytvorené";
+            dátum.Text = "--.--.----";
+            suma.Text = "0€";
+
+            infoOVyzbieaniu[index].DátumDoKedySaMaVyzbirať = null;
+            infoOVyzbieaniu[index].NázovZberania = string.Empty;
+            infoOVyzbieaniu[index].SumaNaVyzbieranie = 0;
+
+            switch ((App.Current as App).KtoreZberanieJeUžHotove)
+            {
+                case 1:
+                    {
+                        ZberaniePeňazí.Visibility = Visibility.Visible;
+                        Sporenie1.Visibility = Visibility.Collapsed;
+                        PocetZobrazenýchSporení--;
+
+                        break;
+                    }
+                case 2:
+                    {
+                        ZberaniePeňazí.Visibility = Visibility.Visible;
+                        Sporenie2.Visibility = Visibility.Collapsed;
+                        PocetZobrazenýchSporení--;
+
+                        break;
+                    }
+            }
+
+
+            if (PocetZobrazenýchSporení == 2)
+            {
+                StackPanelTlacidlomNaPridávanie.Visibility = Visibility.Collapsed;
+            }
+            else if (PocetZobrazenýchSporení == 1 || PocetZobrazenýchSporení == 0)
+            {
+                StackPanelTlacidlomNaPridávanie.Visibility = Visibility.Visible;
+            }
+            (App.Current as App).KtoreZberanieJeUžHotove = 0;
+            PocetSporeni.Text = $"{PocetZobrazenýchSporení}/2";
         }
     }
 }

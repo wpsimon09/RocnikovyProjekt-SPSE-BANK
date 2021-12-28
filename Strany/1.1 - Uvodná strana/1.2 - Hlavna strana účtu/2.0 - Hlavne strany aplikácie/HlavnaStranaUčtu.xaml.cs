@@ -17,6 +17,8 @@ using Windows.UI.Popups;
 using Windows.Storage;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -186,7 +188,17 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
         private void ZberPeňazí1_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Zberanie_peňazí));
+            if ((App.Current as App).JeTriedaPlneVytvorená == true)
+            {
+                this.Frame.Navigate(typeof(Zberanie_peňazí));
+            }
+            else
+            {
+                var msg = new MessageDialog("Chýba kompletné vyplnenie triednych údajov", "Sporenie sa nedá vytvoriť");
+                msg.ShowAsync();
+
+                this.Frame.Navigate(typeof(Vytvorenie_triedy));
+            }
         }
     }
 }
