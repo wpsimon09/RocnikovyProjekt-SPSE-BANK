@@ -130,11 +130,15 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                     else
                     {
                         HlavnaSuma = HlavnaSuma - GlobalPremena.PlatenáSuma;
+
                         (App.Current as App).hlavnáSuma = HlavnaSuma;
                         (App.Current as App).NahranieIndexuAkcie(1);
+
                         DoGlobálnejPremenéj(GlobalPremena);
+
                         GridSAnimaciou.Visibility = Visibility.Visible;
                         (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu),this);
+                        
                         (App.Current as App).NahranieTextuDoHistorie(GlobalPremena);
                     }
                 }

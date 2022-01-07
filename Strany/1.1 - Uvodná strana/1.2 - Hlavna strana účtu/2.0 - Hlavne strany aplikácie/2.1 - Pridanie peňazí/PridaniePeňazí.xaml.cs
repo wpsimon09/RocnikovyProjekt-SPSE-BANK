@@ -73,18 +73,23 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
             DočasnáPremenáPridanýchPeniazoch = ZískanieInfa();
             
             
-                
+             
             if (DočasnáPremenáPridanýchPeniazoch.suma == 0||
                DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia == -1) //pokial niesu vypísané všetky údaje
 
             {
+                //zobrazí sa správa otom, že niesu uvedené všetky údaje
 
                 var msg = new MessageDialog("Pridanie peňaz neúspešné", "Neboli zadané všetky údaje");
                 msg.ShowAsync();
                 this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
             }
-            else //ak sú všetky údaje vypísané
+            
+            //pokial sú všetky údaje vyplnené
+            else
             {
+                //Pokial je na comboboxe vybraná možnosť pod indexom 0
+
                 if(DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia==0 )
                 {
                     GridSAnimaciou.Visibility = Visibility.Visible;
@@ -99,8 +104,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                     (App.Current as App).NahranieIndexuAkcie(2);
                     (App.Current as App).NahranieTextuDoHistorie(DočasnáPremenáPridanýchPeniazoch);
                 }
+
+                // Pokial je na comboboxe vybraná možnosť pod indexom 1
                 else if(DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia==1)
                 {
+                    //skontroluje, či je vôbec sporenie vytvorené ak nieje informuje užívatela pomocou správy
                     if ((App.Current as App).SumaNaSporeniePriVytvoreniu == 0 ||
                         string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
                         )
@@ -110,14 +118,20 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                         this.Frame.Navigate(typeof(Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
 
                     }
+
+                    //ak je sporenie vytvorené
                     else
                     {
+
+                        //ak ak je suma na sporení väčšia alebo rovná sume ktorá sa má vyzbierať tak je o tom informovaný užívateľ
                         if ((App.Current as App).SumaNaSporenie >= (App.Current as App).SumaNaSporeniePriVytvoreniu)
                         {
                             var msg1 = new MessageDialog("Vyzbierali ste všetky prostriedky na sporenie, sporenie si môžte upraviť", "Sporenie dosiahnuté");
                             msg1.ShowAsync();
                             this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
                         }
+
+                        //ak je všetko v poriadku, prehrá animáciu a pripíše požadovanú sumu
                         else
                         {
                             GridSAnimaciou.Visibility = Visibility.Visible;
@@ -134,7 +148,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                         }
                     }
                 }
-                DoGlobálnejPremenej(DočasnáPremenáPridanýchPeniazoch);
+
+                //vloží informácie o vykonanéj platbe do globálnej premenej ak bola úspešná
+                DoGlobálnejPremenej(DočasnáPremenáPridanýchPeniazoch); 
             }
 
         }
@@ -149,6 +165,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
             this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
         }
 
+        /// <summary>
+        /// vloží informácie o inkase do globálnej premennéj
+        /// </summary>
+        /// <param name="temp">Informácie, ktoré sa majú uložiť</param>
         public void DoGlobálnejPremenej(InfoOPridanýchPeniazoch temp)
         {
             for(int b = 0; b<1; b++)

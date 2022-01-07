@@ -200,5 +200,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                 this.Frame.Navigate(typeof(Vytvorenie_triedy));
             }
         }
+
+        private void VoľnýČas1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax.ZábavaARelax));
+        }
     }
 }
