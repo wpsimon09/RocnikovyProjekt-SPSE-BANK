@@ -16,11 +16,11 @@
 
         <Style TargetType="StackPanel" x:Key="MenuAVysledky">
             <Setter Property="Width" Value="450" />
-            <Setter Property="Background" Value="Black" />
+            <Setter Property="Background" Value="#454d4f" />
             <Setter Property="BorderBrush" Value="White" />
             <Setter Property="BorderThickness" Value="3" />
             <Setter Property="CornerRadius" Value="10"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center" />
             
         </Style>
@@ -30,6 +30,29 @@
             <Setter Property="Height" Value="100" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="NajlepsieCasi">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Width" Value="86" />
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Nadpis">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Foreground" Value="#FFF7F0F0"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="StackPanel" x:Key="StackPanelSCasmi">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="15,0"/>
         </Style>
 
     </Page.Resources>
@@ -45,25 +68,43 @@
                             </StackPanel.Background>
                             <StackPanel Height="472" Orientation="Horizontal">
                                 <Grid Width="665" BorderBrush="White" BorderThickness="3">
-                                    <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok1}" />
+                                    <Image x:Name="Obrazok1" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok1}" PointerPressed="Obrazok1_PointerPressed" />
                                 </Grid>
                                 <Grid Width="665" BorderBrush="White" BorderThickness="3">
-                                    <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok2}"/>
+                                    <Image x:Name="Obrazok2" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok2}" PointerPressed="Obrazok1_PointerPressed"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Height="472" Orientation="Horizontal" BorderBrush="White" BorderThickness="3">
                                 <Grid Width="665" BorderBrush="White" BorderThickness="3">
-                                    <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok3}"/>
+                                    <Image x:Name="Obrazok3" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok3 }" PointerPressed ="Obrazok1_PointerPressed"/>
                                 </Grid>
                                 <Grid Width="665" BorderBrush="White" BorderThickness="3">
-                                    <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok4}"/>
+                                    <Image x:Name="Obrazok4" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok4}" PointerPressed="Obrazok1_PointerPressed"/>
                                 </Grid>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-                <StackPanel Style="{StaticResource MenuAVysledky}" Height="940">
-                    <Button x:Name="Naspat" Content="Napat" Click="Naspat_Click" Foreground="White"/>
+                <StackPanel Style="{StaticResource MenuAVysledky}" Height="940" >
+                    <TextBlock Text="Výsledky" Style="{StaticResource Nadpis}"/>
+                    <TextBlock Text="Najlepšie časy" Margin="15,8" FontSize="18"/>
+
+                    <StackPanel HorizontalAlignment="Left" Style="{StaticResource StackPanelSCasmi}" >
+                        <TextBlock x:Name="cas1" Style="{StaticResource NajlepsieCasi}" Foreground="Gold"  Text="{x:Bind hra.NajlepsieCasi[0].ToString(),Mode=OneWay}"/>
+                        <TextBlock x:Name="cas2"  Style="{StaticResource NajlepsieCasi}" Foreground="Silver" Text="{x:Bind hra.NajlepsieCasi[1].ToString(), Mode=OneWay}"/>
+                        <TextBlock x:Name="cas3"  Style="{StaticResource NajlepsieCasi}" Foreground="#CD7F32" Text="{x:Bind hra.NajlepsieCasi[2].ToString() , Mode=OneWay}"/>
+                    </StackPanel>
+                    <StackPanel >
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton IsEnabled="False" />
+                            <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <Button x:Name="Naspat" Content="Napat" Click="Naspat_Click" Foreground="White" Margin="0,40"/>
+                </StackPanel>
+                <StackPanel>
+                    
                 </StackPanel>
             </StackPanel>
         </StackPanel>

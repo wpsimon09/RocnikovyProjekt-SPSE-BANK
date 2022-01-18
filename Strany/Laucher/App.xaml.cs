@@ -22,6 +22,8 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie._2._4._1___Pridať_sporenie;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax;
+
 namespace Ročňíkový_projekt___Aplikácia_pre_banku
 {
 
@@ -77,6 +79,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public double Príjmy { get; set; }
         public double Výdavky { get; set; }
         public int[] PrijemAleboVýdavok { get; set; } //1- príjem 2-výdavok
+
+        //----------------------------Premenné pri hre -------------------------------------//
+        public Hra GlobalNaPremenaHry { get; set; }
 
 
         /// <summary>
@@ -234,6 +239,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            GlobalNaPremenaHry = new Hra();
             KolkoSaZatialVyzbieralo = new double[2];
             Príjmy = 0;
             Výdavky = 0;
