@@ -15,7 +15,7 @@
 
 
 
-            <TextBlock Width="1098" Text="Pridať peniaze do triédneho fondu" TextAlignment="Center" LineHeight="20" Margin="10,165,0,0" FontSize="40" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.496,2.969" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <TextBlock Width="1098" Text="Pridať peniaze do triedneho fondu" TextAlignment="Center" LineHeight="20" Margin="10,165,0,0" FontSize="40" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.496,2.969" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
             <TextBox x:Name="VloženáSuma" CornerRadius="7" Margin="0,285,0,0" Header="Vložená suma" Width="225" HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" BeforeTextChanging="VloženáSumaZmena">
                 <TextBox.HeaderTemplate>
@@ -32,8 +32,8 @@
                         <TextBlock Text="{Binding}" Foreground="White" FontSize=" 16"/>
                     </DataTemplate>
                 </ComboBox.HeaderTemplate>
-                <ComboBoxItem Content="Triedný fond"/>
-                <ComboBoxItem Content="Sporenie na stuškovú"/>
+                <ComboBoxItem Content="Triedny fond"/>
+                <ComboBoxItem Content="Sporenie na stužkovú"/>
             </ComboBox>
             <Button x:Name="Pokračovať" Margin="633,462,0,0" VerticalAlignment="Top" Height="28" Width="30" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Click="Pokračovať_Click"  >
                 <Button.RenderTransform>

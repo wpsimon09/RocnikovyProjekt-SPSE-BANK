@@ -80,7 +80,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
             {
                 //zobrazí sa správa otom, že niesu uvedené všetky údaje
 
-                var msg = new MessageDialog("Pridanie peňaz neúspešné", "Neboli zadané všetky údaje");
+                var msg = new MessageDialog("Pridanie peňazí neúspešné", "Neboli zadané všetky údaje");
                 msg.ShowAsync();
                 this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
             }
@@ -108,12 +108,12 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                 // Pokial je na comboboxe vybraná možnosť pod indexom 1
                 else if(DočasnáPremenáPridanýchPeniazoch.KamSaPeniazeUlozia==1)
                 {
-                    //skontroluje, či je vôbec sporenie vytvorené ak nieje informuje užívatela pomocou správy
+                    //skontroluje, či je vôbec sporenie vytvorené ak nie je informuje užívatela pomocou správy
                     if ((App.Current as App).SumaNaSporeniePriVytvoreniu == 0 ||
                         string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
                         )
                     {
-                        var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nieje vytvorené");
+                        var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nie je vytvorené");
                         msg.ShowAsync();
                         this.Frame.Navigate(typeof(Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
 

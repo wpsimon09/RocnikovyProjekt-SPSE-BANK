@@ -34,17 +34,18 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             {
                 try
                 {
-                    _najCas[0] = value[0];
-                    _najCas[1] = value[1];
-                    _najCas[2] = value[2];
-                    NajlepsieCasi = _najCas;
+                    NajlepsieCasi[0]= value[0];
+                    NajlepsieCasi[1]= value[1];
+                    NajlepsieCasi[2]= value[2];
+                    OnPropertyChanged();
+
+
                 }
-                catch(System.NullReferenceException)
+                catch (System.NullReferenceException)
                 {
 
                 }
                 
-                OnPropertyChanged();
             }
         }
       
@@ -71,7 +72,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             Obrazok2 = new Thickness(x[1], y[1], 0, 0);
             Obrazok3 = new Thickness(x[2], y[2],0,0);
             Obrazok4 = new Thickness(x[3], y[3], 0,0);
-
         }
 
         /// <summary>
@@ -98,6 +98,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 }
             }
             aktualnyCas = cas;
+            OnPropertyChanged();
             Array.Sort(NajlepsieCasi);
         }
 

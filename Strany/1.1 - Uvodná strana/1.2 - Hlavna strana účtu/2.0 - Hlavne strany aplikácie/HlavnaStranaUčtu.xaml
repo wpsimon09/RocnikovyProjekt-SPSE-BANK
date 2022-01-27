@@ -82,9 +82,9 @@
 
             <TextBlock x:Name="Platba" Text="Platba" Foreground="White" HorizontalAlignment="Center" Height="25" Margin="0,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
 
-            <TextBlock x:Name="VlozenieProstriedkov" Text="Vloženie prostreidkov" Foreground="White" HorizontalAlignment="Left" Height="25" Margin="50,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+            <TextBlock x:Name="VlozenieProstriedkov" Text="Vloženie prostriedkov" Foreground="White" HorizontalAlignment="Left" Height="25" Margin="50,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
 
-            <TextBlock x:Name="HistoriaPlatieb" Text="Sporenie" HorizontalAlignment="Left" Height="25" Margin="970,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
+            <TextBlock x:Name="HistoriaPlatieb" Text="História" HorizontalAlignment="Left" Height="25" Margin="970,20,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
 
             <TextBlock x:Name="Sporenie" Text="Sporenie" HorizontalAlignment="Left" Height="25" Margin="50,365,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontFamily="Simplex" FontSize="18" FontWeight="Normal" Visibility="Collapsed" RequestedTheme="Default" TextAlignment="Center"/>
 

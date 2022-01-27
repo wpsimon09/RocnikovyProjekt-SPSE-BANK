@@ -29,13 +29,13 @@
 
 
     <Grid>
-        <StackPanel Width="1000" CornerRadius="20" BorderBrush="White" BorderThickness="5" Background="#FFB9B0B0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="419" >
+        <StackPanel Width="1000" CornerRadius="20" BorderBrush="White" BorderThickness="5" Background="#2D3436" HorizontalAlignment="Center" VerticalAlignment="Center" Height="419" >
             <TextBlock Text="Overte si zadané údaje" Foreground="White" FontSize="30" FontFamily="Malgun Gothic" TextAlignment="Center" Margin="20" Width="720"/>
 
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30" >
                     <StackPanel x:Name="TriednyUcitelStackBlock" PointerPressed="PointerPressed">
-                        <TextBlock Text="Triedný učiteľ" Foreground="White" FontSize="20"  FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                        <TextBlock Text="Triedny učiteľ" Foreground="White" FontSize="20"  FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Margin="0" Height="90">
                             <TextBlock x:Name="Triednyucitel_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
                             <TextBlock x:Name="Triednyucitel_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
@@ -45,7 +45,7 @@
 
 
                     <StackPanel x:Name="TriednyUctovnikStackBlock" PointerPressed="PointerPressed" >
-                        <TextBlock Text="Triedný účtovník" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                        <TextBlock Text="Triedny účtovník" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Height="90">
                             <TextBlock x:Name="TriednyUctovnik_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
                             <TextBlock x:Name="TriednyUctovnik_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
@@ -54,7 +54,7 @@
                     </StackPanel>
 
                     <StackPanel x:Name="TriednyPredsedaStackBlock" PointerPressed="PointerPressed">
-                        <TextBlock Text="Triedný predseda" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                        <TextBlock Text="Triedny predseda" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Height="90">
                             <TextBlock x:Name="Predseda_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
                             <TextBlock x:Name="Predseda_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>

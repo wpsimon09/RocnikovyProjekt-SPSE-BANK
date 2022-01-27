@@ -62,6 +62,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
 
         //---------------------------Premenné pri zberaní peňazí-----------------------------//
         public VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] GlobalnaPremenaVytvorenieZberania { get; set; }
+        public  List<ZberPenazi> ListZbieranychPenazi { get; set; }
         public int NaKtoréZberanieSaKliklo { get; set; }
         public int KtoreZberanieBudeUpravené { get; set; }
         public int KtoreZberanieJeUžHotove { get; set; }
@@ -250,6 +251,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             GlobálnaPremenáInfaOPridanýchPeniazoch = new PridaniePeňazí.InfoOPridanýchPeniazoch[2];
             GlobálnaPremenaOPlatbe = new Platba.InfoOplatbe[100];
             GlobalnaPremenaVytvorenieZberania = new VytvorenieZberaniaPeňazí.VyzbieranePeniaze[3];
+            ListZbieranychPenazi = new List<ZberPenazi>();
         }
 
    

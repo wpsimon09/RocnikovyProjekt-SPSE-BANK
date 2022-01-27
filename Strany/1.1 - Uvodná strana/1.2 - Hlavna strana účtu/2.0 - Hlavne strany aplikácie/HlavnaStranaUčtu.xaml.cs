@@ -55,7 +55,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                  string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
                 )
             {
-                SumaPriIkonke_Sporenie.Text = "Sporenie nieje vytvorené";
+                SumaPriIkonke_Sporenie.Text = "Sporenie nie je vytvorené";
                 DosiahnutyGoal.Visibility = Visibility.Collapsed;
             }
             else

@@ -14,7 +14,7 @@
     CornerRadius="20">
 
     <StackPanel>
-        <TextBlock Text="Hra sa spustí pre vyhratie hry najdite všetky obrázky " TextWrapping="WrapWholeWords" Margin="0,0,0,10" />
-        <TextBlock Text="Ak stranu opustíte výsledky sa neulozia !" FontSize="11"/>
+        <TextBlock Text="Aby ste vyhrali nájdite všetky skryté obrázky " TextWrapping="WrapWholeWords" Margin="0,0,0,10" />
+        <TextBlock Text="Ak stranu opustíte výsledky sa vám neuložia !" FontSize="11"/>
     </StackPanel>
 </ContentDialog>

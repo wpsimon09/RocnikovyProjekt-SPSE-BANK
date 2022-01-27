@@ -134,12 +134,14 @@
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\HlavnaStranaZberaniaPeňazí.xaml.cs">
       <DependentUpon>HlavnaStranaZberaniaPeňazí.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\NarabanieSoSporenim.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\VytvorenieZberaniaPeňazí.xaml.cs">
       <DependentUpon>VytvorenieZberaniaPeňazí.xaml</DependentUpon>
     </Compile>
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\Zberanie peňazí Uvod.xaml.cs">
       <DependentUpon>Zberanie peňazí Uvod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\ZberPenazi.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.6 - Zábava a relax\Hra.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.6 - Zábava a relax\ZábavaARelax.xaml.cs">
       <DependentUpon>ZábavaARelax.xaml</DependentUpon>
@@ -187,6 +189,7 @@
     <Content Include="Assets\IkonkyNaPrednuStranu\settings.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\sporenie.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\menoakcie.png" />
+    <Content Include="Assets\ObrazkyPreHru\PozadiePreHru.png" />
     <Content Include="Assets\RandomIkonky\IconaPridaťEura.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\RandomIkonky\LockScreenLogo.scale-200.png" />
@@ -225,7 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\MessageDIalogy\" />
-    <Folder Include="Assets\ObrazkyPreHru\" />
     <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.7 - Nastavenie\" />
   </ItemGroup>
   <ItemGroup>

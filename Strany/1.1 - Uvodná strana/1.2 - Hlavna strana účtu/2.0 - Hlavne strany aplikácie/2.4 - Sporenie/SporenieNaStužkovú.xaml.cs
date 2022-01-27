@@ -39,7 +39,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 )
             {
                 this.Frame.Navigate(typeof(_4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
-                var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nieje vytvorené");
+                var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nie je vytvorené");
                 msg.ShowAsync();
             }
             else

@@ -153,14 +153,14 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                     {
                         this.Frame.Navigate(typeof(Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
 
-                        var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nieje vytvorené");
+                        var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nie je vytvorené");
                         msg.ShowAsync();
                     }
                     else
                     {
                         if ((App.Current as App).SumaNaSporenie < GlobalPremena.PlatenáSuma)
                         {
-                            var msg2 = new MessageDialog("Platba z účtu sporenia na stuškovu neuspešná", "Na učte kam sa sporí na stuškovú nieje dostatok prostriedkov");
+                            var msg2 = new MessageDialog("Platba z účtu sporenia na stužkovú bola neúspešná", "Na účte kam sa sporí na stužkovú nie je dostatok prostriedkov");
                             this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
                         }
                         else

@@ -55,10 +55,10 @@
                         </DataTemplate>
                     </ComboBox.HeaderTemplate>
                     <ComboBoxItem Content="Triedny fond"/>
-                    <ComboBoxItem Content="Sporenie na stuškovú"/>
+                    <ComboBoxItem Content="Sporenie na stužkovú"/>
                 </ComboBox>
                 <TextBox x:Name="IBAN" Header="IBAN Príjemcu"  Margin="0,10,0,0" Style="{StaticResource TxtBox}"  Height="65" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" />
-                <ToggleSwitch x:Name="DnesnyDatumSplatnosti"  Margin="0,10,0,0" VerticalAlignment="Top" Header="Dnešný dátum splatonsti" IsOn="True" OnContent="Áno" OffContent="Nie" Foreground="#FFFDF7F7" FocusVisualPrimaryBrush="#FFFFF7F7" Toggled="Toggled">
+                <ToggleSwitch x:Name="DnesnyDatumSplatnosti"  Margin="0,10,0,0" VerticalAlignment="Top" Header="Dnešný dátum splatnosti" IsOn="True" OnContent="Áno" OffContent="Nie" Foreground="#FFFDF7F7" FocusVisualPrimaryBrush="#FFFFF7F7" Toggled="Toggled">
                     <ToggleSwitch.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" FontSize="16" Foreground="White" />

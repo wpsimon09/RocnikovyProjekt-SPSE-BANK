@@ -23,9 +23,9 @@
 
     <Grid>
 
-        <ScrollViewer CornerRadius="20" Background="#FFB9B0B0" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible" Width="1020" Height="1000" RequestedTheme="Light" HorizontalAlignment="Center">
+        <ScrollViewer CornerRadius="20" Background="#2D3436" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Visible" Width="1020" Height="1000" RequestedTheme="Light" HorizontalAlignment="Center">
             <StackPanel BorderBrush="White" CornerRadius="20" BorderThickness="5">
-                <TextBlock Text="Vyplnte mena žiakov" FontSize="35" HorizontalAlignment="Center" FontFamily="Simplex" Padding="20" Foreground="White"/>
+                <TextBlock Text="Vyplňte mená žiakov" FontSize="35" HorizontalAlignment="Center" FontFamily="Simplex" Padding="20" Foreground="White"/>
 
                 <StackPanel x:Name="StackovanieTextBoxov" >
                     <StackPanel.Resources>

@@ -44,7 +44,7 @@
     <Grid>
         <Grid>
             <Grid  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center" Height="430" Width="549">
-                <TextBlock Width="513" Text="Vytvorte zbreanie peňazí" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                <TextBlock Width="513" Text="Vytvorte zber peňazí" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left">

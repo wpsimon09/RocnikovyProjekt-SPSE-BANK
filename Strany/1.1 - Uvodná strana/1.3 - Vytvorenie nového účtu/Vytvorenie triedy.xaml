@@ -46,16 +46,16 @@
 
     <Grid >
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Vyplne údaje o vašej triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
+            <TextBlock Text="Vyplňte údaje o vašej triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
             <TextBlock Text="Všetky údaje sú povinné !" FontSize="18" Foreground="#FFCF4040" HorizontalAlignment="Left" Width="250" FontFamily="Arial" Margin="0,5" />
 
             <FlipView x:Name="FlipView" HorizontalAlignment="Center" Height="631" Width="510" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436">
                 <StackPanel >
-                    <TextBlock Text="Mená a prezvyská" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
+                    <TextBlock Text="Mená a priezviská" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
                     <StackPanel Margin="0,40">
-                        <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho ucitela"/>
+                        <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho učiteľa"/>
 
-                        <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu tiredy"/>
+                        <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu triedy"/>
 
                         <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
 
@@ -66,7 +66,7 @@
 
 
                 <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <TextBlock Text="Základné info o triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
+                    <TextBlock Text="Základné informácie o triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
                     <StackPanel >
 
                         <ComboBox x:Name="Trieda"  CornerRadius="7" Header="Vaša trieda" Margin="0,5">
@@ -117,7 +117,7 @@
                         <CalendarDatePicker x:Name="koniecŠtúdia" CornerRadius="7" Margin="0,10" >
                             <CalendarDatePicker.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="Koniec šúdia"/>
+                                    <TextBlock Text="Koniec štúdia"/>
                                 </DataTemplate>
                             </CalendarDatePicker.HeaderTemplate>
                         </CalendarDatePicker>
@@ -128,8 +128,8 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <PasswordBox x:Name="HesloTriedy" HorizontalAlignment="Left" Margin="0,20" CornerRadius="7" Header="HesloTriedy" Style="{StaticResource PasswordStyle}" />
-                    <PasswordBox x:Name="HesloTriedyRepeat" HorizontalAlignment="Left"  CornerRadius="7" Header="HesloTriedy" Style="{StaticResource PasswordStyle}" />
+                    <PasswordBox x:Name="HesloTriedy" HorizontalAlignment="Left" Margin="0,20" CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" />
+                    <PasswordBox x:Name="HesloTriedyRepeat" HorizontalAlignment="Left"  CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" />
                     <TextBox x:Name="TriednyEmail" CornerRadius="7" Style ="{StaticResource Normálne otázky}" Header="Triedny e-mail" HorizontalAlignment="Left" />
 
 
@@ -140,7 +140,7 @@
 
                 <!-- TELEFONNÉ ČÍSLA KOMPETENTNÝCH OSôB -->
                 <StackPanel>
-                    <TextBlock Text="Vyplne telefonné čísal" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
+                    <TextBlock Text="Vyplňte telefónne čísla" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
 
                     <StackPanel VerticalAlignment="Center" Margin="0,30">
 
@@ -157,7 +157,7 @@
 
                 <!--  E-MAILY -->
                 <StackPanel >
-                    <TextBlock Text="Vyplne e-mailove adresy " FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
+                    <TextBlock Text="Vyplňte e-mailove adresy " FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
 
                     <StackPanel Margin="0,30" VerticalAlignment="Center">
                         <TextBox x:Name="emailTriednyUcitel" Header="e-mail Triedneho učiteľa" Style="{StaticResource Normálne otázky}"/>

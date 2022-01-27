@@ -84,7 +84,7 @@
                             <TextBlock Text="Výdavky" FontSize="12" FocusVisualPrimaryBrush="#FFD34F11" Foreground="#FFD34F11"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Prehlad hospodárenia" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
+                            <TextBlock Text="Konečný zostatok" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
                             <TextBlock x:Name="Vysledok" Foreground="#FF78DC74" FontSize="16" HorizontalAlignment="Center" Text="- 123 €" Margin="10,0,0,0"/>
 
                         </StackPanel>

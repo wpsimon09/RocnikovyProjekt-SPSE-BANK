@@ -59,7 +59,7 @@
                     <StackPanel Orientation="Horizontal" BorderBrush="White" BorderThickness="2" CornerRadius="7" Width="509" HorizontalAlignment="Right">
                         <StackPanel Margin="6,5" >
                             <StackPanel Width="260" HorizontalAlignment="Left">
-                                <TextBlock x:Name="NázovZberania1" Text="Nieje vytvorené" Style="{StaticResource NormálnyText}"/>
+                                <TextBlock x:Name="NázovZberania1" Text="Nie je vytvorené" Style="{StaticResource NormálnyText}"/>
                             </StackPanel>
                             <StackPanel  Orientation="Horizontal" Width="260" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Bottom">
                                 <TextBlock x:Name="VztbieranePeniaze1" Text="0€" Style="{StaticResource NormálnyText}"/>
@@ -105,7 +105,7 @@
             </Button>
 
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="Naspat" Content="Napsäť" Foreground="White" RenderTransformOrigin="0.5,0.528" Click="Naspat_Click" Margin="30,0,340,0" CornerRadius="7"/>
+                <Button x:Name="Naspat" Content="Naspäť" Foreground="White" RenderTransformOrigin="0.5,0.528" Click="Naspat_Click" Margin="30,0,340,0" CornerRadius="7"/>
                 <StackPanel x:Name="StackPanelTlacidlomNaPridávanie" Width="126" Margin="10" HorizontalAlignment="Right">
                     <Button x:Name="ZberaniePeňazí" Background="Transparent" Height="77" CornerRadius="50" Width="80" HorizontalAlignment="Center"  Click="ZberaniePeňazí_Click">
                         <StackPanel Margin="-10,-6,-10,-7" >

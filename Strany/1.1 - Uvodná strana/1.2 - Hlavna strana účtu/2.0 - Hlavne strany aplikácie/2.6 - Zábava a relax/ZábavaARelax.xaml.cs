@@ -49,8 +49,40 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         private async void Obrazok1_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
+            Image tempObrazok;
+            string meno;
+
+            tempObrazok = sender as Image;
+            meno = tempObrazok.Name;
+
+            switch (meno)
+            {
+                case "Obrazok1":
+                    {
+                        obr1.IsChecked = true;
+                        break;
+                    }
+                case "Obrazok2":
+                    {
+                        obr2.IsChecked = true;
+                        break;
+                    }
+                case "Obrazok3":
+                    {
+                        obr3.IsChecked = true;
+                        break;
+                    }
+                case "Obrazok4":
+                    {
+                        obr4.IsChecked = true;
+                        break;
+                    }
+
+            }
+
             hra.SkrytieObrazku(sender as Image);
             pocetNajdenychObrazkov++;
+
             if (pocetNajdenychObrazkov >=4)
             {
                 stopky.Stop();
@@ -61,6 +93,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 UkoncenieHry vysledky = new UkoncenieHry();
                 await vysledky.ShowAsync();
             }
+           
+           
         }
     }
 }
