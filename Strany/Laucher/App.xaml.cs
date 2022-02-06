@@ -23,6 +23,8 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
+
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku
 {
@@ -50,9 +52,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public Platba.InfoOplatbe[] GlobálnaPremenaOPlatbe { get; set; }
 
 
-        //-------------------------Premenné pre zadávanie žiakov----------------------------//
-        public string[] Menažiakov { get; set; }
+        //-------------------------Premenné pre zadávanie Ziakov----------------------------//
+        public string[] MenaZiakov { get; set; }
         public bool boloNavigované { get; set; }
+        public List<Ziak> ListZiakov { get; set; }
 
         //---------------------------Premenné pri sporení-----------------------------------//
         public uint SumaNaSporenie { get; set; }
@@ -61,7 +64,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public int ProgressSporenie { get; set; }
 
         //---------------------------Premenné pri zberaní peňazí-----------------------------//
-        public VytvorenieZberaniaPeňazí.VyzbieranePeniaze[] GlobalnaPremenaVytvorenieZberania { get; set; }
         public  List<ZberPenazi> ListZbieranychPenazi { get; set; }
         public int NaKtoréZberanieSaKliklo { get; set; }
         public int KtoreZberanieBudeUpravené { get; set; }
@@ -215,6 +217,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         /// Nahrá text pre historiu platieb v prípade ukončeneho zberania
         /// </summary>
         /// <param name="ZberPenazi"> Štruktúra, ktorá obsahuje všetky potrebné informácie o zbere peňazí</param>
+        
+        /*
         public void NahranieTextuDoHistorie(VytvorenieZberaniaPeňazí.VyzbieranePeniaze ZberPenazi)
         {
             for (int i = 0; i < 100; i++)
@@ -233,7 +237,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             }
         }
     
-
+        */
 
 
         public App()
@@ -250,8 +254,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             PrijemAleboVýdavok = new int[100];
             GlobálnaPremenáInfaOPridanýchPeniazoch = new PridaniePeňazí.InfoOPridanýchPeniazoch[2];
             GlobálnaPremenaOPlatbe = new Platba.InfoOplatbe[100];
-            GlobalnaPremenaVytvorenieZberania = new VytvorenieZberaniaPeňazí.VyzbieranePeniaze[3];
             ListZbieranychPenazi = new List<ZberPenazi>();
+            ListZiakov = new List<Ziak>();
         }
 
    

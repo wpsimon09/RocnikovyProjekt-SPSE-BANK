@@ -7,6 +7,7 @@
     xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data ="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí" 
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
@@ -51,70 +52,40 @@
 
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" Width="570" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436" VerticalAlignment="Center">
-            <TextBlock Text="Prehľad vyzbieraných peňazí" TextAlignment="Center" Style="{StaticResource Nadpis}" Width="564"/>
-            <!--Sporenie č. 1-->
-            <Button x:Name="Sporenie1" Height="91" Width="530" HorizontalAlignment="Center" CornerRadius="25" Margin="0,10" Background="Transparent" Click="Sporenie1_Click" RightTapped="Sporenie1_PravýKlik">
-                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" BorderBrush="White" BorderThickness="2" CornerRadius="7" Width="509" HorizontalAlignment="Right">
-                        <StackPanel Margin="6,5" >
-                            <StackPanel Width="260" HorizontalAlignment="Left">
-                                <TextBlock x:Name="NázovZberania1" Text="Nie je vytvorené" Style="{StaticResource NormálnyText}"/>
-                            </StackPanel>
-                            <StackPanel  Orientation="Horizontal" Width="260" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Bottom">
-                                <TextBlock x:Name="VztbieranePeniaze1" Text="0€" Style="{StaticResource NormálnyText}"/>
-                                <TextBlock x:Name="DokedyTrebaVyzbierať1" Text="Do -.-.----" Style="{StaticResource NormálnyText}" Margin="10,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Right" />
-                        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Width="570" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436" VerticalAlignment="Center" >
+            <TextBlock Text="Prehľad vyzbieraných peňazí" TextAlignment="Center" Style="{StaticResource Nadpis}" Width="564" Margin="0,30,10,10"/>
 
-                        <StackPanel Width="227">
-                            <StackPanel Margin="0,15,0,0" >
-                                <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="174" Height="10"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
-                                <TextBlock x:Name="KtoVaetkoZaplatil1" Text="0/0" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <GridView x:Name="Zberania" Margin="70,0" Height="442" ItemsSource="{x:Bind ListZberani}" SelectionMode="Single" SelectionChanged="Zberania_SelectionChanged">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:ZberPenazi">
+                        <StackPanel BorderBrush="White" BorderThickness="3" CornerRadius="7" Margin="0,10" HorizontalAlignment="Stretch">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="5" Width="220">
+                                    <TextBlock Text="{x:Bind SumaNaVyzbieranie}" Style="{StaticResource NormálnyText}"/>
+                                    <TextBlock Text="{x:Bind Nazov}"  Style="{StaticResource NormálnyText}"/>
+                                    <TextBlock Text="{x:Bind DatumUkoncenia}" Style="{StaticResource NormálnyText}"/>
+                                </StackPanel>
+                                
+                                <StackPanel VerticalAlignment="Center">
+                                    <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2" Value="{x:Bind ProgressZberania}"  CornerRadius="7" Width="174" Height="10" Margin="0,0,10,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
+                                    <TextBlock Text="0/10" HorizontalAlignment="Center"/>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-            </Button>
-            <!-- Sporenie č.2-->
-            <Button x:Name="Sporenie2" Height="91" Width="530" HorizontalAlignment="Center" CornerRadius="25" Margin="0,10" Background="Transparent" Click="Sporenie2_Click" RightTapped="Sporenie2_PravýmClick">
-
-                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" BorderBrush="White" BorderThickness="2" CornerRadius="7" Width="509" HorizontalAlignment="Right">
-                        <StackPanel Margin="6,5" >
-                            <StackPanel Width="260" HorizontalAlignment="Left">
-                                <TextBlock x:Name="NázovZberania2" Text="Nieje vytvorené" Style="{StaticResource NormálnyText}"/>
-                            </StackPanel>
-                            <StackPanel  Orientation="Horizontal" Width="260" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Bottom">
-                                <TextBlock x:Name="VztbieranePeniaze2" Text="0€" Style="{StaticResource NormálnyText}"/>
-                                <TextBlock x:Name="DokedyTrebaVyzbierať2" Text="Do -.-.----" Style="{StaticResource NormálnyText}" Margin="10,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Right" />
-                        </StackPanel>
-
-                        <StackPanel Width="227">
-                            <StackPanel Margin="0,15,0,0" >
-                                <ProgressBar x:Name="DosiahnutyGoa2" BorderThickness="2"  CornerRadius="7" Width="174" Height="10"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
-                                <TextBlock x:Name="KtoVaetkoZaplatil2" Text="0/0" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                            </StackPanel>
-
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-            </Button>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
 
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="Naspat" Content="Naspäť" Foreground="White" RenderTransformOrigin="0.5,0.528" Click="Naspat_Click" Margin="30,0,340,0" CornerRadius="7"/>
                 <StackPanel x:Name="StackPanelTlacidlomNaPridávanie" Width="126" Margin="10" HorizontalAlignment="Right">
-                    <Button x:Name="ZberaniePeňazí" Background="Transparent" Height="77" CornerRadius="50" Width="80" HorizontalAlignment="Center"  Click="ZberaniePeňazí_Click">
+                    <StackPanel x:Name="PridatZberanie" Background="Transparent" Height="77" CornerRadius="50" Width="80" HorizontalAlignment="Center"  PointerPressed="PridatZberanie_PointerPressed">
                         <StackPanel Margin="-10,-6,-10,-7" >
                             <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Center"  AutoPlay="False" Height="80" Width="100" >
                                 <lottie:LottieVisualSource x:Name="AnimaciaUspečnaPlatba"  UriSource="ms-appx:///Assets/Animácie/PridanieZberaniaPeňazí.json"/>
                             </muxc:AnimatedVisualPlayer>
                         </StackPanel>
-                    </Button>
-                    <TextBlock x:Name="PocetSporeni" Text="0/2" Style="{StaticResource NormálnyText}" HorizontalAlignment="Center"/>
+                    </StackPanel>
                 </StackPanel>
 
             </StackPanel>

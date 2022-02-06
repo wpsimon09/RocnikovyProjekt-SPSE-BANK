@@ -83,9 +83,9 @@
 
 
                         <StackPanel x:Name="PocetZiakovStackBlock" PointerPressed="PointerPressed">
-                            <TextBlock Text="Počet žiakov" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
+                            <TextBlock Text="Počet Ziakov" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                             <StackPanel Style="{StaticResource StackPanelSinfo}">
-                                <TextBlock x:Name="PočetŽiakov" Text="Počet žiakov" Style="{StaticResource Txt}"/>
+                                <TextBlock x:Name="PočetZiakov" Text="Počet Ziakov" Style="{StaticResource Txt}"/>
                             </StackPanel>
                         </StackPanel>
 

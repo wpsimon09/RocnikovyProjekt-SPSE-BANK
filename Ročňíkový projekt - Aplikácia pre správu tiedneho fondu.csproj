@@ -116,6 +116,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\MessageDIalogy\InfoOUkonceniZberania.xaml.cs">
+      <DependentUpon>InfoOUkonceniZberania.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\MessageDIalogy\InfoOZberani.xaml.cs">
+      <DependentUpon>InfoOZberani.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Správy\OznámenieOHre.xaml.cs">
       <DependentUpon>OznámenieOHre.xaml</DependentUpon>
     </Compile>
@@ -134,7 +140,6 @@
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\HlavnaStranaZberaniaPeňazí.xaml.cs">
       <DependentUpon>HlavnaStranaZberaniaPeňazí.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\NarabanieSoSporenim.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.5 -Zber peňazí\VytvorenieZberaniaPeňazí.xaml.cs">
       <DependentUpon>VytvorenieZberaniaPeňazí.xaml</DependentUpon>
     </Compile>
@@ -155,6 +160,7 @@
     <Compile Include="Strany\1.1 - Uvodná strana\1.3 - Vytvorenie nového účtu\1.4 - Overovacia strana\1.5 -Zadanie žiako\ŽiaciVTriede.xaml.cs">
       <DependentUpon>ŽiaciVTriede.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Strany\1.1 - Uvodná strana\1.3 - Vytvorenie nového účtu\1.4 - Overovacia strana\1.5 -Zadanie žiako\Ziak.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.3 - Vytvorenie nového účtu\1.4 - Overovacia strana\Overenie triednych údajóv.xaml.cs">
       <DependentUpon>Overenie triednych údajóv.xaml</DependentUpon>
     </Compile>
@@ -191,6 +197,7 @@
     <Content Include="Assets\IkonkyNaPrednuStranu\menoakcie.png" />
     <Content Include="Assets\ObrazkyPreHru\PozadiePreHru.png" />
     <Content Include="Assets\RandomIkonky\IconaPridaťEura.png" />
+    <Content Include="Assets\RandomIkonky\information.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\RandomIkonky\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\RandomIkonky\SplashScreen.scale-200.png" />
@@ -227,10 +234,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\MessageDIalogy\" />
     <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.7 - Nastavenie\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Assets\MessageDIalogy\InfoOUkonceniZberania.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\MessageDIalogy\InfoOZberani.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Správy\OznámenieOHre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

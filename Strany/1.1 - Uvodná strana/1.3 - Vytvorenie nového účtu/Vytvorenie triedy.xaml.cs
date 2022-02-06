@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -135,14 +136,19 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                     
             {
             
-                var OhlasenieOnevyplneníPolia = new MessageDialog("Chýba vyplnené pole/polia, skúste skontrolovať počet žiakov, triedu a ostatné údaje, ktoré treba doplniť", "Nevyplnené pole");
+                var OhlasenieOnevyplneníPolia = new MessageDialog("Chýba vyplnené pole/polia, skúste skontrolovať počet Ziakov, triedu a ostatné údaje, ktoré treba doplniť", "Nevyplnené pole");
                 OhlasenieOnevyplneníPolia.ShowAsync();
 
             }
             else
             {
-
+                Ziak ziak;
+                ziak = new Ziak();
                 (App.Current as App).GlobálnaPremenaInfaTriedy = zistenéTriedneÚdaje;
+                for (int i = 0; i < Convert.ToInt32(zistenéTriedneÚdaje.PocetZiakov); i++)
+                {
+                    ziak.NahranieZiakaDoListu((App.Current as App).ListZiakov);    
+                }
                 this.Frame.Navigate(typeof(Overenie_triednych_údajóv));
 
             }

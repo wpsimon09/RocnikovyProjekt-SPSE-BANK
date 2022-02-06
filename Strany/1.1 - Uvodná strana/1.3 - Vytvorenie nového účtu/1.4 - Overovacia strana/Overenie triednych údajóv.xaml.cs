@@ -211,7 +211,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 TriedaNaPrednuStranu = trieda.Text;
             }
 
-            PočetŽiakov.Text = InfoNaOverenie.PocetZiakov;
+            PočetZiakov.Text = InfoNaOverenie.PocetZiakov;
             KoniecŠtúdia.Text = InfoNaOverenie.RokUkoncenia;
             MailTriedy.Text = InfoNaOverenie.TriednyEmail;
         }
@@ -221,7 +221,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             (App.Current as App).GlobalnaPremenaTriedyString = TriedaNaPrednuStranu;
 
 
-            this.Frame.Navigate(typeof(Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_žiako.ŽiaciVTriede));
+            this.Frame.Navigate(typeof(Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako.ŽiaciVTriede));
         }
 
         private void Zle_Click(object sender, RoutedEventArgs e)

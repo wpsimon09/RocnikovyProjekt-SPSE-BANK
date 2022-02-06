@@ -1,0 +1,36 @@
+﻿<ContentDialog
+    x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Assets.MessageDIalogy.InfoOUkonceniZberania"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Assets.MessageDIalogy"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Chcete ukončiť zberanie ?"
+    PrimaryButtonText="Áno"
+    SecondaryButtonText="Nie"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    CornerRadius="10"
+    Opened="ContentDialog_Opened"
+    >
+    <ContentDialog.Resources>
+        <Style TargetType="TextBlock" x:Key="NormálnyText">
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+    </ContentDialog.Resources>
+    
+    <Grid Width="300" VerticalAlignment="Center">
+        <TextBlock Text="Ak ukončíte zberanie teraz ľudia, ktroý zaplatili budú odstránený zo zoznamu a na účet bude pripísaná suma, ktorá sa zatial vyzbierala, chcete pokračovať ?" TextWrapping="WrapWholeWords" Style="{StaticResource NormálnyText}"/>
+    </Grid>
+</ContentDialog>

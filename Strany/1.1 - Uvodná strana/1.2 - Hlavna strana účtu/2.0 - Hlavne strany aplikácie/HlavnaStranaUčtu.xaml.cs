@@ -188,6 +188,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
         private void ZberPeňazí1_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if ((App.Current as App).JeTriedaPlneVytvorená == true)
             {
                 this.Frame.Navigate(typeof(Zberanie_peňazí));
@@ -199,6 +200,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
                 this.Frame.Navigate(typeof(Vytvorenie_triedy));
             }
+            */
+
+            this.Frame.Navigate(typeof(Zberanie_peňazí));
+
         }
 
         private void VoľnýČas1_Click(object sender, RoutedEventArgs e)

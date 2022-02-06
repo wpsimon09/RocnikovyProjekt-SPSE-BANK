@@ -60,12 +60,12 @@
 
     <Grid>
         <Grid  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center" Height="780" Width="791">
-            <TextBlock x:Name="Nadpis" Width="513" Text="Ahoj ako sa mas" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            <TextBlock x:Name="Nadpis" Width="513" Text="{x:Bind zberanie.Nazov}" TextAlignment="Center" LineHeight="20" Margin="0,25,0,0" FontSize="36" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" />
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,120,0,15">
                 <StackPanel VerticalAlignment="Top" >
-                    <TextBlock  Style="{StaticResource Nadpis}" Margin="0,0,0,10" FontSize="20" Text="Zoznam mien žiakov" Width="225" Height="31" HorizontalAlignment="Center"/>
-                    <ListView x:Name="Nezaplatili" SelectionMode="Multiple" CacheMode="BitmapCache" SelectionChanged="Nezaplatili_SelectionChanged" Style="{StaticResource ListViewNormalStyle}" >
+                    <TextBlock  Style="{StaticResource Nadpis}" Margin="0,0,0,10" FontSize="20" Text="Zoznam mien Ziakov" Width="225" Height="31" HorizontalAlignment="Center"/>
+                    <ListView x:Name="Nezaplatili" ItemsSource="{x:Bind zberanie.MenaZiakov}" SelectionMode="Multiple" CacheMode="BitmapCache" Style="{StaticResource ListViewNormalStyle}" SelectionChanged="Nezaplatili_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="5,0" Orientation="Horizontal">
@@ -75,14 +75,21 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="Naspäť" Margin="5" Height="31" Width="84" Content="Späť" CornerRadius="7" Click="Naspäť_Click" FocusVisualPrimaryBrush="Transparent" FontSize="12" Foreground="White" Background="Gray" />
-                        <Button x:Name="UkončenieZberania" Margin="117,5,0,5" Height="31" Width="84" IsEnabled="False" Content="Uzavrieť" CornerRadius="7" FocusVisualPrimaryBrush="Transparent" FontSize="12" Foreground="White" Background="Gray" Click="UkončenieZberania_Click" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="Naspäť" Margin="5" Height="31" Width="84" Content="Späť" CornerRadius="7"  FocusVisualPrimaryBrush="Transparent" FontSize="12" Foreground="White" Background="Gray" Click="Naspäť_Click"/>
+                        <Button x:Name="UkončenieZberania" Margin="117,5,0,5" Height="31" Width="84" IsEnabled="False" Content="Uzavrieť" CornerRadius="7" FocusVisualPrimaryBrush="Transparent" FontSize="12" Foreground="White" Background="Gray"  />
                     </StackPanel>
                     <StackPanel Margin="0,20,0,0">
-                        <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="290" Height="20"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
-                        <TextBlock x:Name="KtoVaetkoZaplatil1" Text="" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="PocetZaplatených" IsHitTestVisible="False" Style="{StaticResource NormálnyText}" HorizontalAlignment="Left" Text="Zaplatilo:" Margin="10,7,0,0"/>
+                        <StackPanel>
+                            <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="290" Height="20"  Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" />
+                            <TextBlock x:Name="KtoVaetkoZaplatil1" Text="" Style="{StaticResource NormálnyText}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Width="294" Height="39">
+                            <TextBlock x:Name="PocetZaplatených" IsHitTestVisible="False" Style="{StaticResource NormálnyText}" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Zaplatilo:" Margin="10,0,0,0"/>
+                            <TextBlock x:Name="PocetZaplatenych" Width="176" Style="{StaticResource NormálnyText}" VerticalAlignment="Center"/>
+                            <Image x:Name="InfoIkonka" Source="/Assets/RandomIkonky/information.png" Height="30" PointerPressed="InfoIkonka_PointerPressed" PointerEntered="InfoIkonka_PointerEntered" PointerExited="InfoIkonka_PointerExited"/>
+
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
 
