@@ -21,15 +21,15 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Background" Value="{ThemeResource SystemChromeBlackLowColor}"/>
             <Setter Property="CornerRadius" Value="7"/>
-            <Setter Property="Width" Value="210" />
-            
+            <Setter Property="Width" Value="250" />
+
         </Style>
     </Page.Resources>
 
 
 
     <Grid>
-        <StackPanel Width="1000" CornerRadius="20" BorderBrush="White" BorderThickness="5" Background="#2D3436" HorizontalAlignment="Center" VerticalAlignment="Center" Height="419" >
+        <StackPanel Width="1200" CornerRadius="20" BorderBrush="White" BorderThickness="5" Background="#2D3436" HorizontalAlignment="Center" VerticalAlignment="Center" Height="419" >
             <TextBlock Text="Overte si zadané údaje" Foreground="White" FontSize="30" FontFamily="Malgun Gothic" TextAlignment="Center" Margin="20" Width="720"/>
 
             <StackPanel>
@@ -103,7 +103,7 @@
                             </StackPanel>
                         </StackPanel>
 
-                        
+
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Height="53" Width="180">

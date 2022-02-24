@@ -26,7 +26,14 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         public ZberPenazi zber;
         public VytvorenieZberaniaPeňazí()
         {
-            zber = new ZberPenazi();
+            if((App.Current as App).KtoreZberanieBudeUpravené == null)
+            {
+                zber = new ZberPenazi();
+            }
+            else
+            {
+                zber = (App.Current as App).KtoreZberanieBudeUpravené;
+            }
             this.InitializeComponent();
         }
 
@@ -50,10 +57,26 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
             else
             {
-                double peniaze;
-                peniaze = Math.Round(Convert.ToDouble(CielenaSuma.Text), 2);
-                zber.NahranieSporeniaDoListu((App.Current as App).ListZbieranychPenazi, DôvodSporenia.Text, UkoncenieSporenia.Date.Value.DateTime.ToString("d"), peniaze.ToString());
-                this.Frame.Navigate(typeof(Zberanie_peňazí));
+                if ((App.Current as App).KtoreZberanieBudeUpravené == null)
+                {
+                    double peniaze;
+                    peniaze = Math.Round(Convert.ToDouble(CielenaSuma.Text), 2);
+                    zber.NahranieSporeniaDoListu((App.Current as App).ListZbieranychPenazi, DôvodSporenia.Text, UkoncenieSporenia.Date.Value.DateTime.ToString("d"), peniaze.ToString(), (App.Current as App).ListZiakov, UkoncenieSporenia.Date.Value);
+                    this.Frame.Navigate(typeof(Zberanie_peňazí));
+                }
+                else
+                {
+                    (App.Current as App).KtoreZberanieBudeUpravené.DatumUkoncenia = UkoncenieSporenia.Date.Value.DateTime.ToString("d");
+                    (App.Current as App).KtoreZberanieBudeUpravené.Nazov = DôvodSporenia.Text;
+                    double peniaze;
+                    peniaze = Math.Round(Convert.ToDouble(CielenaSuma.Text), 2);
+                    (App.Current as App).KtoreZberanieBudeUpravené.SumaNaVyzbieranie = peniaze.ToString();
+
+                    (App.Current as App).ListZbieranychPenazi[(App.Current as App).KtoreZberanieBudeUpravené.indexZberu] = (App.Current as App).KtoreZberanieBudeUpravené;
+                    this.Frame.Navigate(typeof(Zberanie_peňazí));
+
+                }
+
             }
         }
 
@@ -61,6 +84,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             
         }
+
+
 
     }
 }

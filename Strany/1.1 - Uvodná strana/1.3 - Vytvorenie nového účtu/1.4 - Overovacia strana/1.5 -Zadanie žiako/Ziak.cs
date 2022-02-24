@@ -21,16 +21,21 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
         }
         public string priezvysko { get; set; }
+        public int Index { get; set; }
         public string _meno;
         public string _priezvysko;
 
-        bool JeZačiarknute { get; set; }
+        public bool JeZačiarknute { get; set; }
 
-        Ziak(string _meno, string _priezvysko)
+        public Ziak(string _meno, string _priezvysko)
         {
             meno = _meno;
             priezvysko = _priezvysko;
             JeZačiarknute = false;
+            (App.Current as App).IndexZiaka++;
+            Index = (App.Current as App).IndexZiaka;
+
+        
         }
 
         public Ziak()
@@ -38,6 +43,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             meno = string.Empty;
             priezvysko = string.Empty;
             JeZačiarknute = false;
+            (App.Current as App).IndexZiaka++;
+            Index = (App.Current as App).IndexZiaka;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,5 +58,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             ListZiakov.Add(new Ziak());
         }
+
     }
 }

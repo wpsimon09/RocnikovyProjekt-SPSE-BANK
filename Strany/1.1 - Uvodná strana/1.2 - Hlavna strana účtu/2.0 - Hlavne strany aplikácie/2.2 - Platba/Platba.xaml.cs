@@ -25,11 +25,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         public double vlozenaSuma;
         public int Progress;
         
-        public uint HlavnaSuma = (App.Current as App).hlavnáSuma;
+        public double HlavnaSuma = (App.Current as App).hlavnáSuma;
 
         public struct InfoOplatbe
         {
-            public uint PlatenáSuma;
+            public double PlatenáSuma;
             public string MenoPríjemcu;
             public string IBANPríjemcu;
             public string DátumSplatnosti;
@@ -75,7 +75,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             InfoOplatbe i;
             try
             {
-                i.PlatenáSuma = Convert.ToUInt32(Suma.Text);
+                i.PlatenáSuma = Convert.ToDouble(Suma.Text);
             }
             catch (System.FormatException)
             {
@@ -116,7 +116,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
             else
             {
-                uint DoterajšíZostatok;
+                double DoterajšíZostatok;
                 DoterajšíZostatok = (App.Current as App).hlavnáSuma;
                 if (GlobalPremena.ZakéhoUčtuPojduPeniaze == 0)
                 {

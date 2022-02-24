@@ -53,27 +53,41 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" Width="570" BorderBrush="White" BorderThickness="3" CornerRadius="13" Background="#2D3436" VerticalAlignment="Center" >
-            <TextBlock Text="Prehľad vyzbieraných peňazí" TextAlignment="Center" Style="{StaticResource Nadpis}" Width="564" Margin="0,30,10,10"/>
+            <TextBlock Text="Prehľad zberania peňazí" TextAlignment="Center" Style="{StaticResource Nadpis}" Width="564" Margin="0,30,10,10"/>
 
             <GridView x:Name="Zberania" Margin="70,0" Height="442" ItemsSource="{x:Bind ListZberani}" SelectionMode="Single" SelectionChanged="Zberania_SelectionChanged">
                 <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="data:ZberPenazi">
-                        <StackPanel BorderBrush="White" BorderThickness="3" CornerRadius="7" Margin="0,10" HorizontalAlignment="Stretch">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Margin="5" Width="220">
-                                    <TextBlock Text="{x:Bind SumaNaVyzbieranie}" Style="{StaticResource NormálnyText}"/>
-                                    <TextBlock Text="{x:Bind Nazov}"  Style="{StaticResource NormálnyText}"/>
-                                    <TextBlock Text="{x:Bind DatumUkoncenia}" Style="{StaticResource NormálnyText}"/>
-                                </StackPanel>
-                                
-                                <StackPanel VerticalAlignment="Center">
-                                    <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2" Value="{x:Bind ProgressZberania}"  CornerRadius="7" Width="174" Height="10" Margin="0,0,10,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
-                                    <TextBlock Text="0/10" HorizontalAlignment="Center"/>
+                    <DataTemplate x:DataType="data:ZberPenazi" >
+                        <StackPanel x:Name="Item" RightTapped="Item_RightTapped">
+                            <StackPanel  BorderBrush="White" BorderThickness="3" CornerRadius="7" Margin="0,10" HorizontalAlignment="Stretch" >
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Margin="5" Width="220">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{x:Bind SumaNaVyzbieranie}" Style="{StaticResource NormálnyText}"/>
+                                            <TextBlock Text="€" Margin="5,0" Style="{StaticResource NormálnyText}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Na:"  Style="{StaticResource NormálnyText}"/>
+                                            <TextBlock Text="{x:Bind Nazov}" Margin="5,0" Style="{StaticResource NormálnyText}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Do:" Style="{StaticResource NormálnyText}"/>
+                                            <TextBlock Text="{x:Bind DatumUkoncenia}" Margin="5,0" Style="{StaticResource NormálnyText}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel VerticalAlignment="Center">
+                                        <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2" Value="{x:Bind ProgressZberania}"  CornerRadius="7" Width="174" Height="10" Margin="0,0,10,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
+
                     </DataTemplate>
+            
                 </GridView.ItemTemplate>
+                
+                <GridViewItem></GridViewItem>
             </GridView>
 
             <StackPanel Orientation="Horizontal">

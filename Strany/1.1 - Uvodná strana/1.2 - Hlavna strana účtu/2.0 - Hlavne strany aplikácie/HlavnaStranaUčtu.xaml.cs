@@ -49,7 +49,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
         public void NačítaniePeňazí()
         {
-            long CelkováSuma = (App.Current as App).hlavnáSuma;
+            double CelkováSuma = (App.Current as App).hlavnáSuma;
             SumaPriIkonke.Text = $"{CelkováSuma.ToString()} €";
             if ((App.Current as App).SumaNaSporeniePriVytvoreniu == 0 ||
                  string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
@@ -78,7 +78,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
         {
             NačítaniePeňazí();
             NacitanieTriedy();
-            (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie);
 
         }
 

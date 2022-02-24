@@ -30,7 +30,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         }
         public struct InfoOsporeniNaStuzkovu
         {
-            public uint CielovaSuma;
+            public double CielovaSuma;
             public string DatumUkoncenia;
         }
 
@@ -40,7 +40,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             InfoOsporeniNaStuzkovu temp;
 
-            temp.CielovaSuma = Convert.ToUInt32(CielenaSuma.Text);
+            temp.CielovaSuma = Convert.ToDouble(CielenaSuma.Text);
             temp.DatumUkoncenia = UkoncenieSporenia.Date.Value.DateTime.ToString("d");
 
             return temp;

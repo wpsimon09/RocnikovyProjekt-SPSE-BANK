@@ -1,5 +1,7 @@
 ﻿<Page
     x:Class="Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax.ZábavaARelax"
+    xmlns:lottie="using:Microsoft.Toolkit.Uwp.UI.Lottie"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax"
@@ -16,13 +18,14 @@
 
         <Style TargetType="StackPanel" x:Key="MenuAVysledky">
             <Setter Property="Width" Value="450" />
+            <Setter Property="Height" Value="300" />
             <Setter Property="Background" Value="#454d4f" />
             <Setter Property="BorderBrush" Value="White" />
             <Setter Property="BorderThickness" Value="3" />
             <Setter Property="CornerRadius" Value="10"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center" />
-            
+
         </Style>
 
         <Style TargetType="Image" x:Key="ObrazokNaHladanie">
@@ -64,7 +67,7 @@
                     <Grid Height="945" BorderBrush="White" BorderThickness="4" >
                         <Grid.Background>
                             <ImageBrush ImageSource="/Assets/ObrazkyPreHru/PozadiePreHru.png">
-                                
+
                             </ImageBrush>
                         </Grid.Background>
                         <StackPanel >
@@ -73,7 +76,7 @@
                             </StackPanel.Background>
                             <StackPanel Height="472" Orientation="Horizontal">
                                 <Grid Width="665" >
-                                    <Image x:Name="Obrazok1" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok1}" PointerPressed="Obrazok1_PointerPressed" />
+                                    <Image x:Name="Obrazok1" Source="/Assets/ObrazkyPreHru/Kaktus.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok1}" PointerPressed="Obrazok1_PointerPressed" />
                                 </Grid>
                                 <Grid Width="665" >
                                     <Image x:Name="Obrazok2" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok2}" PointerPressed="Obrazok1_PointerPressed"/>
@@ -90,41 +93,51 @@
                         </StackPanel>
                     </Grid>
                 </StackPanel>
-                <StackPanel Style="{StaticResource MenuAVysledky}" Height="940" >
-                    <TextBlock Text="Výsledky" Style="{StaticResource Nadpis}"/>
-                    <TextBlock Text="Najlepšie časy" Margin="15,8" FontSize="18"/>
+                <StackPanel>
+                    <StackPanel Style="{StaticResource MenuAVysledky}" Height="750" Margin="0,125" VerticalAlignment="Center">
+                        <TextBlock Text="Výsledky" Style="{StaticResource Nadpis}"/>
+                        <TextBlock Text="Najlepšie časy" Margin="15,8" FontSize="18" Foreground="White"/>
 
-                    <StackPanel HorizontalAlignment="Left" Style="{StaticResource StackPanelSCasmi}" >
-                        <TextBlock x:Name="cas1" Style="{StaticResource NajlepsieCasi}" Foreground="Gold"  Text="{x:Bind hra.NajlepsieCasi[0].ToString(),Mode=OneWay}"/>
-                        <TextBlock x:Name="cas2"  Style="{StaticResource NajlepsieCasi}" Foreground="Silver" Text="{x:Bind hra.NajlepsieCasi[1].ToString(), Mode=OneWay}"/>
-                        <TextBlock x:Name="cas3"  Style="{StaticResource NajlepsieCasi}" Foreground="#CD7F32" Text="{x:Bind hra.NajlepsieCasi[2].ToString() , Mode=OneWay}"/>
+                        <StackPanel HorizontalAlignment="Left" Style="{StaticResource StackPanelSCasmi}" >
+                            <TextBlock x:Name="cas1" Style="{StaticResource NajlepsieCasi}" Foreground="Gold"  Text="{x:Bind hra.NajlepsieCasi[0].ToString(),Mode=OneWay}"/>
+                            <TextBlock x:Name="cas2"  Style="{StaticResource NajlepsieCasi}" Foreground="Silver" Text="{x:Bind hra.NajlepsieCasi[1].ToString(), Mode=OneWay}"/>
+                            <TextBlock x:Name="cas3"  Style="{StaticResource NajlepsieCasi}" Foreground="#CD7F32" Text="{x:Bind hra.NajlepsieCasi[2].ToString() , Mode=OneWay}"/>
+                        </StackPanel>
+                        <StackPanel Background="Gray" Margin="20,10" CornerRadius="20">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton x:Name="obr1" IsEnabled="False" />
+                                <Image Source="/Assets/ObrazkyPreHru/Kaktus.png" Height="70" Width="79"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton x:Name="obr2" IsEnabled="False" />
+                                <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <RadioButton x:Name="obr3" IsEnabled="False" />
+                                <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                                <RadioButton x:Name="obr4" IsEnabled="False" />
+                                <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock x:Name="Casovac" Text="00:00:00" FontSize="30" TextAlignment="Center" Foreground="White" FontWeight="Bold" Width="130"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="Naspat" Content="Naspäť" Click="Naspat_Click" Foreground="White" Margin="20,40" CornerRadius="7"/>
+                            <Border Width="258"/>
+                            <StackPanel x:Name="Reload" Background="White" Height="48" Width="48" CornerRadius="10" PointerPressed="Reload_PointerPressed" PointerEntered="Reload_PointerEntered" PointerExited="Reload_PointerExited">
+                                <muxc:AnimatedVisualPlayer x:Name="ReloadAnimacia" AutoPlay="False" Height="47" Width="48" >
+                                    <lottie:LottieVisualSource UriSource="ms-appx:///Assets/Animácie/ReloadPage.json"/>
+                                </muxc:AnimatedVisualPlayer>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel >
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="obr1" IsEnabled="False" />
-                            <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="obr2" IsEnabled="False" />
-                            <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="obr3" IsEnabled="False" />
-                            <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="obr4" IsEnabled="False" />
-                            <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
-                        </StackPanel>
-                    </StackPanel>
-                    
-                    <Button x:Name="Naspat" Content="Naspäť" Click="Naspat_Click" Foreground="White" Margin="0,40"/>
                 </StackPanel>
                 <StackPanel>
-                    
+
                 </StackPanel>
             </StackPanel>
         </StackPanel>

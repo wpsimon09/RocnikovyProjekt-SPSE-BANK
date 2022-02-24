@@ -56,24 +56,27 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public string[] MenaZiakov { get; set; }
         public bool boloNavigované { get; set; }
         public List<Ziak> ListZiakov { get; set; }
+        public int IndexZiaka { get; set; }
 
         //---------------------------Premenné pri sporení-----------------------------------//
-        public uint SumaNaSporenie { get; set; }
-        public uint SumaNaSporeniePriVytvoreniu { get; set; }
+        public double SumaNaSporenie { get; set; }
+        public double SumaNaSporeniePriVytvoreniu { get; set; }
         public string DatumUkonceniaSporeniaPriVytvoreniu { get; set; }
         public int ProgressSporenie { get; set; }
 
         //---------------------------Premenné pri zberaní peňazí-----------------------------//
         public  List<ZberPenazi> ListZbieranychPenazi { get; set; }
         public int NaKtoréZberanieSaKliklo { get; set; }
-        public int KtoreZberanieBudeUpravené { get; set; }
+        public ZberPenazi KtoreZberanieBudeUpravené { get; set; }
         public int KtoreZberanieJeUžHotove { get; set; }
         public double[] ProgressZberania { get; set; }
         public double[] KolkoSaZatialVyzbieralo { get; set; }
+        public int IndexZberu { get; set; }
+
 
 
         //----------------------------Premenné pri hlavnej strane --------------------------//
-        public uint hlavnáSuma { get; set; }
+        public double hlavnáSuma { get; set; }
         public bool JeTriedaPlneVytvorená { get; set; }
 
         //----------------------------Premenné pri historii platieb-------------------------//
@@ -256,9 +259,27 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             GlobálnaPremenaOPlatbe = new Platba.InfoOplatbe[100];
             ListZbieranychPenazi = new List<ZberPenazi>();
             ListZiakov = new List<Ziak>();
+            IndexZberu = -1;
+            
+            
+            ListZiakov.Add(new Ziak("Jožko","Mrva"));
+            ListZiakov.Add(new Ziak("Ján", "Heatfild"));
+            ListZiakov.Add(new Ziak("Kristián", "Hammet"));
+            ListZiakov.Add(new Ziak("Peter", "Vňať"));
+            ListZiakov.Add(new Ziak("Michal", "Marcin"));
+            ListZiakov.Add(new Ziak("Sára", "Janová"));
+            ListZiakov.Add(new Ziak("Jaroslav", "Sedlák"));
+            ListZiakov.Add(new Ziak("Miroslav", "Dužina"));
+
+
+
+            ListZbieranychPenazi.Add(new ZberPenazi("ZRPŠ", "10.2.2022", "96", this.ListZiakov, DateTimeOffset.Now));
+
+            IndexZiaka = -1;
+
         }
 
-   
+
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;

@@ -26,9 +26,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             ListZiakov = (App.Current as App).ListZiakov;
             this.InitializeComponent();
-            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-            (App.Current as App).boloNavigované = false;
-           
+            (App.Current as App).boloNavigované = false;           
             
         }
 
@@ -66,22 +64,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         private void Hotovo_Click(object sender, RoutedEventArgs e)
         {
-            bool VšetkoVyplnené = new bool();
-           
-            if(VšetkoVyplnené == true)
-            {
-                for (int i = 0; i < PocetZiakov; i++)
-                {
-                    
-                }
-                this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
-
-            }
-            else
-            {
-                var msg = new MessageDialog("Nevyplnené meno Ziaka/Ziakov", "Zabudli ste vyplniť meno Ziaka, prosím skontrolujte si vyplnené údaje");
-                msg.ShowAsync();
-            }
+            this.Frame.Navigate(typeof(Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie.HlavnaStranaUčtu));
 
         }
     }

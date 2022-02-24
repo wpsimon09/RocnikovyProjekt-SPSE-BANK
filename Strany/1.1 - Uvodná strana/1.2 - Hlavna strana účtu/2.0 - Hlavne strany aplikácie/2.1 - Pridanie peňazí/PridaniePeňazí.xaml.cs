@@ -33,11 +33,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
         public double vlozenaCena;
         public double celkovaSuma;
         public int Progress;
-        public uint CelkováSuma = (App.Current as App).hlavnáSuma;
+        public double CelkováSuma = (App.Current as App).hlavnáSuma;
 
         public struct InfoOPridanýchPeniazoch
         {
-            public uint suma;
+            public double suma;
             public int KamSaPeniazeUlozia;
         }
 
@@ -46,7 +46,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
             InfoOPridanýchPeniazoch info;
             try
             {
-                info.suma = Convert.ToUInt32(VloženáSuma.Text);
+                info.suma = Convert.ToDouble(VloženáSuma.Text);
                 info.KamSaPeniazeUlozia = KamPôjduPeniaze.SelectedIndex;
                 return info;
             }

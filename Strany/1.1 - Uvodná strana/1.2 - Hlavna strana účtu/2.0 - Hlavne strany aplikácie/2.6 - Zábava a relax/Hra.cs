@@ -24,36 +24,14 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         public Thickness Obrazok4 { get; set; }
 
         private TimeSpan[] _najCas;
-        public TimeSpan[] NajlepsieCasi
-        {
-            get
-            {
-                return _najCas;
-            }
-            set
-            {
-                try
-                {
-                    NajlepsieCasi[0]= value[0];
-                    NajlepsieCasi[1]= value[1];
-                    NajlepsieCasi[2]= value[2];
-                    OnPropertyChanged();
+        public TimeSpan[] NajlepsieCasi;
 
 
-                }
-                catch (System.NullReferenceException)
-                {
+        public TimeSpan aktualnyCas { get; set; }
 
-                }
-                
-            }
-        }
-      
+        double[] x = new double[4];
+        double[] y = new double[4];
 
-        public TimeSpan aktualnyCas;
-        
-        double [] x = new double[4];
-        double [] y = new double[4];
 
         Random rand = new Random();
         
@@ -69,8 +47,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 y[i] = rand.Next(0, 376);
             }
             Obrazok1 = new Thickness(x[0], y[0], 0,0);
-            Obrazok2 = new Thickness(x[1], y[1], 0, 0);
-            Obrazok3 = new Thickness(x[2], y[2],0,0);
+            Obrazok2 = new Thickness(x[1], y[1], 0,0);
+            Obrazok3 = new Thickness(x[2], y[2], 0,0);
             Obrazok4 = new Thickness(x[3], y[3], 0,0);
         }
 
@@ -78,28 +56,33 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         /// Porovná najlepsie 3 časi a zaradí aktuálne získaný čas medzi ne ak je lepší ako jeden z predchádzajucích
         /// </summary>
         /// <param name="cas">TimeSpan: cas strávený nájdením všetkých obrázkov</param>
-        public void PorovnanieANahranieNajlepsichCasov(TimeSpan cas)
+        public TimeSpan[] PorovnanieANahranieNajlepsichCasov(TimeSpan cas)
         {
             for (int i = 0; i < 3; i++)
             {
                 if (NajlepsieCasi[i] == TimeSpan.Zero)
                 {
                     NajlepsieCasi[i] = cas;
-                    break;
+                    aktualnyCas = cas;
+                    return NajlepsieCasi;
                 }
                 else if(cas<NajlepsieCasi[i])
                 {
                     NajlepsieCasi[i] = cas;
-                    break;
+                    aktualnyCas = cas;
+                    Array.Sort(NajlepsieCasi);
+                    return NajlepsieCasi;
                 }
                 else
                 {
                     continue;
                 }
             }
-            aktualnyCas = cas;
-            OnPropertyChanged();
-            Array.Sort(NajlepsieCasi);
+
+            
+
+
+            return NajlepsieCasi;
         }
 
         public void SkrytieObrazku(Image obrazok)

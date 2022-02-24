@@ -49,9 +49,9 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left">
                         <StackPanel Width="293"  VerticalAlignment="Top">
-                            <TextBox x:Name="CielenaSuma" Style="{StaticResource TxtBox}" CornerRadius="7"  Header="Ciel v €" Width="221" HorizontalAlignment="Center" Height="65" BeforeTextChanging="CielenaSuma_BeforeTextChanging"/>
-                            <TextBox x:Name="DôvodSporenia" Header="Dôvod zberania" Style="{StaticResource TxtBox}" Width="221" />
-                            <CalendarDatePicker x:Name="UkoncenieSporenia"  HorizontalAlignment="Center" Margin="0,10" Width="221" CornerRadius="7">
+                            <TextBox x:Name="CielenaSuma" Text="{x:Bind zber.SumaNaVyzbieranie}" Style="{StaticResource TxtBox}" CornerRadius="7"  Header="Ciel v €" Width="221" HorizontalAlignment="Center" Height="65" BeforeTextChanging="CielenaSuma_BeforeTextChanging"/>
+                            <TextBox x:Name="DôvodSporenia" Text="{x:Bind zber.Nazov}" Header="Dôvod zberania" Style="{StaticResource TxtBox}" Width="221" />
+                            <CalendarDatePicker x:Name="UkoncenieSporenia" Date="{x:Bind zber.DatumUkonceniaOffSet}"  HorizontalAlignment="Center" Margin="0,10" Width="221" CornerRadius="7">
                                 <CalendarDatePicker.HeaderTemplate>
                                     <DataTemplate>
                                         <TextBlock Text ="Dokedy treba vyzbierať" FontSize="16" Foreground="White"/>

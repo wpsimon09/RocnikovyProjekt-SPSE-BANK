@@ -30,9 +30,9 @@
 
 
 
-        <muxc:AnimatedVisualPlayer x:Name="AnimáciaNaSpustenie" HorizontalAlignment="Left" VerticalAlignment="Top" AutoPlay="False" Height="200" Width="200" Margin="10,60,0,0">
-            <lottie:LottieVisualSource x:Name="AnimáciaUserProfilu"  UriSource="ms-appx:///Assets/Animácie/AnimáciaNaFotkuPoužívateľa.json"/>
-        </muxc:AnimatedVisualPlayer>
+        <StackPanel x:Name="AnimáciaNaSpustenie" Padding="10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="200" Width="200" Margin="10,60,0,0">
+            <PersonPicture  Margin="0,50"/>
+        </StackPanel>
 
         <StackPanel Margin="210,100,1190,865">
             <TextBlock x:Name="MenoPriIkonke" HorizontalAlignment="Left"  Text="Trieda" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="369" Visibility="Visible" FontFamily="ISOCP3" FontSize="40" TextAlignment="Left" Margin="1,0,0,0"/>

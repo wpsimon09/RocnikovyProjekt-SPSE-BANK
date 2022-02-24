@@ -195,6 +195,7 @@
     <Content Include="Assets\IkonkyNaPrednuStranu\settings.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\sporenie.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\menoakcie.png" />
+    <Content Include="Assets\ObrazkyPreHru\Kaktus.png" />
     <Content Include="Assets\ObrazkyPreHru\PozadiePreHru.png" />
     <Content Include="Assets\RandomIkonky\IconaPridaťEura.png" />
     <Content Include="Assets\RandomIkonky\information.png" />
@@ -321,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Animácie\PridanieZberaniaPeňazí.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Animácie\ReloadPage.json" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

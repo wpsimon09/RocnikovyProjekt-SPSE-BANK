@@ -22,37 +22,51 @@
 
             <Setter Property="Width" Value="178"/>
         </Style>
+
+        <Style TargetType="TextBlock" x:Key="TxtBlock">
+            
+            
+        </Style>
     </Page.Resources>
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ListView x:Name="MenaAPriezvyska" ItemsSource="{x:Bind ListZiakov}" Width="500" Height="900" Background="#2D3436" BorderBrush="White" BorderThickness="3" CornerRadius="20" SelectionMode="None" >
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="data:Ziak">
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" BorderBrush="LightSlateGray" Margin="10" BorderThickness="2" CornerRadius="7">
-                            <StackPanel Margin="20,10" HorizontalAlignment="Center">
-                                <TextBox x:Name="Meno" Header="Meno" Style="{StaticResource TxtBox}" Text="{x:Bind Path=meno, Mode=TwoWay}" Width="210"/>
-                                <Border Height="15"/>
-                                <TextBox x:Name="Priezvysko" Header="Priezvysko" Style="{StaticResource TxtBox}" Text="{x:Bind priezvysko}" Width="210"/>
-                            </StackPanel>    
-                        </StackPanel>
-                    </DataTemplate> 
-                </ListView.ItemTemplate>
-                
-            </ListView>
+            <StackPanel>
+                <StackPanel Margin="2">
+                    <TextBlock x:Name="Nadpis" FontFamily="Arial" FontWeight="Bold" Text="Zadajte mená žiakov" HorizontalAlignment="Center" FontSize="30" />
+                </StackPanel>
+                <ListView x:Name="MenaAPriezvyska" Padding="90,10" ItemsSource="{x:Bind ListZiakov}" Width="500" Height="860" Background="#2D3436" BorderBrush="White" BorderThickness="3" CornerRadius="20" SelectionMode="None" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Ziak">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="10,0">
+                                    <TextBlock Text="Žiak č." FontSize="16" FontWeight="Bold"/>
+                                    <TextBlock Text="{x:Bind Path=Index}" FontSize="16" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" BorderBrush="LightSlateGray" Margin="10,0,0,10" BorderThickness="2" CornerRadius="7">
+                                    <StackPanel Margin="20,10" HorizontalAlignment="Center">
+                                        <TextBox x:Name="Meno" Header="Meno" Style="{StaticResource TxtBox}" Text="{x:Bind Path=meno, Mode=TwoWay}" Width="210"/>
+                                        <Border Height="15"/>
+                                        <TextBox x:Name="Priezvysko" Header="Priezvisko" Style="{StaticResource TxtBox}" Text="{x:Bind priezvysko, Mode=TwoWay}" Width="210"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+           
 
-            <StackPanel  Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center" >
-                <Button x:Name="Naspäť" CornerRadius="7" Click="Naspäť_Click" Height="40" Margin="20,10,10,20" VerticalAlignment="Top"  Style="{ThemeResource NavigationBackButtonNormalStyle}" Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
-                <Button x:Name="Vyčistiť" CornerRadius="7" Click="Vyčistiť_Click" Content="Vyčistiť údaje" Height="40" Margin="20,10,1,10" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
+            <StackPanel  Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Padding="40,0" VerticalAlignment="Center" Width="500">
+                    <Button x:Name="Naspäť" CornerRadius="7" Click="Naspäť_Click" Height="40" Margin="20,10,10,20" VerticalAlignment="Top"  Content="Naspäť" Width="100" Foreground="White" Background="Gray" FocusVisualPrimaryBrush="White"/>
+                    <Button x:Name="Vyčistiť" CornerRadius="7" Click="Vyčistiť_Click" Content="Vyčistiť údaje" Height="40" Margin="15,10,15,15" VerticalAlignment="Top" Width="145" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White"/>
+                    <Button x:Name="Hotovo" CornerRadius="7" Click="Hotovo_Click" Content="Pokračovať" Width="100" Height="40" Margin="15,10,10,20" Foreground="White" BorderBrush="White" Background="Gray" />
+                </StackPanel>
 
-                <Button x:Name="Hotovo" CornerRadius="7" Click="Hotovo_Click" Style="{ThemeResource NavigationBackButtonNormalStyle}" Height="40" Margin="80,10,10,20" Foreground="White" BorderBrush="White" Background="Gray" FocusVisualPrimaryBrush="White">
-                    <Button.RenderTransform>
-                        <CompositeTransform ScaleX="-1"/>
-                    </Button.RenderTransform>
-                </Button>
             </StackPanel>
         </StackPanel>
-        
-        
+
+
     </Grid>
 </Page>

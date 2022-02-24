@@ -28,6 +28,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         public Zberanie_peňazí()
         {
+            KtoreSporenieSaIdeUpraviť = 0;
+            (App.Current as App).KtoreZberanieBudeUpravené = null;
             ListZberani = (App.Current as App).ListZbieranychPenazi;
             this.InitializeComponent();
         }
@@ -52,6 +54,41 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             (App.Current as App).NaKtoréZberanieSaKliklo = Zberania.SelectedIndex;
             this.Frame.Navigate(typeof(HlavnaStranaZberaniaPeňazí));
+        }
+
+        private void Item_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            (App.Current as App).KtoreZberanieBudeUpravené = (e.OriginalSource as FrameworkElement).DataContext as ZberPenazi;
+           
+
+            MenuFlyout menu = new MenuFlyout();
+            MenuFlyoutItem upravit = new MenuFlyoutItem();
+            MenuFlyoutItem vymazať = new MenuFlyoutItem();
+
+            upravit.Text = "Upraviť";
+            vymazať.Text = "Vymazať";
+
+            upravit.Click += Upravit_Click;
+            vymazať.Click += Vymazať_Click;
+
+            menu.Items.Add(vymazať);
+            menu.Items.Add(upravit);
+
+            FrameworkElement senderElement = sender as FrameworkElement;
+            menu.ShowAt(senderElement);
+            
+
+        }
+
+        private void Vymazať_Click(object sender, RoutedEventArgs e)
+        {
+            (App.Current as App).ListZbieranychPenazi.Remove((App.Current as App).KtoreZberanieBudeUpravené);
+           
+        }
+
+        private void Upravit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(VytvorenieZberaniaPeňazí));
         }
     }
 }
