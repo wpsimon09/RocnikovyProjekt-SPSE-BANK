@@ -19,7 +19,7 @@
                             <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2" CornerRadius="7" Width="500" Height="60" HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
                             <StackPanel Orientation="Horizontal" Width="500">
                                 <TextBlock x:Name="CielEura"  Foreground="White" HorizontalAlignment="Left" Margin="0,5,0,0" SelectionHighlightColor="White"/>
-                                <TextBlock x:Name ="Dátum" Margin="320,5,0,0" Foreground="White" SelectionHighlightColor="White" HorizontalAlignment="Right"/>
+                                <TextBlock x:Name ="Dátum" Margin="310,5,0,0" Foreground="White" SelectionHighlightColor="White" HorizontalAlignment="Right"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

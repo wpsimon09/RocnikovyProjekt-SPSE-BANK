@@ -71,7 +71,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         /// <param name="suma">Kolko sa má vyzbierat</param>
         public void NahranieSporeniaDoListu(List<ZberPenazi> Listzberanie, string nazov, string datum, string suma,List<Ziak> ziaci,DateTimeOffset date)
         {
-            Listzberanie.Add(new ZberPenazi($"Dôvod:"+nazov, $"Do:" + datum, suma,ziaci,date));     
+            Listzberanie.Add(new ZberPenazi(nazov,datum, suma,ziaci,date));     
         }
 
         public void NahranieLudi(ListView list,int NaKtoreSaKliklo)

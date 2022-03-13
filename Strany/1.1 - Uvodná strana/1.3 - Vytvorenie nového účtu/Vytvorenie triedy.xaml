@@ -53,13 +53,13 @@
                 <StackPanel >
                     <TextBlock Text="Mená a priezviská" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
                     <StackPanel Margin="0,40">
-                        <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho učiteľa"/>
+                        <TextBox x:Name="MenoTriednehoUcitela" Style="{StaticResource Normálne otázky}" Header="Meno triedneho učiteľa" Text="{x:Bind LocalTrieda.TriednyUcitel_MENO, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu triedy"/>
+                        <TextBox x:Name="MenoPredsedu"  Style="{StaticResource Normálne otázky}"  Header="Meno predsedu triedy" Text="{x:Bind LocalTrieda.Predseda_MENO, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
+                        <TextBox x:Name="MenoFinančníka"  Header="Meno triedneho účtovníka" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.Financnik_MENO, Mode=TwoWay}" />
 
-                        <TextBox x:Name="MenoPredseduRodičov"  Header="Meno predsedu rodičov" Style="{StaticResource Normálne otázky}"  />
+                        <TextBox x:Name="MenoPredseduRodičov"  Header="Meno predsedu rodičov" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.PredsedaRodicov_MENO, Mode=TwoWay}" />
                     </StackPanel>
 
                 </StackPanel>
@@ -69,7 +69,7 @@
                     <TextBlock Text="Základné informácie o triede" FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" Margin="0,20"  />
                     <StackPanel >
 
-                        <ComboBox x:Name="Trieda"  CornerRadius="7" Header="Vaša trieda" Margin="0,5">
+                        <ComboBox x:Name="trieda"  CornerRadius="7" Header="Vaša trieda"   Margin="0,5">
                             <ComboBox.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
@@ -128,9 +128,9 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <PasswordBox x:Name="HesloTriedy" HorizontalAlignment="Left" Margin="0,20" CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" />
-                    <PasswordBox x:Name="HesloTriedyRepeat" HorizontalAlignment="Left"  CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" />
-                    <TextBox x:Name="TriednyEmail" CornerRadius="7" Style ="{StaticResource Normálne otázky}" Header="Triedny e-mail" HorizontalAlignment="Left" />
+                    <PasswordBox x:Name="HesloTriedy" HorizontalAlignment="Left" Margin="0,20" CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" Password="{x:Bind LocalTrieda.Heslo, Mode=TwoWay}"/>
+                    <PasswordBox x:Name="HesloTriedyRepeat" HorizontalAlignment="Left"  CornerRadius="7" Header="Heslo Triedy" Style="{StaticResource PasswordStyle}" Password="{x:Bind LocalTrieda.Heslo, Mode=TwoWay}" />
+                    <TextBox x:Name="TriednyEmail" CornerRadius="7" Style ="{StaticResource Normálne otázky}" Header="Triedny e-mail" HorizontalAlignment="Left" Text="{x:Bind LocalTrieda.TriednyEmail, Mode=TwoWay}"/>
 
 
                 </StackPanel>
@@ -144,13 +144,13 @@
 
                     <StackPanel VerticalAlignment="Center" Margin="0,30">
 
-                        <TextBox x:Name="TelefonTriednyUcitel" BeforeTextChanging="ZmenaTelCUcitela"  Header="Tel.č. Triedneho učiteľa" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="TelefonTriednyUcitel" BeforeTextChanging="ZmenaTelCUcitela"  Header="Tel.č. Triedneho učiteľa" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.TriednyUcitel_TELEFON, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="TelefonNaPredseduTriedy" BeforeTextChanging="ZmenaTelCPredseduTriedy"  Header="Tel.č. Predsedu triedy" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="TelefonNaPredseduTriedy" BeforeTextChanging="ZmenaTelCPredseduTriedy"  Header="Tel.č. Predsedu triedy" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.Predseda_TELEFON, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="TelfonNaTriednehoUctovnika" BeforeTextChanging="ZmenaTelCUctovnika" Header="Tel.č. Triedneho účtovníka" Style="{StaticResource Normálne otázky}" />
+                        <TextBox x:Name="TelfonNaTriednehoUctovnika" BeforeTextChanging="ZmenaTelCUctovnika" Header="Tel.č. Triedneho účtovníka" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.Financnik_TELEFON, Mode=TwoWay}" />
 
-                        <TextBox x:Name="TelfonNaPredseduRodičov" BeforeTextChanging="ZmenaTelCPredseduRodicov" Header="Tel.č. Predsedu rodičov" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="TelfonNaPredseduRodičov" BeforeTextChanging="ZmenaTelCPredseduRodicov" Header="Tel.č. Predsedu rodičov" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.PredsedaRodicov_TELEFON, Mode=TwoWay}" />
 
                     </StackPanel>
                 </StackPanel>
@@ -160,13 +160,13 @@
                     <TextBlock Text="Vyplňte e-mailove adresy " FontSize="35" Foreground="White" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20" />
 
                     <StackPanel Margin="0,30" VerticalAlignment="Center">
-                        <TextBox x:Name="emailTriednyUcitel" Header="e-mail Triedneho učiteľa" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="emailTriednyUcitel" Header="e-mail Triedneho učiteľa" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.TriednyUcitel_EMAIL, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="emailPredsedaTriedy" Header="e-mail  Predsedu triedy" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="emailPredsedaTriedy" Header="e-mail  Predsedu triedy" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.PresedaTriedy_EMAIL, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="emailTriednehyUctovnik" Header="e-mail  Triedneho účtovníka " Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="emailTriednehyUctovnik" Header="e-mail  Triedneho účtovníka " Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.Financnik_EMAIL, Mode=TwoWay}"/>
 
-                        <TextBox x:Name="emailPredsedaRodičov"  Header="e-mail  Predsedu rodičov" Style="{StaticResource Normálne otázky}"/>
+                        <TextBox x:Name="emailPredsedaRodičov"  Header="e-mail  Predsedu rodičov" Style="{StaticResource Normálne otázky}" Text="{x:Bind LocalTrieda.PredsedaRodicov_EMAIL, Mode=TwoWay}"/>
                     </StackPanel>
                 </StackPanel>
             </FlipView>

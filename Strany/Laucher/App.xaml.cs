@@ -24,7 +24,7 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
-
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana;
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku
 {
@@ -39,9 +39,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         /// </summary>
 
         //------------------------Premenné pri vytvoreniu triedy------------------------------//
-        public Vytvorenie_triedy.ZistenéTriedneÚdaje GlobálnaPremenaInfaTriedy { get; set; }
         public string GlobalnaPremenaTriedyString { get; set; }
-
+        public Trieda GlobalnaPremenaTriedy { get; set; }
 
         //------------------------Premenné pri pridanie paňazí------------------------------//
         public PridaniePeňazí.InfoOPridanýchPeniazoch[] GlobálnaPremenáInfaOPridanýchPeniazoch { get; set; }
@@ -216,32 +215,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             }
         }
 
-        /// <summary>
-        /// Nahrá text pre historiu platieb v prípade ukončeneho zberania
-        /// </summary>
-        /// <param name="ZberPenazi"> Štruktúra, ktorá obsahuje všetky potrebné informácie o zbere peňazí</param>
-        
-        /*
-        public void NahranieTextuDoHistorie(VytvorenieZberaniaPeňazí.VyzbieranePeniaze ZberPenazi)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                if (string.IsNullOrEmpty(TextPreHistoriu[i]))
-                {
-                    TextPreHistoriu[i] = $"+ {DateTime.Now.ToString("d")}  vyzbieraná čiastka {ZberPenazi.SumaNaVyzbieranie}€ na {ZberPenazi.NázovZberania}";
-                    PrijemAleboVýdavok[i] = 1;
-                    Príjmy = Príjmy + Convert.ToDouble(ZberPenazi.SumaNaVyzbieranie);
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-    
-        */
-
 
         public App()
         {
@@ -260,6 +233,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             ListZbieranychPenazi = new List<ZberPenazi>();
             ListZiakov = new List<Ziak>();
             IndexZberu = -1;
+            boloNavigované = false;
             
             
             ListZiakov.Add(new Ziak("Jožko","Mrva"));
@@ -274,6 +248,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
 
 
             ListZbieranychPenazi.Add(new ZberPenazi("ZRPŠ", "10.2.2022", "96", this.ListZiakov, DateTimeOffset.Now));
+           
 
             IndexZiaka = -1;
 

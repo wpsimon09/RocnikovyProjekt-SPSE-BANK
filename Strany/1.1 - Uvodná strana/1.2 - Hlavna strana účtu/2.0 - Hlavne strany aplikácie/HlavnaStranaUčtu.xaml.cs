@@ -69,16 +69,13 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
 
         public void NacitanieTriedy()
         {
-            Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu.Vytvorenie_triedy.ZistenéTriedneÚdaje InfoOTriede;
-            InfoOTriede = (App.Current as App).GlobálnaPremenaInfaTriedy;
-            MenoPriIkonke.Text = (App.Current as App).GlobalnaPremenaTriedyString;
+            MenoPriIkonke.Text = (App.Current as App).GlobalnaPremenaTriedy.trieda;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             NačítaniePeňazí();
             NacitanieTriedy();
-
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)

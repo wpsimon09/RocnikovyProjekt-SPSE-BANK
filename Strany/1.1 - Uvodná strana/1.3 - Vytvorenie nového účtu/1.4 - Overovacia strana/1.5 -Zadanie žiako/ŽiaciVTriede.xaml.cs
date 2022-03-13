@@ -25,31 +25,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         public ŽiaciVTriede()
         {
             ListZiakov = (App.Current as App).ListZiakov;
-            this.InitializeComponent();
-            (App.Current as App).boloNavigované = false;           
-            
+            this.InitializeComponent();            
         }
 
-        public static int PocetZiakov = Convert.ToInt32((App.Current as App).GlobálnaPremenaInfaTriedy.PocetZiakov);
+        public static int PocetZiakov = Convert.ToInt32((App.Current as App).GlobalnaPremenaTriedy.PocetZiakov);
 
-
-        string[] MenoTextBoxu;
-        TextBox[] textbox = new TextBox[PocetZiakov];
-        string[] žiaci = new string[PocetZiakov];
-
-
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            
-            if ((App.Current as App).boloNavigované == false)
-            {
-                for (int i = 0; i < PocetZiakov; i++)
-                {
-                }
-            }
-            
-        }
 
         private void Naspäť_Click(object sender, RoutedEventArgs e)
         {
