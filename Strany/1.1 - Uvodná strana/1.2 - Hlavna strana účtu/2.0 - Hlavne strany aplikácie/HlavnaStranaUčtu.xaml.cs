@@ -18,8 +18,8 @@ using Windows.Storage;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu;
-
-
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie
@@ -29,58 +29,32 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
     /// </summary>
     public sealed partial class HlavnaStranaUčtu : Page
     {
-
+        public PlatobnySystem platobnySystem { get; set; }
+        public Sporenie sporenie { get; set; }
         public HlavnaStranaUčtu()
         {
+            sporenie = (App.Current as App).GlobalSporenie;
+            platobnySystem = (App.Current as App).PlatobnySistem;
             this.InitializeComponent();
-        }
 
- 
-
-        public Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí.PridaniePeňazí.InfoOPridanýchPeniazoch VynulovaniePridaniaPeňazí()
-        {
-            Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí.PridaniePeňazí.InfoOPridanýchPeniazoch temp;
-            temp.KamSaPeniazeUlozia = -1;
-            temp.suma = 0;
-
-            return temp;
-        }
-
-
-        public void NačítaniePeňazí()
-        {
-            double CelkováSuma = (App.Current as App).hlavnáSuma;
-            SumaPriIkonke.Text = $"{CelkováSuma.ToString()} €";
-            if ((App.Current as App).SumaNaSporeniePriVytvoreniu == 0 ||
-                 string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
-                )
+            if (sporenie.BoloVytvorené == false)
             {
-                SumaPriIkonke_Sporenie.Text = "Sporenie nie je vytvorené";
-                DosiahnutyGoal.Visibility = Visibility.Collapsed;
+                StackPanelSSporenim.Visibility = Visibility.Collapsed;
             }
             else
             {
-                SumaPriIkonke_Sporenie.Text = $"{(App.Current as App).SumaNaSporenie} € - Sporenie";
-                DosiahnutyGoal.Value = (App.Current as App).ProgressSporenie;
+                StackPanelSSporenim.Visibility = Visibility.Visible;
             }
-               
         }
-
 
         public void NacitanieTriedy()
         {
             MenoPriIkonke.Text = (App.Current as App).GlobalnaPremenaTriedy.trieda;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            NačítaniePeňazí();
-            NacitanieTriedy();
-        }
-
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-    
+            this.NacitanieTriedy();
         }
 
         public void Visible(TextBlock txtBloc)

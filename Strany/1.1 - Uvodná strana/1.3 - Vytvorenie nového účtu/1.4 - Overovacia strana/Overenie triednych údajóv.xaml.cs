@@ -23,9 +23,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     public sealed partial class Overenie_triednych_údajóv : Page
     {
         public string TriedaNaPrednuStranu;
-
+        public Trieda _trieda{ get; set; }
         public Overenie_triednych_údajóv()
         {
+            _trieda = (App.Current as App).GlobalnaPremenaTriedy;
             this.InitializeComponent();
         }
 

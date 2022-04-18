@@ -124,7 +124,7 @@
 
                         <StackPanel Margin="0,10,0,0">
                             <TextBlock Text="Počet Ziakov" Foreground="White"  FontSize="16"  />
-                            <Slider x:Name="pocetZiakov"   HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
+                            <Slider x:Name="pocetZiakov"  Value="{x:Bind LocalTrieda.PocetZiakov, Mode=TwoWay}"   HorizontalAlignment="Left" Width="200" SmallChange="1" LargeChange="1"  Maximum="32" StepFrequency="1" AutomationProperties.Name="Slider with ticks" TickFrequency="3" TickPlacement ="Outside" Height="29" VerticalAlignment="Stretch" FocusVisualSecondaryBrush="#99000000" Foreground="#FF353336"  />
                         </StackPanel>
                     </StackPanel>
 

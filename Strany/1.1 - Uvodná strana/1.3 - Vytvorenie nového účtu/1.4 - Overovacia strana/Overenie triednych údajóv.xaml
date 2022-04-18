@@ -37,9 +37,9 @@
                     <StackPanel x:Name="TriednyUcitelStackBlock" PointerPressed="PointerPressed">
                         <TextBlock Text="Triedny učiteľ" Foreground="White" FontSize="20"  FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Margin="0" Height="90">
-                            <TextBlock x:Name="Triednyucitel_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Triednyucitel_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Triednyucitel_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Triednyucitel_MENO" Text="{x:Bind _trieda.TriednyUcitel_MENO}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Triednyucitel_TELEFON" Text="{x:Bind _trieda.TriednyUcitel_TELEFON}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Triednyucitel_EMAIL" Text="{x:Bind _trieda.TriednyUcitel_MENO}" Style="{StaticResource Txt}"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -47,27 +47,27 @@
                     <StackPanel x:Name="TriednyUctovnikStackBlock" PointerPressed="PointerPressed" >
                         <TextBlock Text="Triedny účtovník" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Height="90">
-                            <TextBlock x:Name="TriednyUctovnik_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="TriednyUctovnik_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="TriednyUctovnik_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="TriednyUctovnik_MENO" Text="{x:Bind _trieda.Financnik_MENO}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="TriednyUctovnik_TELEFON" Text="{x:Bind _trieda.Financnik_TELEFON}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="TriednyUctovnik_EMAIL" Text="{x:Bind _trieda.Financnik_EMAIL}" Style="{StaticResource Txt}"/>
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel x:Name="TriednyPredsedaStackBlock" PointerPressed="PointerPressed">
                         <TextBlock Text="Triedny predseda" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Height="90">
-                            <TextBlock x:Name="Predseda_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Predseda_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Predseda_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predseda_MENO" Text="{x:Bind _trieda.Predseda_MENO}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predseda_TELEFON" Text="{x:Bind _trieda.Predseda_TELEFON}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predseda_EMAIL" Text="{x:Bind _trieda.PresedaTriedy_EMAIL}" Style="{StaticResource Txt}"/>
                         </StackPanel >
                     </StackPanel>
 
                     <StackPanel x:Name="PredsedaRodičovStackBlock" PointerPressed="PointerPressed">
                         <TextBlock Text="Predseda rodičov" Foreground="White" Margin="40,0,0,0" FontSize="20"  FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                         <StackPanel Style="{StaticResource StackPanelSinfo}" Height="90">
-                            <TextBlock x:Name="Predsedarodičov_MENO" Text="Meno - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Predsedarodičov_TELEFON" Text="Telefon - " Style="{StaticResource Txt}"/>
-                            <TextBlock x:Name="Predsedarodičov_EMAIL" Text="Email - " Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predsedarodičov_MENO" Text="{x:Bind _trieda.PredsedaRodicov_MENO}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predsedarodičov_TELEFON" Text="{x:Bind _trieda.PredsedaRodicov_TELEFON}" Style="{StaticResource Txt}"/>
+                            <TextBlock x:Name="Predsedarodičov_EMAIL" Text="{x:Bind _trieda.PredsedaRodicov_EMAIL}" Style="{StaticResource Txt}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -77,7 +77,7 @@
                         <StackPanel x:Name="TriedaStackBlock" PointerPressed="PointerPressed" >
                             <TextBlock Text="Trieda" Foreground="White" FontSize="20"  FontStyle="Normal" FontWeight="Bold"  FontFamily="Segoe UI Light"/>
                             <StackPanel Style="{StaticResource StackPanelSinfo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0">
-                                <TextBlock x:Name="trieda" Text="Trieda " Style="{StaticResource Txt}" HorizontalAlignment="Left"/>
+                                <TextBlock x:Name="trieda" Text="{x:Bind _trieda.trieda}" Style="{StaticResource Txt}" HorizontalAlignment="Left"/>
                             </StackPanel>
                         </StackPanel >
 
@@ -85,21 +85,21 @@
                         <StackPanel x:Name="PocetZiakovStackBlock" PointerPressed="PointerPressed">
                             <TextBlock Text="Počet Ziakov" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                             <StackPanel Style="{StaticResource StackPanelSinfo}">
-                                <TextBlock x:Name="PočetZiakov" Text="Počet Ziakov" Style="{StaticResource Txt}"/>
+                                <TextBlock x:Name="PočetZiakov" Text="{x:Bind _trieda.PocetZiakov}" Style="{StaticResource Txt}"/>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel x:Name="UkoncenieStudiaStackBlock" PointerPressed="PointerPressed">
                             <TextBlock Text="Ukončenie štúdia" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                             <StackPanel Style="{StaticResource StackPanelSinfo}" >
-                                <TextBlock x:Name="KoniecŠtúdia" Text="Rok" Style="{StaticResource Txt}"/>
+                                <TextBlock x:Name="KoniecŠtúdia" Text="{x:Bind _trieda.RokUkoncenia}" Style="{StaticResource Txt}"/>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel x:Name="TriednyMailStackBlock" PointerPressed="PointerPressed">
                             <TextBlock Text="Triedny email" Foreground="White" FontSize="20" Margin="40,0,0,0" FontStyle="Normal" FontWeight="Bold" FontFamily="Segoe UI Light"/>
                             <StackPanel Style="{StaticResource StackPanelSinfo}">
-                                <TextBlock x:Name="MailTriedy" Text="mail - " Style="{StaticResource Txt}"/>
+                                <TextBlock x:Name="MailTriedy" Text="{x:Bind _trieda.TriednyEmail}" Style="{StaticResource Txt}"/>
                             </StackPanel>
                         </StackPanel>
 

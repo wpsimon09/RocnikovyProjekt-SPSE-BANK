@@ -80,6 +80,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                     Ziak ziak;
                     ziak = new Ziak();
                     LocalTrieda.trieda = LocalTrieda.NahratieTriedyString(trieda.SelectedIndex);
+                    LocalTrieda.RokUkoncenia = koniecŠtúdia.Date.Value.ToString("d");
                     (App.Current as App).GlobalnaPremenaTriedy = LocalTrieda;
                     for (int i = 0; i < Convert.ToInt32(LocalTrieda.PocetZiakov); i++)
                     {
@@ -92,10 +93,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
                 else if ((App.Current as App).boloNavigované == true)
                 {
                     LocalTrieda.trieda = LocalTrieda.NahratieTriedyString(trieda.SelectedIndex);
+                    LocalTrieda.RokUkoncenia = koniecŠtúdia.Date.Value.ToString("d");
                     (App.Current as App).GlobalnaPremenaTriedy = LocalTrieda;
                     this.Frame.Navigate(typeof(Overenie_triednych_údajóv));
                 }
-
 
             }
         }
@@ -129,8 +130,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             StackPanelSAnimáciou.Visibility = Visibility.Visible;
             (App.Current as App).PrehranieAnimácieAZobrazenieElementu(AnimáciaNaSpustenie, StackPanelSAnimáciou);
 
-            LocalTrieda = null;
-           
+            LocalTrieda = null;    
         }
     }
 }

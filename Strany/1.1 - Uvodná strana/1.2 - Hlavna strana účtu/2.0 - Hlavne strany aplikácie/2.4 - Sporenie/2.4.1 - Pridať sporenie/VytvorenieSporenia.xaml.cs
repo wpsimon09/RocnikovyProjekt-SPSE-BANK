@@ -23,55 +23,40 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     /// </summary>
     public sealed partial class VytvorenieSporenia : Page
     {
+        Sporenie sporenie { get; set; }
         public VytvorenieSporenia()
         {
             this.InitializeComponent();
+            sporenie = new Sporenie();
+            
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
-        public struct InfoOsporeniNaStuzkovu
+
+        private void OnNavigatedTo(object sender,NavigationEventArgs e)
         {
-            public double CielovaSuma;
-            public string DatumUkoncenia;
+            sporenie = (App.Current as App).GlobalSporenie;
         }
 
-        public InfoOsporeniNaStuzkovu DocasnaPremena;
-
-        public InfoOsporeniNaStuzkovu DoDocasnejPremene()
+        private async void Pokračovať_Click(object sender, RoutedEventArgs e)
         {
-            InfoOsporeniNaStuzkovu temp;
-
-            temp.CielovaSuma = Convert.ToDouble(CielenaSuma.Text);
-            temp.DatumUkoncenia = UkoncenieSporenia.Date.Value.DateTime.ToString("d");
-
-            return temp;
-        }
-
-
-        private void Pokračovať_Click(object sender, RoutedEventArgs e)
-        {
-            InfoOsporeniNaStuzkovu DocasnaPremena = new InfoOsporeniNaStuzkovu();
             if (string.IsNullOrEmpty(CielenaSuma.Text) ||
                 UkoncenieSporenia.Date == null
                 )
             {
                 var msg = new MessageDialog("Neboli zadané všetky údaje", "Sporenie nebolo upravené/vytvorené");
-                msg.ShowAsync();
+                await msg.ShowAsync();
             }
             else
             {
-                DocasnaPremena = DoDocasnejPremene();
-
-                DoGlobalnejPremenej(DocasnaPremena);
+                sporenie.DatumUkonceniaSporeniaPriVytvoreniu = UkoncenieSporenia.Date.Value.ToString("d");
+                sporenie.CielenaSuma = Convert.ToDouble(CielenaSuma.Text);
+                sporenie.BoloVytvorené = true;
+                (App.Current as App).GlobalSporenie = sporenie;
                 this.Frame.Navigate(typeof(SporenieNaStužkovú));
             }
         }
 
-        public void DoGlobalnejPremenej(InfoOsporeniNaStuzkovu temp)
-        {
-            (App.Current as App).SumaNaSporeniePriVytvoreniu = temp.CielovaSuma;
-            (App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu = temp.DatumUkoncenia;
 
-        }
 
         private void CielenaSuma_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {

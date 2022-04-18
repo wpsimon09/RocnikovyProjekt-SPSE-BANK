@@ -34,16 +34,20 @@
             <PersonPicture  Margin="0,50"/>
         </StackPanel>
 
-        <StackPanel Margin="210,100,1190,865">
+        <StackPanel Margin="210,100,1190,830">
             <TextBlock x:Name="MenoPriIkonke" HorizontalAlignment="Left"  Text="Trieda" TextWrapping="Wrap" VerticalAlignment="Top" Height="51" Width="369" Visibility="Visible" FontFamily="ISOCP3" FontSize="40" TextAlignment="Left" Margin="1,0,0,0"/>
-            <TextBlock x:Name="SumaPriIkonke" Text="23330 €" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="228" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="22" Margin="5,0,0,0" />
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="SumaPriIkonke_Sporenie" Text="23330 € - Sporenie"  TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="226" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="22" Margin="5,5,0,0" />
-                <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Width="174" Height="10" Margin="0,0,0,0" Foreground="#FFE2E3E4" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD"/>
+            <StackPanel Orientation="Horizontal" Height="34">
+                <TextBlock x:Name="SumaPriIkonke" Text="{x:Bind platobnySystem.CelkovaSuma.ToString()}"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontWeight="ExtraBold" FontSize="32" Margin="5,0,0,0"  />
+                <TextBlock Text="€" TextWrapping="Wrap" VerticalAlignment="Top"  Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="32" Margin="5,0,0,0" FontWeight="ExtraBold"/>
             </StackPanel>
-
+            <StackPanel Orientation="Horizontal" x:Name="StackPanelSSporenim">
+                <TextBlock x:Name="SumaPriIkonke_Sporenie" Text="{x:Bind sporenie.VyzbieranaSuma.ToString()}"  TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="30" Margin="5,5,0,0" />
+                <TextBlock Text="€"  TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="30" Margin="5,5,0,0" />
+                <TextBlock Text=" - Sporenie"  TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Visible" FontFamily="Microsoft Yi Baiti" FontSize="30" Margin="5,5,0,0" />
+                <ProgressBar x:Name="DosiahnutyGoal" BorderThickness="2"  CornerRadius="7" Value="{x:Bind sporenie.ProgressSporenie}" Height="10" Foreground="#FFE2E3E4" Margin="15,20" Background="#4BC3C5C7" BorderBrush="#FFD1CDCD" Width="200"/>
+            </StackPanel>
         </StackPanel>
-        <Grid x:Name="RozlozenieTlacidiel" VerticalAlignment="Top" Height="660" Loaded="Grid_Loaded" Margin="340,210,340,0"  >
+        <Grid x:Name="RozlozenieTlacidiel" VerticalAlignment="Top" Height="660" Loaded="Grid_Loaded" Margin="340,240,340,0"  >
             <Button x:Name="VlozeniePeňazí" CornerRadius="7" Margin="50,45,0,0" Height="210" Style="{StaticResource Animácia}" VerticalAlignment="Top" Width="220" PointerEntered="MiškaNaVložení" PointerExited="MiškaOdišlaOdVloženia" Click="VlozeniePeňazí_Click">
                 <StackPanel Margin="-110,-80,-97,-105">
                     <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Width="155" Margin="0,0,0,-25"/>
@@ -60,7 +64,7 @@
                     <Image Source="/Assets/IkonkyNaPrednuStranu/historia.png" Width="155" Margin="0,0,0,-25"/>
                 </StackPanel>
             </Button>
-            
+
             <Button x:Name="ZberPeňazí1"  Style="{StaticResource Animácia}"  CornerRadius="7" Margin="0,390,0,0" Height="210" VerticalAlignment="Top" Width="220" HorizontalAlignment="Center" PointerEntered="MyšNaZbere" PointerExited="MyšOdišlaOdZberu" Click="ZberPeňazí1_Click">
                 <StackPanel Margin="-110,-80,-97,-105">
                     <Image Source="/Assets/IkonkyNaPrednuStranu/kurzy.png" Width="155" Margin="0,0,0,-25"/>

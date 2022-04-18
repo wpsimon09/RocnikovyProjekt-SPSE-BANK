@@ -11,38 +11,56 @@
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
 
     <Grid>
-        <Grid Height="700" Width="1100"  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20">
+        <Grid Height="440" Width="730"  BorderBrush="White" BorderThickness="5" Background="#2D3436" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <TextBlock Text="Pridať peniaze do triedneho fondu" HorizontalAlignment="Center" TextAlignment="Center" LineHeight="20" FontSize="35" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold"  Height="54" VerticalAlignment="Top"  />
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel x:Name="StackPanelSFormulárom">
+                        <TextBox x:Name="VloženáSuma"  CornerRadius="7" Margin="0,40,0,0" Header="Vložená suma" Width="225" HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" BeforeTextChanging="VloženáSuma_BeforeTextChanging">
+                            <TextBox.HeaderTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                                </DataTemplate>
+                            </TextBox.HeaderTemplate>
+                        </TextBox>
+
+                        <TextBox x:Name="OdKohoPrisli" CornerRadius="7" Text="{x:Bind platobnysystem.OdKohoPrisliPenia , Mode=TwoWay}" Margin="0,10,0,0"  Header="Od koho prišli peniaze" Width="225" HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" >
+                            <TextBox.HeaderTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
+                                </DataTemplate>
+                            </TextBox.HeaderTemplate>
+                        </TextBox>
+
+                        <ComboBox x:Name="KamPôjduPeniaze" SelectedIndex="{x:Bind platobnysystem.KamPojduPeniaze, Mode=TwoWay}" CornerRadius="7" Margin="0,10" IsEnabled="True" Header="Kam peniaze pôjdu"  Width="225" HorizontalAlignment="Center" SelectionChanged="KamPôjduPeniaze_SelectionChanged">
+                            <ComboBox.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" Foreground="White" FontSize=" 16"/>
+                                </DataTemplate>
+                            </ComboBox.HeaderTemplate>
+                            <ComboBoxItem Content="Triedny fond"/>
+                            <ComboBoxItem Content="Sporenie na stužkovú"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,9">
+
+                        <Button x:Name="Naspäť" Content="Naspäť"   RequestedTheme="Light" Foreground="White"  Background="Gray" CornerRadius ="7" FocusVisualPrimaryBrush="White" Click="Naspäť_Click" Width="80">
+
+                        </Button>
+                        <Border Width="64"/>
+                        <Button x:Name="Pokračovať" Content="Ďalej" RequestedTheme="Light" Foreground="White" Width="80"  Background="Gray" CornerRadius="7" FocusVisualPrimaryBrush="White" Click="Pokračovať_Click">
+                           
+                        </Button>
+                      
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
 
 
-
-            <TextBlock Width="1098" Text="Pridať peniaze do triedneho fondu" TextAlignment="Center" LineHeight="20" Margin="10,165,0,0" FontSize="40" Foreground="#FFF7F0F0" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.496,2.969" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" />
-
-            <TextBox x:Name="VloženáSuma" CornerRadius="7" Margin="0,285,0,0" Header="Vložená suma" Width="225" HorizontalAlignment="Center" Height="65" VerticalAlignment="Top" BeforeTextChanging="VloženáSumaZmena">
-                <TextBox.HeaderTemplate>
-                    <DataTemplate >
-                        <TextBlock Text="{Binding}" Foreground="White" FontSize="16"/>
-                    </DataTemplate>
-                </TextBox.HeaderTemplate>
-            </TextBox>
-            <TextBlock Text="€" Foreground="White" FontSize="29" Margin="0,308,412,0" Height="42" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20"/>
-
-            <ComboBox x:Name="KamPôjduPeniaze" CornerRadius="7" IsEnabled="True" Header="Kam peniaze pôjdu" Margin="0,360,0,0" Width="225" HorizontalAlignment="Center">
-                <ComboBox.HeaderTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding}" Foreground="White" FontSize=" 16"/>
-                    </DataTemplate>
-                </ComboBox.HeaderTemplate>
-                <ComboBoxItem Content="Triedny fond"/>
-                <ComboBoxItem Content="Sporenie na stužkovú"/>
-            </ComboBox>
-            <Button x:Name="Pokračovať" Margin="633,462,0,0" VerticalAlignment="Top" Height="28" Width="30" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Click="Pokračovať_Click"  >
-                <Button.RenderTransform>
-                    <CompositeTransform ScaleX="-1"/>
-                </Button.RenderTransform>
-            </Button>
-            <Button x:Name="Naspäť" Margin="438,462,0,0" VerticalAlignment="Top" Height="28" Width="28" Style="{ThemeResource NavigationBackButtonNormalStyle}" RequestedTheme="Light" RenderTransformOrigin="0.5,0.5" Foreground="White"  Background="Gray" FocusVisualPrimaryBrush="White" Click="Naspäť_Click"    >
-
-            </Button>
 
         </Grid>
 

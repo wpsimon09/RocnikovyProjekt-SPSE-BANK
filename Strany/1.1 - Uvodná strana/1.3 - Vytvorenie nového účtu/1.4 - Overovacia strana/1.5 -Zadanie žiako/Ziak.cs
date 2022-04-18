@@ -27,6 +27,8 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         public bool JeZačiarknute { get; set; }
 
+        public double KolkoZaplatil { get; set; }   
+
         public Ziak(string _meno, string _priezvysko)
         {
             meno = _meno;
@@ -34,8 +36,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             JeZačiarknute = false;
             (App.Current as App).IndexZiaka++;
             Index = (App.Current as App).IndexZiaka;
-
-        
+            KolkoZaplatil = new double();
         }
 
         public Ziak()
@@ -45,6 +46,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             JeZačiarknute = false;
             (App.Current as App).IndexZiaka++;
             Index = (App.Current as App).IndexZiaka;
+            KolkoZaplatil=new double(); 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

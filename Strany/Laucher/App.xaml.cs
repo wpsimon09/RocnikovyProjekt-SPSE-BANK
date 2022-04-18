@@ -25,7 +25,7 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._6___Zábava_a_relax;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana;
-
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie;
 namespace Ročňíkový_projekt___Aplikácia_pre_banku
 {
 
@@ -42,14 +42,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public string GlobalnaPremenaTriedyString { get; set; }
         public Trieda GlobalnaPremenaTriedy { get; set; }
 
-        //------------------------Premenné pri pridanie paňazí------------------------------//
-        public PridaniePeňazí.InfoOPridanýchPeniazoch[] GlobálnaPremenáInfaOPridanýchPeniazoch { get; set; }
 
-
-
-        //-------------------------Premenné pri platbe--------------------------------------//
-        public Platba.InfoOplatbe[] GlobálnaPremenaOPlatbe { get; set; }
-
+        //-------------------------PlatobnySystem-------------------------------------------//
+        public PlatobnySystem PlatobnySistem { get; set; }
 
         //-------------------------Premenné pre zadávanie Ziakov----------------------------//
         public string[] MenaZiakov { get; set; }
@@ -58,10 +53,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public int IndexZiaka { get; set; }
 
         //---------------------------Premenné pri sporení-----------------------------------//
-        public double SumaNaSporenie { get; set; }
-        public double SumaNaSporeniePriVytvoreniu { get; set; }
-        public string DatumUkonceniaSporeniaPriVytvoreniu { get; set; }
-        public int ProgressSporenie { get; set; }
+        public Sporenie GlobalSporenie{ get; set; }
 
         //---------------------------Premenné pri zberaní peňazí-----------------------------//
         public  List<ZberPenazi> ListZbieranychPenazi { get; set; }
@@ -157,64 +149,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             }
         }
 
-        /// <summary>
-        /// Nahranie textu pre historiu v prípade inkasa
-        /// </summary>
-        /// <param name="inkaso"> Štruktúra pre inkaso, kde sa nachádzajú všetky potrebné informácie</param>
-        public void NahranieTextuDoHistorie(PridaniePeňazí.InfoOPridanýchPeniazoch inkaso)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                if(string.IsNullOrEmpty(TextPreHistoriu[i]))
-                {
-                    if(inkaso.KamSaPeniazeUlozia == 0)
-                    {
-                        TextPreHistoriu[i] = $"+ {DateTime.Now.ToString("d")} - Inkaso v hodnote {inkaso.suma.ToString()} na bežný účet";
-                    }
-                    else if(inkaso.KamSaPeniazeUlozia == 1)
-                    {
-                        TextPreHistoriu[i] = $"+ {DateTime.Now.ToString("d")} - Inkaso v hodnote {inkaso.suma.ToString()} na sporiaci účet";
-                    }
-                    PrijemAleboVýdavok[i] = 1;
-                    Príjmy = Príjmy + Convert.ToDouble(inkaso.suma);
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Nahrá text pre historiu platieb v prípade platby
-        /// </summary>
-        /// <param name="platba"> Štruktúra, ktorá obsahuje všetky potrebné informácie o platbe</param>
-        public void NahranieTextuDoHistorie(Platba.InfoOplatbe platba)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                if (string.IsNullOrEmpty(TextPreHistoriu[i]))
-                {
-                    if (platba.ZakéhoUčtuPojduPeniaze == 0)
-                    {
-                        TextPreHistoriu[i] = $"- {platba.DátumSplatnosti} - platba v hodnote {platba.PlatenáSuma} pre {platba.MenoPríjemcu} z bežného účtu";
-                    }
-                    else if (platba.ZakéhoUčtuPojduPeniaze == 1)
-                    {
-                        TextPreHistoriu[i] = $"- {platba.DátumSplatnosti} - platba v hodnote {platba.PlatenáSuma} pre {platba.MenoPríjemcu} zo sporiaceho účtu";
-                    }
-                    Výdavky = Výdavky + Convert.ToDouble(platba.PlatenáSuma);
-                    PrijemAleboVýdavok[i] = 2;
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-
 
         public App()
         {
@@ -228,13 +162,12 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             ProgressZberania = new double[2];
             indexAkcie = new int[100];
             PrijemAleboVýdavok = new int[100];
-            GlobálnaPremenáInfaOPridanýchPeniazoch = new PridaniePeňazí.InfoOPridanýchPeniazoch[2];
-            GlobálnaPremenaOPlatbe = new Platba.InfoOplatbe[100];
+            PlatobnySistem = new PlatobnySystem();
             ListZbieranychPenazi = new List<ZberPenazi>();
             ListZiakov = new List<Ziak>();
             IndexZberu = -1;
             boloNavigované = false;
-            
+            GlobalnaPremenaTriedy = new Trieda();
             
             ListZiakov.Add(new Ziak("Jožko","Mrva"));
             ListZiakov.Add(new Ziak("Ján", "Heatfild"));
@@ -245,10 +178,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             ListZiakov.Add(new Ziak("Jaroslav", "Sedlák"));
             ListZiakov.Add(new Ziak("Miroslav", "Dužina"));
 
-
+            GlobalSporenie = new Sporenie();
 
             ListZbieranychPenazi.Add(new ZberPenazi("ZRPŠ", "10.2.2022", "96", this.ListZiakov, DateTimeOffset.Now));
-           
 
             IndexZiaka = -1;
 

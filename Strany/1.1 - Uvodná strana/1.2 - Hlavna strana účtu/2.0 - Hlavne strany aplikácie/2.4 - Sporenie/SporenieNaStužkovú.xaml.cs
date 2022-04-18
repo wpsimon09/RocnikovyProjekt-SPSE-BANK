@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Správy;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,31 +24,17 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     /// </summary>
     public sealed partial class SporenieNaStužkovú : Page
     {
-
+        public Sporenie sporenie { get; set; }
         public SporenieNaStužkovú()
         {
+            sporenie = (App.Current as App).GlobalSporenie;
             this.InitializeComponent();
         }
 
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-        
-
-            if ((App.Current as App).SumaNaSporeniePriVytvoreniu == 0 ||
-                string.IsNullOrEmpty((App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu)
-                )
-            {
-                this.Frame.Navigate(typeof(_4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
-                var msg = new MessageDialog("Prosím, vytvorte si ho teraz", "Sporenie nie je vytvorené");
-                msg.ShowAsync();
-            }
-            else
-            {
-                CielEura.Text = $"{(App.Current as App).SumaNaSporenie} € z {(App.Current as App).SumaNaSporeniePriVytvoreniu}";
-                Dátum.Text = $"Do {(App.Current as App).DatumUkonceniaSporeniaPriVytvoreniu}";
-                DosiahnutyGoal.Value = (App.Current as App).ProgressSporenie;
-            }
+        {                  
+            
         }
 
         private void Naspäť_Click(object sender, RoutedEventArgs e)
@@ -71,6 +58,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             this.Frame.Navigate(typeof(_4___Sporenie._2._4._1___Pridať_sporenie.VytvorenieSporenia));
         }
 
-        
+        private async void Info_Click(object sender, RoutedEventArgs e)
+        {
+            var Message = new KtoKolkoZaplatilOverenie_Sporenie();
+            await Message.ShowAsync();
+        }
     }
 }

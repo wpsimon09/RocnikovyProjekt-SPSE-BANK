@@ -108,13 +108,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 
         private void UkončenieZberania_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current as App).hlavnáSuma += Convert.ToDouble(zberanie.SumaNaVyzbieranie);
+            (App.Current as App).PlatobnySistem.CelkovaSuma += Convert.ToDouble(zberanie.SumaNaVyzbieranie);
             this.Frame.Navigate(typeof(Zberanie_peňazí));
         }
 
-        private void Zberanie_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
