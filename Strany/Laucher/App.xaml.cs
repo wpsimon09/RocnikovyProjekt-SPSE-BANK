@@ -75,31 +75,15 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
         public string [] TextPreHistoriu { get; set; }
         public double Príjmy { get; set; }
         public double Výdavky { get; set; }
+
+        public Historia GlobalHistoria { get; set; }
+
         public int[] PrijemAleboVýdavok { get; set; } //1- príjem 2-výdavok
 
         //----------------------------Premenné pri hre -------------------------------------//
         public Hra GlobalNaPremenaHry { get; set; }
 
 
-        /// <summary>
-        /// Funkcia pre nahratie intexu akcie
-        /// </summary>
-        /// <param name="index"> 1 - platba || 2 - inkaso || 3 - platba zo sporenia || 4 - inkaso na sporenie || 5 - inkaso so zberania </param>
-        public void NahranieIndexuAkcie(int index)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                if ((App.Current as App).indexAkcie[i] == 0)
-                {
-                    (App.Current as App).indexAkcie[i] = index;
-                    break;
-                }
-                else
-                {
-
-                }
-            }
-        }
 
         /// <summary>
         /// Prehrá animáciu a po prehratí naviguje na stranu
@@ -156,19 +140,14 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             this.Suspending += OnSuspending;
             GlobalNaPremenaHry = new Hra();
             KolkoSaZatialVyzbieralo = new double[2];
-            Príjmy = 0;
-            Výdavky = 0;
-            TextPreHistoriu = new string[100];
-            ProgressZberania = new double[2];
-            indexAkcie = new int[100];
-            PrijemAleboVýdavok = new int[100];
             PlatobnySistem = new PlatobnySystem();
             ListZbieranychPenazi = new List<ZberPenazi>();
             ListZiakov = new List<Ziak>();
             IndexZberu = -1;
             boloNavigované = false;
             GlobalnaPremenaTriedy = new Trieda();
-            
+            GlobalHistoria = new Historia();
+
             ListZiakov.Add(new Ziak("Jožko","Mrva"));
             ListZiakov.Add(new Ziak("Ján", "Heatfild"));
             ListZiakov.Add(new Ziak("Kristián", "Hammet"));

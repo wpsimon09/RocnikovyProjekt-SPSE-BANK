@@ -139,6 +139,7 @@
       <DependentUpon>UkoncenieHry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.1 - Pridanie peňazí\Inkaso.cs" />
+    <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.3 - Historia platieb\Historia.cs" />
     <Compile Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.3 - Historia platieb\HistoriaPlatieb.xaml.cs">
       <DependentUpon>HistoriaPlatieb.xaml</DependentUpon>
     </Compile>

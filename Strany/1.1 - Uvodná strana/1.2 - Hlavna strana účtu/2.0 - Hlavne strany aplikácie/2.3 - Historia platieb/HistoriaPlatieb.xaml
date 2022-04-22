@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data ="using:Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data"  
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc ="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d"
@@ -40,7 +41,7 @@
             <Setter Property="BackgroundSizing" Value="InnerBorderEdge"/>
             <Setter Property="Background" Value="Black"/>
             <Setter Property="Height" Value="300"/>
-            <Setter Property="Width" Value="480"/>
+            <Setter Property="Width" Value="490"/>
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="3"/>
             <Setter Property="CornerRadius" Value="7"/>
@@ -53,21 +54,25 @@
     <Grid>
         <TextBlock Style="{StaticResource Nadpis}" Text="Prezrite si svoje príjmi a výdavky" HorizontalAlignment="Center" Margin="0,82,0,939" VerticalAlignment="Stretch"/>
 
-        <!-- vytvorim nový stack panel kde sa budú dávať údaje bude mať taky backraund ako sporenie a bude mať border -->
         <Grid  x:Name="RootLayout"  BorderBrush="White" BorderThickness="5" Background="#2D3436" Width="1100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20" Height="699"  >
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
                     <StackPanel>
                         <TextBlock Style="{StaticResource Nadpis}" Text="Príjmy" HorizontalAlignment="Center" FontSize="24" Margin="0,0,0,5" />
-                        <ListView x:Name="Prijmy" Style="{StaticResource ListViewNormalStyle}" Background="#FF333333" BorderBrush="#FF78DC74" >
+                        <ListView x:Name="Prijmy" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.prijmy}" Background="#FF333333" BorderBrush="#FF78DC74" >
+                            <ListView.ItemTemplate >
+                                <DataTemplate x:DataType="data:Prijmy">
+                                    <TextBlock Text="{x:Bind Prijem}" TextWrapping="WrapWholeWords"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
                         </ListView>
                     </StackPanel>
                     <StackPanel Margin="40,0,0,0">
                         <TextBlock Text="Výdavky" Style="{StaticResource Nadpis}" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,5" />
-                        <ListView Name="Vydavky" Style="{StaticResource ListViewNormalStyle}" Background="#FF333333" BorderBrush="#FFD34F11"  >
-                            <ListView.ItemTemplate>
-                                <DataTemplate >
-                                    <TextBlock Text="{Binding}" />
+                        <ListView Name="Vydavky" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.vydavky}" Background="#FF333333" BorderBrush="#FFD34F11"  >
+                            <ListView.ItemTemplate >
+                                <DataTemplate x:DataType="data:Vydavky">
+                                    <TextBlock Text="{x:Bind Vydavok}" TextWrapping="WrapWholeWords"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -94,7 +99,7 @@
             </StackPanel>
 
 
-            <Button x:Name="Naspäť" Click="Naspäť_Click" Height="39" Margin="50,475,0,0" Width="100" VerticalAlignment="Top" CornerRadius="7" Content="Naspäť" Foreground="White"/>
+            <Button x:Name="Naspäť" Click="Naspäť_Click" Height="39" Margin="35,475,0,0" Width="100" VerticalAlignment="Top" CornerRadius="7" Content="Naspäť" Foreground="White"/>
         </Grid>
     </Grid>
 </Page>

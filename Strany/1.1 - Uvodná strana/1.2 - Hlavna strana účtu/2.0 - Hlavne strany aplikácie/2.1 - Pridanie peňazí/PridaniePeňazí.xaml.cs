@@ -57,16 +57,19 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_str
                 {
                     platobnysystem.Update();
                     platobnysystem.InkasoNaBeznyUcet();
-                    this.Frame.Navigate(typeof(HlavnaStranaUčtu));
+                    GridSAnimaciou.Visibility = Visibility.Visible;
+                    (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
           
                 }
                 else if (platobnysystem.KamPojduPeniaze == 1)
                 {
 
-                    var OdCiarknutieZiaka = new SporenieNaStužkovú(); //vytvorý novy instance of message dialog 
-                    OdCiarknutieZiaka.Suma = Convert.ToDouble(VloženáSuma.Text); //nahrá hodnoty do premenej suma, ktorá sa nachádza v message dialogu
+                    SporenieNaStužkovú OdCiarknutieZiaka = new SporenieNaStužkovú(); //vytvorý novy instance of message dialog 
+                    (App.Current as App).GlobalSporenie.SumaNaHistoriu = Convert.ToDouble(VloženáSuma.Text); //nahrá hodnoty do premenej suma, ktorá sa nachádza v message dialogu
                     await OdCiarknutieZiaka.ShowAsync();
-                    this.Frame.Navigate(typeof(HlavnaStranaUčtu));
+                    
+                    GridSAnimaciou.Visibility = Visibility.Visible;
+                    (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
                 }
             }
             else

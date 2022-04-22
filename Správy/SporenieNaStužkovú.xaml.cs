@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data;
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Správy
@@ -20,13 +21,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Správy
     public sealed partial class SporenieNaStužkovú : ContentDialog
     {
         public Sporenie sporenie { get; set; } 
-        public double Suma { get; set; }
         public SporenieNaStužkovú()
         {
             sporenie = (App.Current as App).GlobalSporenie;
             this.InitializeComponent();
-            this.NahranieItemovKtoreBoliZakliknute(KtoPrispel);
-            
+            this.NahranieItemovKtoreBoliZakliknute(KtoPrispel);    
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -36,8 +35,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Správy
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            (App.Current as App).GlobalSporenie.InkasoNaSporenie(Suma);
-            (App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[KtoPrispel.SelectedIndex].KolkoZaplatil = Suma;
+            (App.Current as App).GlobalSporenie.InkasoNaSporenie(sporenie.SumaNaHistoriu);
+            (App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[KtoPrispel.SelectedIndex].KolkoZaplatil = sporenie.SumaNaHistoriu ;
+            (App.Current as App).GlobalSporenie.ZiakKtoryZaplatil = $"{(App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[KtoPrispel.SelectedIndex].meno} {(App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[KtoPrispel.SelectedIndex].priezvysko}";
+            (App.Current as App).GlobalHistoria.prijmy.Add(new Prijmy((App.Current as App).GlobalSporenie, (App.Current as App).GlobalSporenie.ZiakKtoryZaplatil));
+
             NahranieLudi(KtoPrispel);
             this.Hide();
         }

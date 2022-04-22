@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Windows.UI.Popups;
 using System.Runtime.CompilerServices;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data;
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie
 {
@@ -14,6 +15,12 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     {
         public List<Ziak> ZiaciPreSporenieNaStuzkovu { get; set; }
         public List<Ziak> ZiaciKtoryZaplatili { get; set; }
+
+        public double SumaNaHistoriu { get; set; }
+
+
+        public string ZiakKtoryZaplatil { get; set; }
+
 
         private double _vyzbieranaSuma;
         public double VyzbieranaSuma
@@ -55,14 +62,21 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         /// <summary>
         /// Aktualizuje progress sporenia
         /// </summary>
-        public void UpdateProgress()
+        public async void UpdateProgress()
         {
-            //TODO exeption ked nieje sporenie vytvorenie
-            ProgressSporenie = Convert.ToInt32(( VyzbieranaSuma/this.CielenaSuma)*100);
+            try
+            {
+                ProgressSporenie = Convert.ToInt32((VyzbieranaSuma / this.CielenaSuma) * 100);
+            }
+            catch (System.OverflowException)
+            {
+                var message = new MessageDialog("Platba nebola úspešná", "Sporiaci účet nieje vytvorený");
+                await message.ShowAsync();
+            }
         }
 
         /// <summary>
-        /// Nahrá sumu, ktorá bola inkasovaná, pokial nieje väčšia ako cielena suma
+        /// Nahrá sumu, ktorá bola inkasovaná
         /// </summary>
         /// <param name="suma"></param>
         public void InkasoNaSporenie(double suma)
@@ -98,10 +112,10 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             else
             {
                 VyzbieranaSuma = VyzbieranaSuma - suma;
+                (App.Current as App).GlobalHistoria.vydavky.Add(new Vydavky((App.Current as App).PlatobnySistem, 1));
                 (App.Current as App).GlobalSporenie = this;
             }
         }
-   
 
         public event PropertyChangedEventHandler PropertyChanged;
 

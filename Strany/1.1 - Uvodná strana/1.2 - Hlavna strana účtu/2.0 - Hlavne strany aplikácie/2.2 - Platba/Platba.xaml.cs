@@ -65,8 +65,9 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             if(ZakehoUčtuPojduPeniaze.SelectedIndex == 0)
             {
                 platobnySystem.PlatenaSuma = Convert.ToDouble(Suma.Text);
-                platobnySystem.PlatbaZBeznehoUctu();
                 platobnySystem.Update();
+                platobnySystem.PlatbaZBeznehoUctu();
+                (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
                 this.Frame.Navigate(typeof(HlavnaStranaUčtu));
             }
             else if(ZakehoUčtuPojduPeniaze.SelectedIndex == 1)

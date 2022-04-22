@@ -25,6 +25,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
     public sealed partial class SporenieNaStužkovú : Page
     {
         public Sporenie sporenie { get; set; }
+        
         public SporenieNaStužkovú()
         {
             sporenie = (App.Current as App).GlobalSporenie;

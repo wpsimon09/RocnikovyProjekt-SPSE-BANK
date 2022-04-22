@@ -13,7 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Assets.MessageDIalogy;
-
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._3___Historia_platieb;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí
@@ -109,6 +110,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         private void UkončenieZberania_Click(object sender, RoutedEventArgs e)
         {
             (App.Current as App).PlatobnySistem.CelkovaSuma += Convert.ToDouble(zberanie.SumaNaVyzbieranie);
+            (App.Current as App).GlobalHistoria.prijmy.Add(new Prijmy(zberanie));
             this.Frame.Navigate(typeof(Zberanie_peňazí));
         }
 

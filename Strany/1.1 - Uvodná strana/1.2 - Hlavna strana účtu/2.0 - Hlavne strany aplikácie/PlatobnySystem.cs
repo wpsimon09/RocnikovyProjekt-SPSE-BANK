@@ -10,18 +10,12 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
 {
     public class PlatobnySystem:IPlatobnySystem
     {
-        public PlatobnySystem()
-        {
-            ListPrijmov = new List<Prijmy>();
-            ListVydavkov = new List<Výdavky>();
-        }
 
         public void InkasoNaBeznyUcet()
         {
-            //TODO: Vytvoriť objekt list prijmov
             CelkovaSuma = CelkovaSuma + InkasovanaSuma;
-            ListPrijmov.Add(new Prijmy((App.Current as App).PlatobnySistem));
-            
+            (App.Current as App).GlobalHistoria.prijmy.Add(new Prijmy((App.Current as App).PlatobnySistem));
+
         }
 
         public async void PlatbaZBeznehoUctu()
@@ -34,11 +28,11 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             else
             {
                 CelkovaSuma = CelkovaSuma - PlatenaSuma;
+                (App.Current as App).GlobalHistoria.vydavky.Add(new Vydavky((App.Current as App).PlatobnySistem,0));
             }
         }
 
-        
-
+       
         public void Update()
         {
             (App.Current as App).PlatobnySistem = this;

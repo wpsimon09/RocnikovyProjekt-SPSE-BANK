@@ -11,8 +11,6 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data
     public abstract class IPlatobnySystem:INotifyPropertyChanged
     {
 
-        public List<Prijmy> ListPrijmov { get; set; }
-        public List<Výdavky> ListVydavkov { get; set; }
         public double CelkovaSuma { get; set; }
         
         
