@@ -59,20 +59,24 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0">
                     <StackPanel>
                         <TextBlock Style="{StaticResource Nadpis}" Text="Príjmy" HorizontalAlignment="Center" FontSize="24" Margin="0,0,0,5" />
-                        <ListView x:Name="Prijmy" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.prijmy}" Background="#FF333333" BorderBrush="#FF78DC74" >
+                        <ListView x:Name="Prijmy" SelectionMode="Single" SelectionChanged="Prijmy_SelectionChanged" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.prijmy}" Background="#FF333333" BorderBrush="#FF78DC74" >
                             <ListView.ItemTemplate >
                                 <DataTemplate x:DataType="data:Prijmy">
-                                    <TextBlock Text="{x:Bind Prijem}" TextWrapping="WrapWholeWords"/>
+                                    <StackPanel x:Name="Prijmy" Padding="10" PointerPressed="Prijmy_PointerPressed" Visibility="{x:Bind viditelnost, Mode=TwoWay}">
+                                        <TextBlock Text="{x:Bind Prijem}" TextWrapping="WrapWholeWords"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackPanel>
                     <StackPanel Margin="40,0,0,0">
                         <TextBlock Text="Výdavky" Style="{StaticResource Nadpis}" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,5" />
-                        <ListView Name="Vydavky" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.vydavky}" Background="#FF333333" BorderBrush="#FFD34F11"  >
-                            <ListView.ItemTemplate >
-                                <DataTemplate x:DataType="data:Vydavky">
-                                    <TextBlock Text="{x:Bind Vydavok}" TextWrapping="WrapWholeWords"/>
+                        <ListView Name="Vydavky" SelectionMode="Single" SelectionChanged="Vydavky_SelectionChanged" Style="{StaticResource ListViewNormalStyle}" ItemsSource="{x:Bind historia.vydavky}" Background="#FF333333" BorderBrush="#FFD34F11"  >
+                            <ListView.ItemTemplate  >
+                                <DataTemplate x:DataType="data:Vydavky" >
+                                    <StackPanel x:Name="itemVydavky" PointerPressed="itemVydavky_PointerPressed" Padding="10" Visibility="{x:Bind viditelnost, Mode=TwoWay}" >
+                                        <TextBlock Text="{x:Bind Vydavok}" TextWrapping="WrapWholeWords"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -91,7 +95,6 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Konečný zostatok" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
                             <TextBlock x:Name="Vysledok" Foreground="#FF78DC74" FontSize="16" HorizontalAlignment="Center" Text="- 123 €" Margin="10,0,0,0"/>
-
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

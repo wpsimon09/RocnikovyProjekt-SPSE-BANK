@@ -85,7 +85,5 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             
         }
 
-
-
     }
 }

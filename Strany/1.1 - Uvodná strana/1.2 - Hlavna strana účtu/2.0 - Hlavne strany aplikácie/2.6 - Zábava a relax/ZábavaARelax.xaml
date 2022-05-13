@@ -79,12 +79,12 @@
                                     <Image x:Name="Obrazok1" Source="/Assets/ObrazkyPreHru/Kaktus.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok1}" PointerPressed="Obrazok1_PointerPressed" />
                                 </Grid>
                                 <Grid Width="665" >
-                                    <Image x:Name="Obrazok2" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok2}" PointerPressed="Obrazok1_PointerPressed"/>
+                                    <Image x:Name="Obrazok2" Source="/Assets/ObrazkyPreHru/grill.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok2}" PointerPressed="Obrazok1_PointerPressed"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Height="472" Orientation="Horizontal" >
                                 <Grid Width="665" >
-                                    <Image x:Name="Obrazok3" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok3 }" PointerPressed ="Obrazok1_PointerPressed"/>
+                                    <Image x:Name="Obrazok3" Source="/Assets/ObrazkyPreHru/ohen.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok3 }" PointerPressed ="Obrazok1_PointerPressed"/>
                                 </Grid>
                                 <Grid Width="665" >
                                     <Image x:Name="Obrazok4" Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Style="{StaticResource ObrazokNaHladanie}" Margin="{x:Bind hra.Obrazok4}" PointerPressed="Obrazok1_PointerPressed"/>
@@ -105,18 +105,18 @@
                         </StackPanel>
                         <StackPanel Background="Gray" Margin="20,10" CornerRadius="20">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <RadioButton x:Name="obr1" IsEnabled="False" />
+                                <RadioButton x:Name="obr1" IsEnabled="False"   />
                                 <Image Source="/Assets/ObrazkyPreHru/Kaktus.png" Height="70" Width="79"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <RadioButton x:Name="obr2" IsEnabled="False" />
-                                <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                                <Image Source="/Assets/ObrazkyPreHru/grill.png" Height="70" Width="79"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <RadioButton x:Name="obr3" IsEnabled="False" />
-                                <Image Source="/Assets/IkonkyNaPrednuStranu/deposit.png" Height="70" Width="79"/>
+                                <Image Source="/Assets/ObrazkyPreHru/ohen.png" Height="70" Width="79"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">

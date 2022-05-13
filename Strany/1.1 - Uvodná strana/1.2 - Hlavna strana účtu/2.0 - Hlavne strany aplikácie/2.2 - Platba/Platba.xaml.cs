@@ -60,23 +60,64 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         }
 
 
-        public void Pokračovať_Click(object sender, RoutedEventArgs e)
+        public async void Pokračovať_Click(object sender, RoutedEventArgs e)
         {
-            if(ZakehoUčtuPojduPeniaze.SelectedIndex == 0)
+
+            if (string.IsNullOrEmpty(Suma.Text) ||
+               string.IsNullOrEmpty(KomuPôjduPeniaze.Text) ||
+               ZakehoUčtuPojduPeniaze.SelectedIndex == -1 ||
+               string.IsNullOrEmpty(IBAN.Text))
             {
-                platobnySystem.PlatenaSuma = Convert.ToDouble(Suma.Text);
-                platobnySystem.Update();
-                platobnySystem.PlatbaZBeznehoUctu();
-                (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
-                this.Frame.Navigate(typeof(HlavnaStranaUčtu));
+                var msg = new MessageDialog("Chýbajú zadané údaje", "Chyba");
+                await msg.ShowAsync();
             }
-            else if(ZakehoUčtuPojduPeniaze.SelectedIndex == 1)
+
+            else
             {
-                sporenie.VykonatPlatbu(Convert.ToDouble(Suma.Text));
-                sporenie.UpdateProgress();
-                this.Frame.Navigate(typeof(HlavnaStranaUčtu));
+
+                if (DnesnyDatumSplatnosti.IsOn)
+                {
+                    platobnySystem.DatumSplatnosti = DateTime.Now;
+                }
+                else
+                {
+                    platobnySystem.DatumSplatnosti = DátumSplatnosti.Date.DateTime;
+                }
+
+                if (ZakehoUčtuPojduPeniaze.SelectedIndex == 0)
+                {
+
+                    platobnySystem.PlatenaSuma = Convert.ToDouble(Suma.Text);
+                    platobnySystem.MenoPrijemcu = KomuPôjduPeniaze.Text;
+                    platobnySystem.Update();
+                    if (platobnySystem.PlatbaZBeznehoUctu())
+                    {
+                        GridSAnimaciou.Visibility = Visibility.Visible;
+                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
+                    }
+                    else
+                    {
+                        MessageDialog msg = new MessageDialog("Nemáte dostatok peňazí", "Platba nebola uspešná");
+                        await msg.ShowAsync();
+                        this.Frame.Navigate(typeof(HlavnaStranaUčtu));
+                    }
+
+                }
+                else if (ZakehoUčtuPojduPeniaze.SelectedIndex == 1)
+                {
+                    if (sporenie.VykonatPlatbu(Convert.ToDouble(Suma.Text)))
+                    {
+                        sporenie.UpdateProgress();
+                        GridSAnimaciou.Visibility = Visibility.Visible;
+                        (App.Current as App).PrehranieAnimacieANavigovanieNaStranu(AnimáciaNaSpustenie, typeof(HlavnaStranaUčtu), this as Page);
+                    }
+                    else
+                    {
+                        var message = new MessageDialog("Platba nebola úspešná", "Na sporiacom účte nemáte dostatok financií");
+                        await message.ShowAsync();
+                    }
+                }
             }
-            
         }
 
         private void Naspäť_Click(object sender, RoutedEventArgs e)

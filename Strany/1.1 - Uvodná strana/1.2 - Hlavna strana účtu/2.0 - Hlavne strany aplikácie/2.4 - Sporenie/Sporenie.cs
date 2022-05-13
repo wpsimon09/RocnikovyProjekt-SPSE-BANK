@@ -102,18 +102,19 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         /// Vykoná platbu
         /// </summary>
         /// <param name="suma">suma, ktorá sa platí</param>
-        public async void VykonatPlatbu(double suma)
+        public bool VykonatPlatbu(double suma)
         {
             if(suma>VyzbieranaSuma)
             {
-                var message = new MessageDialog("Platba nebola úspešná", "Na sporiacom účte nemáte dostatok financií");
-                await message.ShowAsync();
+                return false;
             }
             else
             {
                 VyzbieranaSuma = VyzbieranaSuma - suma;
                 (App.Current as App).GlobalHistoria.vydavky.Add(new Vydavky((App.Current as App).PlatobnySistem, 1));
                 (App.Current as App).GlobalSporenie = this;
+
+                return true;
             }
         }
 

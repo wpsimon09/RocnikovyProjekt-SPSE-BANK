@@ -15,24 +15,23 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             CelkovaSuma = CelkovaSuma + InkasovanaSuma;
             (App.Current as App).GlobalHistoria.prijmy.Add(new Prijmy((App.Current as App).PlatobnySistem));
-
         }
 
-        public async void PlatbaZBeznehoUctu()
+        public bool PlatbaZBeznehoUctu()
         {
             if(PlatenaSuma>CelkovaSuma)
             {
-                MessageDialog msg = new MessageDialog("Nemáte dostatok peňazí", "Platba nebola uspešná");
-                await msg.ShowAsync();
+                
+                return false;
             }
             else
             {
                 CelkovaSuma = CelkovaSuma - PlatenaSuma;
                 (App.Current as App).GlobalHistoria.vydavky.Add(new Vydavky((App.Current as App).PlatobnySistem,0));
+                return true;
             }
         }
 
-       
         public void Update()
         {
             (App.Current as App).PlatobnySistem = this;

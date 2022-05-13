@@ -111,6 +111,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
         {
             (App.Current as App).PlatobnySistem.CelkovaSuma += Convert.ToDouble(zberanie.SumaNaVyzbieranie);
             (App.Current as App).GlobalHistoria.prijmy.Add(new Prijmy(zberanie));
+            (App.Current as App).ListZbieranychPenazi.Remove((App.Current as App).ListZbieranychPenazi[NaKtoreSaKliklo]);
             this.Frame.Navigate(typeof(Zberanie_peňazí));
         }
 

@@ -6,16 +6,39 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._5__Zber_peňazí
 {
-    public class ZberPenazi
+    public class ZberPenazi:INotifyPropertyChanged
     {
         public string Nazov { get; set; }
         public string DatumUkoncenia { get; set; }
-        public string SumaNaVyzbieranie { get; set; }
+        public string _sumaNaVyzbieranie;
+        public string SumaNaVyzbieranie
+        {
+            get { return _sumaNaVyzbieranie; }
+
+            set
+            {
+                _sumaNaVyzbieranie = value;
+                OnPropertyChanged();
+            }
+        }
         public string[] MenaZiakov {get; set;}
-        public double KolkoKazdyZaplati { get; set; }
+
+        public double _kolkoKazdyZapli;
+        public double KolkoKazdyZaplati
+        {
+            get { return _kolkoKazdyZapli; }
+            
+            set
+            {
+                _kolkoKazdyZapli = value;
+                OnPropertyChanged();
+            }
+        }
         public double ProgressZberania { get; set; }
         public int indexZberu { get; set; }
         public System.DateTimeOffset DatumUkonceniaOffSet { get; set; }
@@ -114,6 +137,15 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             }
 
         }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
 
     }
 }

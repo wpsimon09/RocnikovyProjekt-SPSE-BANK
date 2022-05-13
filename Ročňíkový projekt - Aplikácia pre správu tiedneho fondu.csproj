@@ -210,7 +210,9 @@
     <Content Include="Assets\IkonkyNaPrednuStranu\settings.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\sporenie.png" />
     <Content Include="Assets\IkonkyNaPrednuStranu\menoakcie.png" />
+    <Content Include="Assets\ObrazkyPreHru\grill.png" />
     <Content Include="Assets\ObrazkyPreHru\Kaktus.png" />
+    <Content Include="Assets\ObrazkyPreHru\ohen.png" />
     <Content Include="Assets\ObrazkyPreHru\PozadiePreHru.png" />
     <Content Include="Assets\RandomIkonky\IconaPridaťEura.png" />
     <Content Include="Assets\RandomIkonky\information.png" />
@@ -249,9 +251,7 @@
       <Version>4.8.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strany\1.1 - Uvodná strana\1.2 - Hlavna strana účtu\2.0 - Hlavne strany aplikácie\2.7 - Nastavenie\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Assets\MessageDIalogy\InfoOUkonceniZberania.xaml">
       <SubType>Designer</SubType>

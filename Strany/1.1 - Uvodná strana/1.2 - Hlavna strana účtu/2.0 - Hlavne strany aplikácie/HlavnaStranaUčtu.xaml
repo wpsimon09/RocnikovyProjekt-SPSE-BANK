@@ -98,11 +98,6 @@
 
 
         </Grid>
-        <Button Background="Transparent" Margin="1740,100,85,0" Height="95" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-            <StackPanel >
-                <Image Source="/Assets/IkonkyNaPrednuStranu/settings.png" Width="75" Height="88"/>
-            </StackPanel>
-        </Button>
         <Button x:Name="Odhlasenie" Background="Transparent" Height="100" Margin="1740,890,85,0" VerticalAlignment="Top" Click="Odhlasenie_Click" HorizontalAlignment="Stretch">
             <StackPanel>
                 <Image Source="/Assets/IkonkyNaPrednuStranu/logout.png" HorizontalAlignment="Center" Width="79" Height="88"/>

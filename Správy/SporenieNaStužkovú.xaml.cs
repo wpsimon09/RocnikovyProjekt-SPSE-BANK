@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._4___Sporenie;
+using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._3___Vytvorenie_nového_účtu._1._4___Overovacia_strana._1._5__Zadanie_Ziako;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Assets.Data;
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -70,9 +71,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Správy
             }
 
             (App.Current as App).GlobalSporenie.ZiaciKtoryZaplatili.Add((App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[list.SelectedIndex]);
-            (App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu.Remove((App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[list.SelectedIndex]);
-            
-
+            //(App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu.Remove((App.Current as App).GlobalSporenie.ZiaciPreSporenieNaStuzkovu[list.SelectedIndex]);
         }
 
         public void NahranieItemovKtoreBoliZakliknute(ListView Nezaplatili)
@@ -92,5 +91,24 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Správy
             }
 
         }
+
+        
+        public void NahranieSumyKuClovekuktoryUzZaplatil(ListView list,double suma)
+        {
+
+            if ((App.Current as App).GlobalSporenie.ZiaciKtoryZaplatili.Contains(list.SelectedItem as Ziak))
+            {
+                int index = 0;
+                foreach (Ziak ziak in (App.Current as App).GlobalSporenie.ZiaciKtoryZaplatili)
+                {
+                   if(ziak.Equals((App.Current as App).GlobalSporenie.ZiaciKtoryZaplatili))   
+                   {
+                        (App.Current as App).GlobalSporenie.ZiaciKtoryZaplatili[index].KolkoZaplatil += suma;
+                        break;
+                   }
+                }
+            }
+        }
+        
     }
 }

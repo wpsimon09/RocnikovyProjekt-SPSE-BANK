@@ -22,19 +22,23 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
    
     public sealed partial class HistoriaPlatieb : Page
     {
-        public Historia historia { get; set; }  
+        public Historia historia { get; set; } 
+        public static int NaKtoreSaKliklo { get; set; }
+
+        public static StackPanel stackPanelNaZakrytie { get; set; } 
+
         public HistoriaPlatieb()
         {
+            stackPanelNaZakrytie = new StackPanel();
+            NaKtoreSaKliklo = new int();
             historia = (App.Current as App).GlobalHistoria;
             this.InitializeComponent();
         }
 
-
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            Vysledok.Text = $"{VyrátanieCelkovéhoVýsledku((App.Current as App).GlobalHistoria.Prijmy,(App.Current as App).GlobalHistoria.Vydavky).ToString()} €";
+            Vysledok.Text = $"{VyrátanieCelkovéhoVýsledku((App.Current as App).GlobalHistoria.Prijmy,(App.Current as App).GlobalHistoria.Vydavky)} €";
             PomerPrijmovAVydajkov.Value = VyrátanieHodnotyPreProgressBar((App.Current as App).GlobalHistoria.Prijmy, (App.Current as App).GlobalHistoria.Vydavky);   
         }
 
@@ -115,6 +119,69 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_st
             double vysledok;
             vysledok = prijmy - vydavky;
             return vysledok;
+        }
+
+
+        private void itemVydavky_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+           stackPanelNaZakrytie = (e.OriginalSource as FrameworkElement) as StackPanel;
+
+            MenuFlyout menu = new MenuFlyout();
+            MenuFlyoutItem nezobrazovat_vydavok = new MenuFlyoutItem();
+
+
+            nezobrazovat_vydavok.Text = "Nezobrazovať";
+
+            nezobrazovat_vydavok.Click += Nezobrazovat_vydavok_Click;
+            
+
+            menu.Items.Add(nezobrazovat_vydavok);
+
+            FrameworkElement senderElement = sender as FrameworkElement;
+            menu.ShowAt(senderElement);
+        }
+
+
+        private void Prijmy_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            MenuFlyout menu = new MenuFlyout();
+            MenuFlyoutItem nezobrazovatPrijem = new MenuFlyoutItem();
+
+
+            nezobrazovatPrijem.Text = "Nezobrazovať";
+            nezobrazovatPrijem.Click += NezobrazovatPrijem_Click;
+
+
+            menu.Items.Add(nezobrazovatPrijem);
+
+            FrameworkElement senderElement = sender as FrameworkElement;
+            menu.ShowAt(senderElement);
+        }
+
+        private void Nezobrazovat_vydavok_Click(object sender, RoutedEventArgs e)
+        {
+
+            historia.vydavky[NaKtoreSaKliklo].viditelnost = Visibility.Collapsed;
+
+            (App.Current as App).GlobalHistoria.vydavky.Remove((App.Current as App).GlobalHistoria.vydavky[NaKtoreSaKliklo]);
+        }
+
+
+        private void NezobrazovatPrijem_Click(object sender, RoutedEventArgs e)
+        {
+            historia.prijmy[NaKtoreSaKliklo].viditelnost = Visibility.Collapsed;
+
+            (App.Current as App).GlobalHistoria.prijmy.Remove((App.Current as App).GlobalHistoria.prijmy[NaKtoreSaKliklo]);
+        }
+
+        private void Prijmy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NaKtoreSaKliklo = Prijmy.SelectedIndex;
+        }
+
+        private void Vydavky_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NaKtoreSaKliklo = Vydavky.SelectedIndex;
         }
     }
  

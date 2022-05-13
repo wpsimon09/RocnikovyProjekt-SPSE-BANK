@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.Storage;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana;
@@ -136,6 +137,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
 
         public App()
         {
+
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             GlobalNaPremenaHry = new Hra();
@@ -147,7 +149,7 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             boloNavigované = false;
             GlobalnaPremenaTriedy = new Trieda();
             GlobalHistoria = new Historia();
-
+          
             ListZiakov.Add(new Ziak("Jožko","Mrva"));
             ListZiakov.Add(new Ziak("Ján", "Heatfild"));
             ListZiakov.Add(new Ziak("Kristián", "Hammet"));
@@ -157,17 +159,17 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             ListZiakov.Add(new Ziak("Jaroslav", "Sedlák"));
             ListZiakov.Add(new Ziak("Miroslav", "Dužina"));
 
-            GlobalSporenie = new Sporenie();
 
             ListZbieranychPenazi.Add(new ZberPenazi("ZRPŠ", "10.2.2022", "96", this.ListZiakov, DateTimeOffset.Now));
+            
+            GlobalSporenie = new Sporenie();
 
             IndexZiaka = -1;
 
         }
 
-
         protected override void OnLaunched(LaunchActivatedEventArgs e)
-        {
+        {           
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -200,15 +202,15 @@ namespace Ročňíkový_projekt___Aplikácia_pre_banku
             }
         }
 
-
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Stranu sa nepodarilo nacítať " + e.SourcePageType.FullName);
         }
-
-        
+       
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
+
+
             var deferral = e.SuspendingOperation.GetDeferral();
             
             deferral.Complete();

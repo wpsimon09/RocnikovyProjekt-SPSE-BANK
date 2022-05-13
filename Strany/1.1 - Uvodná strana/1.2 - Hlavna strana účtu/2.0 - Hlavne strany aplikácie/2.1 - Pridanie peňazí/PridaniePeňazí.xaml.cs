@@ -18,8 +18,6 @@ using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana
 using Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._1___Uvodná_strana._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí;
 using Ročňíkový_projekt___Aplikácia_pre_banku.Správy;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Ročňíkový_projekt___Aplikácia_pre_banku.Strany._1._2___Hlavna_strana_účtu._2._0___Hlavne_strany_aplikácie._2._1___Pridanie_peňazí
 {
     /// <summary>
